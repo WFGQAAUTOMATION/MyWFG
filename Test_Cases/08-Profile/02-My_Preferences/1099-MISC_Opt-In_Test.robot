@@ -11,19 +11,25 @@ Library           Selenium2Library
 
 Suite Teardown     Close Browser
 
+*** Variables ***
+
+
 *** Test Cases ***
 
 Login to MyWFG.com
     Given browser is opened to login page
     When user "${USER ID}" logs in with password "${PASSWORD}"
     Then Home Page Should Be Open
+    sleep   4s
 
 Go to Profile My Preference Page
     Hover Over "Profile"
     Click Menu Item "My Preferences"
+    sleep   3s
 
 Verify Webpage
     And Verify A Link Named "View Disclosure" Is On The Page
+    sleep   3s
 
 Click View Disclosure
     Click link with name contained "View Disclosure"
@@ -32,48 +38,31 @@ Click Close Disclosure button
    Click element    xpath=//span[@class="ui-button-text"][contains(text(),'Close')]
 
 #************************************************************************************
-Check if Opted In
-    Find "You have not Opted-In" On Webpage
 
-Click Opt In button to Disagree
-    Click button named "Opt In"
-    sleep   3s
+Run Opt In
+    ${passed} =     run keyword and return status    Click button named "Opt In"
+    ${button_option} =    check_opt_in_option    ${passed}
+    Run Keyword If    "${button_option}" == "Enabled"    Click button named "Opt In"
+    Run Keyword If    "${button_option}" == "Enabled"    sleep   2s
+    Run Keyword If    "${button_option}" == "Enabled"    Scroll Page to Location Where Y equals "450"
+    Run Keyword If    "${button_option}" == "Enabled"    Click button named "Disagree"
+    Run Keyword If    "${button_option}" == "Enabled"    Click button named "Opt In"
+    Run Keyword If    "${button_option}" == "Enabled"    Scroll Page To Location    0    450
+    Run Keyword If    "${button_option}" == "Enabled"    sleep   2s
+    Run Keyword If    "${button_option}" == "Enabled"    Click button named "Agree"
+    Run Keyword If    "${button_option}" == "Enabled"    sleep   2s
 
-Scroll Down
-    Scroll Page to Location Where Y equals "450"
-
-Click Disagree
-    Click button named "Disagree"
-
-Click Opt In button to Agree
-    Click button named "Opt In"
-
-Scroll Down Again
-     Scroll Page To Location    0    450
-     sleep   3s
-
-Click Agree
-    Click button named "Agree"
-
-Set Selenium slower
-    sleep   3s
-
-Click Opt Out button for Cancel
-    sleep    3s
+Run Opt Out
     Click button named "Opt Out"
-
-Click Cancel to stay Opted In
+    sleep    3s
     Click Cancel on Alert
-
-Click Opt Out button for OK
     sleep    3s
     Click button named "Opt Out"
-
-Confirm Opt Out
-    sleep    3
+    sleep    3s
     Click Ok on Alert
 
 Log Out of MyWFG
+    sleep    3s
     Log Out of MyWFG
 
 
