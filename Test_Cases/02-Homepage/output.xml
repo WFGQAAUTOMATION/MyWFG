@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20150818 08:27:39.352" generator="Robot 2.9 (Python 2.7.10 on win32)">
+<suite source="O:\BusinessSupport\QA_Automation\MyWFG\Test_Cases\02-Homepage\MyWFG_Verify_Home_Contacts.robot" id="s1" name="MyWFG Verify Home Contacts">
+<test id="s1-t1" name="Login to MyWFG.com">
+<kw name="Given browser is opened to login page" library="login_resource">
+<kw name="Open Browser To Login Page" library="login_resource">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20150818 08:27:39.863" level="INFO">Opening browser 'ff' to base url 'https://m-www.mywfg.com/Users/Account/AccessDenied?ReturnUrl=%2f'</msg>
+<status status="PASS" endtime="20150818 08:28:34.642" starttime="20150818 08:27:39.863"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20150818 08:28:34.654" starttime="20150818 08:28:34.642"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20150818 08:28:34.655" starttime="20150818 08:28:34.654"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="login_resource">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>MyWFG - Log In</arg>
+</arguments>
+<msg timestamp="20150818 08:28:34.664" level="INFO">Page title is 'MyWFG - Log In'.</msg>
+<status status="PASS" endtime="20150818 08:28:34.664" starttime="20150818 08:28:34.656"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:34.665" starttime="20150818 08:28:34.655"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:34.665" starttime="20150818 08:27:39.862"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:34.666" starttime="20150818 08:27:39.861"></status>
+</kw>
+<kw name="When user &quot;${VALID USER}&quot; logs in with password &quot;${VALID PASSWORD}&quot;" library="login_resource">
+<kw name="Input Username" library="login_resource">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username-email</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20150818 08:28:34.668" level="INFO">Typing text '1200W' into text field 'username-email'</msg>
+<status status="PASS" endtime="20150818 08:28:34.809" starttime="20150818 08:28:34.668"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:34.809" starttime="20150818 08:28:34.667"></status>
+</kw>
+<kw name="Input Password" library="login_resource">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20150818 08:28:34.811" level="INFO">Typing text '81u3$ky' into text field 'password'</msg>
+<status status="PASS" endtime="20150818 08:28:34.867" starttime="20150818 08:28:34.810"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:34.867" starttime="20150818 08:28:34.809"></status>
+</kw>
+<kw name="Submit Credentials" library="login_resource">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>Log In</arg>
+</arguments>
+<msg timestamp="20150818 08:28:34.869" level="INFO">Clicking button 'Log In'.</msg>
+<status status="PASS" endtime="20150818 08:28:59.791" starttime="20150818 08:28:34.868"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:59.792" starttime="20150818 08:28:34.867"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:59.792" starttime="20150818 08:28:34.666"></status>
+</kw>
+<kw name="Then Home Page Should Be Open" library="login_resource">
+<kw name="Location Should Be" library="Selenium2Library">
+<doc>Verifies that current URL is exactly `url`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20150818 08:28:59.810" level="INFO">Current location is 'https://m-www.mywfg.com/'.</msg>
+<status status="PASS" endtime="20150818 08:28:59.811" starttime="20150818 08:28:59.795"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>MyWFG</arg>
+</arguments>
+<msg timestamp="20150818 08:28:59.819" level="INFO">Page title is 'MyWFG'.</msg>
+<status status="PASS" endtime="20150818 08:28:59.819" starttime="20150818 08:28:59.812"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:59.820" starttime="20150818 08:28:59.793"></status>
+</kw>
+<kw name="And Verify A Link Named &quot;Home&quot; Is On The Page" library="webpage_resource">
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>xpath=//a[contains(text(),'${linkname}')]</arg>
+</arguments>
+<status status="PASS" endtime="20150818 08:28:59.845" starttime="20150818 08:28:59.821"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:59.845" starttime="20150818 08:28:59.820"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:59.846" critical="yes" starttime="20150818 08:27:39.860"></status>
+</test>
+<test id="s1-t2" name="Navigate to Home Office Contacts">
+<kw name="Then Hover Over &quot;Home&quot;" library="webpage_resource">
+<kw name="Mouse Over" library="Selenium2Library">
+<doc>Simulates hovering mouse over the element specified by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[(text()='${hoverover}')]</arg>
+</arguments>
+<msg timestamp="20150818 08:28:59.848" level="INFO">Simulating Mouse Over on element 'xpath=//a[(text()='Home')]'</msg>
+<status status="PASS" endtime="20150818 08:28:59.889" starttime="20150818 08:28:59.848"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:28:59.890" starttime="20150818 08:28:59.847"></status>
+</kw>
+<kw name="And Select Menu Item &quot;Home Office Contacts&quot;" library="webpage_resource">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//a[(text()='${clickelement}')]</arg>
+</arguments>
+<msg timestamp="20150818 08:28:59.892" level="INFO">Clicking element 'xpath=//a[(text()='Home Office Contacts')]'.</msg>
+<status status="PASS" endtime="20150818 08:29:26.220" starttime="20150818 08:28:59.891"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:26.221" starttime="20150818 08:28:59.890"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:26.221" critical="yes" starttime="20150818 08:28:59.846"></status>
+</test>
+<test id="s1-t3" name="Check Info on Home Office Contacts page">
+<kw name="And Find &quot;Home Office Contacts&quot; On Webpage" library="webpage_resource">
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>${textonpage}</arg>
+</arguments>
+<msg timestamp="20150818 08:29:26.254" level="INFO">Current page contains text 'Home Office Contacts'.</msg>
+<status status="PASS" endtime="20150818 08:29:26.255" starttime="20150818 08:29:26.223"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:26.255" starttime="20150818 08:29:26.223"></status>
+</kw>
+<kw name="And Find &quot;770.246.9889&quot; On Webpage" library="webpage_resource">
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>${textonpage}</arg>
+</arguments>
+<msg timestamp="20150818 08:29:26.282" level="INFO">Current page contains text '770.246.9889'.</msg>
+<status status="PASS" endtime="20150818 08:29:26.282" starttime="20150818 08:29:26.256"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:26.283" starttime="20150818 08:29:26.256"></status>
+</kw>
+<kw name="And Find &quot;416.225.2121&quot; On Webpage" library="webpage_resource">
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>${textonpage}</arg>
+</arguments>
+<msg timestamp="20150818 08:29:26.316" level="INFO">Current page contains text '416.225.2121'.</msg>
+<status status="PASS" endtime="20150818 08:29:26.317" starttime="20150818 08:29:26.286"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:26.317" starttime="20150818 08:29:26.286"></status>
+</kw>
+<kw name="And Find &quot;678.966.6161&quot; On Webpage" library="webpage_resource">
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>${textonpage}</arg>
+</arguments>
+<msg timestamp="20150818 08:29:26.343" level="INFO">Current page contains text '678.966.6161'.</msg>
+<status status="PASS" endtime="20150818 08:29:26.344" starttime="20150818 08:29:26.319"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:26.344" starttime="20150818 08:29:26.318"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:26.345" critical="yes" starttime="20150818 08:29:26.222"></status>
+</test>
+<test id="s1-t4" name="Log Out and Close Browser">
+<kw name="Then log out of mywfg" library="webpage_resource">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>xpath=//a[@href="/Wfg.MyWfgLogin/Account/LogOff"]</arg>
+</arguments>
+<msg timestamp="20150818 08:29:26.347" level="INFO">Clicking link 'xpath=//a[@href="/Wfg.MyWfgLogin/Account/LogOff"]'.</msg>
+<status status="PASS" endtime="20150818 08:29:46.882" starttime="20150818 08:29:26.347"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:46.882" starttime="20150818 08:29:26.346"></status>
+</kw>
+<kw name="And close browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20150818 08:29:47.066" starttime="20150818 08:29:46.883"></status>
+</kw>
+<status status="PASS" endtime="20150818 08:29:47.066" critical="yes" starttime="20150818 08:29:26.345"></status>
+</test>
+<doc>A test suite to check home office contacts page.
+
+This test will log into MyWFG and
+verify the Home Office Contacts page.</doc>
+<metadata>
+<item name="Version">0.1</item>
+</metadata>
+<status status="PASS" endtime="20150818 08:29:47.067" starttime="20150818 08:27:39.358"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="4">Critical Tests</stat>
+<stat fail="0" pass="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="MyWFG Verify Home Contacts" pass="4">MyWFG Verify Home Contacts</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
