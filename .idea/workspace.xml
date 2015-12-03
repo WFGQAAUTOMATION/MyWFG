@@ -28,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.36859503">
-              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -460,7 +460,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449151888051</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added testing comments2">
+      <created>1449152000211</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1449152000211</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -504,7 +510,8 @@
     <MESSAGE value="Showing Isabella" />
     <MESSAGE value="Removed testing comments" />
     <MESSAGE value="Added testing comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added testing comments" />
+    <MESSAGE value="Added testing comments2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added testing comments2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -825,7 +832,7 @@
     <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36859503">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
