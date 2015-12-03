@@ -21,7 +21,7 @@ ${Archive_Question}    ArchieveQuestionMark
 *** Test Cases ***
 Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
-#commen
+#comment
 Select Agent and Login to MyWFG.com
     ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
     Given browser is opened to login page
