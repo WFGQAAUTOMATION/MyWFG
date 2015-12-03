@@ -5,6 +5,7 @@ Documentation     A resource file with reusable keywords and variables.
 ...               domain specific language. They utilize keywords provided
 ...               by the imported Selenium2Library.
 Library           Selenium2Library
+Library           Testing_Library.py
 
 *** Variables ***
 ${SERVER}            m-www.mywfg.com
@@ -13,9 +14,12 @@ ${DELAY}             0
 ${VALID USER}        1200W
 ${VALID PASSWORD}    81u3$ky
 ${LOGIN URL}         https://${SERVER}/Users/Account/AccessDenied?ReturnUrl=%2f
+#${LOGIN URL}         https://${SERVER}
 ${WELCOME URL}       https://${SERVER}/
 ${ERROR URL}         https://${SERVER}/Users/Account/LogOn?ReturnUrl=%2F
 ${linkname}          REPORTS
+${USER ID}           3330T
+${PASSWORD}          81u3$ky
 
 *** Keywords ***
 #*****************************************************
@@ -25,6 +29,7 @@ Open Browser To Login Page
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open
+
 
 #*****************************************************
 
@@ -57,6 +62,7 @@ Submit Credentials
 #*****************************************************
 
 Home Page Should Be Open
+    sleep    3
     Location Should Be    ${WELCOME URL}
     title should be     MyWFG
 
