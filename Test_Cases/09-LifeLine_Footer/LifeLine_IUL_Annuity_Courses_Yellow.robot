@@ -9,7 +9,7 @@ Library           DatabaseLibrary
 
 *** Variables ***
 ${Notification1}    11
-${Notification2}    6
+${Notification2}    12
 
 *** Test Cases ***
 Connect from Python file
