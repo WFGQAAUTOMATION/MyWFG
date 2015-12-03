@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="679d210b-fe1a-4ae4-ab37-6a73e54b1378" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/log.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/output.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/report.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MyWFG.iws" />
@@ -33,21 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database_Library.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database_Library.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Database_Library.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1111112">
-              <caret line="264" column="16" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="281" column="10" selection-start-line="281" selection-start-column="10" selection-end-line="281" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LifeLine_Old_Dates_Archived.robot" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LifeLine_Old_Dates_Archived.robot" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Old_Dates_Archived.robot">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.49242425">
+              <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -116,8 +119,8 @@
         <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AssociateSearch_Name.robot" />
         <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity Courses Yellow.robot" />
         <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity_Cources_Yellow.robot" />
-        <option value="$PROJECT_DIR$/Resources/Database_Library.py" />
         <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity_Courses_Yellow.robot" />
+        <option value="$PROJECT_DIR$/Resources/Database_Library.py" />
       </list>
     </option>
   </component>
@@ -530,7 +533,19 @@
       <option name="project" value="LOCAL" />
       <updated>1449168563051</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Changes from 12/03/2015">
+      <created>1449168616947</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1449168616947</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Changes from 12/03/2015">
+      <created>1449168965410</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1449168965410</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -974,18 +989,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Old_Dates_Archived.robot">
+    <entry file="file://$PROJECT_DIR$/Resources/Database_Library.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="281" column="10" selection-start-line="281" selection-start-column="10" selection-end-line="281" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/Database_Library.py">
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Old_Dates_Archived.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1111112">
-          <caret line="264" column="16" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.49242425">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
           <folding />
         </state>
       </provider>

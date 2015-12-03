@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20151203 13:55:05.735" generator="Robot 2.9 (Python 2.7.10 on win32)">
+<suite source="C:\Github_Projects\MyWFG\Test_Cases\09-LifeLine_Footer\LifeLine_Old_Dates_Archived.robot" id="s1" name="LifeLine Old Dates Archived">
+<test id="s1-t1" name="Connect from Python file">
+<kw name="Count Total Notifications" library="Database_Library">
+<assign>
+<var>${mydata}</var>
+</assign>
+<msg timestamp="20151203 13:55:06.649" level="INFO">Result - 27</msg>
+<msg timestamp="20151203 13:55:06.649" level="INFO">${mydata} = 27</msg>
+<status status="PASS" endtime="20151203 13:55:06.649" starttime="20151203 13:55:06.186"></status>
+</kw>
+<kw name="Lifeline Old Dates Archived" library="Database_Library">
+<arguments>
+<arg>${mydata}</arg>
+<arg>${LL_2}</arg>
+<arg>${LL_3}</arg>
+<arg>${LL_9}</arg>
+<arg>${LL_10}</arg>
+</arguments>
+<msg timestamp="20151203 13:55:09.023" level="INFO">1 US E&amp;O/TFA Balance Due                             No Life Line Old Archived Dates found
+4 License Renewal - US                               2013-01-02     061QV
+4 License Renewal - US                               2007-01-31     1052J
+4 License Renewal - US                               2008-09-30     244HY
+5 License Renewal - Canada                           2013-05-31     01BLGC
+6 Appointment Renewal                                No Life Line Old Archived Dates found
+7 Affiliation Renewal                                2013-05-08     00XWC
+7 Affiliation Renewal                                2012-06-06     00XWC
+7 Affiliation Renewal                                2013-05-08     01HJR
+7 Affiliation Renewal                                2013-12-11     02BOI
+7 Affiliation Renewal                                2010-09-15     02IGL
+7 Affiliation Renewal                                2011-10-12     02LEJ
+7 Affiliation Renewal                                2013-11-08     02NEE
+7 Affiliation Renewal                                2012-08-27     03GZA
+7 Affiliation Renewal                                2013-02-11     03HHF
+7 Affiliation Renewal                                2013-12-15     04MJK
+7 Affiliation Renewal                                2012-08-27     04MXK
+7 Affiliation Renewal                                2012-08-27     08ZVV
+7 Affiliation Renewal                                2013-10-13     10OUA
+7 Affiliation Renewal                                2011-11-04     10YOG
+7 Affiliation Renewal                                2013-05-08     11KEZ
+7 Affiliation Renewal                                2010-06-30     12GSK
+7 Affiliation Renewal                                2013-04-09     12PEZ
+7 Affiliation Renewal                                2012-04-20     12PEZ
+7 Affiliation Renewal                                2013-05-08     12SMR
+7 Affiliation Renewal                                2013-04-09     12SMR
+7 Affiliation Renewal                                2012-06-06     1314W
+7 Affiliation Renewal                                2011-12-02     1314W
+7 Affiliation Renewal                                2013-05-08     131GP
+7 Affiliation Renewal                                2013-04-09     1327W
+7 Affiliation Renewal                                2012-08-27     13ACM
+7 Affiliation Renewal                                2013-05-08     13CSP
+7 Affiliation Renewal                                2011-06-17     13CSP
+7 Affiliation Renewal                                2012-08-27     14RJI
+7 Affiliation Renewal                                2013-05-08     15RXQ
+7 Affiliation Renewal                                2013-03-25     16GDI 
+7 Affiliation Renewal                                2013-12-15     16MVQ 
+7 Affiliation Renewal                                2013-09-30     16SZC 
+7 Affiliation Renewal                                2012-06-06     16TQF 
+7 Affiliation Renewal                                2013-05-08     16TQF 
+7 Affiliation Renewal                                2012-08-27     16XKM 
+7 Affiliation Renewal                                2013-05-08     17DWB 
+7 Affiliation Renewal                                2012-08-27     17KIC
+7 Affiliation Renewal                                2012-08-27     17UDR 
+7 Affiliation Renewal                                2012-08-27     17WQP 
+7 Affiliation Renewal                                2013-12-15     17ZQQ 
+7 Affiliation Renewal                                2012-04-20     17ZZM 
+7 Affiliation Renewal                                2013-04-09     17ZZM 
+7 Affiliation Renewal                                2013-11-08     18OSP 
+7 Affiliation Renewal                                2012-08-27     19CQC 
+7 Affiliation Renewal                                2013-05-08     19TOU 
+7 Affiliation Renewal                                2013-05-08     19ZTJ 
+7 Affiliation Renewal                                2010-06-30     2048L
+7 Affiliation Renewal                                2013-04-09     20RKM 
+7 Affiliation Renewal                                2013-09-30     21CPY 
+7 Affiliation Renewal                                2013-05-08     22ZXJ 
+7 Affiliation Renewal                                2012-08-27     2315K
+7 Affiliation Renewal                                2013-06-07     2315U
+7 Affiliation Renewal                                2013-09-30     23HSL 
+7 Affiliation Renewal                                2013-12-11     24AIJ 
+7 Affiliation Renewal                                2013-05-08     24IZC 
+7 Affiliation Renewal                                2013-05-08     255JL
+7 Affiliation Renewal                                2012-08-27     259EL
+7 Affiliation Renewal                                2013-09-30     25JYL 
+7 Affiliation Renewal                                2012-04-20     2800T
+7 Affiliation Renewal                                2013-04-09     2800T
+7 Affiliation Renewal                                2012-06-06     284DP
+7 Affiliation Renewal                                2013-05-08     291GE
+7 Affiliation Renewal                                2012-06-06     291GE
+7 Affiliation Renewal                                2010-04-23     3318W
+7 Affiliation Renewal                                2013-05-08     443PK
+7 Affiliation Renewal                                2013-04-09     546KD
+7 Affiliation Renewal                                2013-03-25     548DI
+7 Affiliation Renewal                                2011-04-15     5588T
+7 Affiliation Renewal                                2011-04-04     566FQ
+7 Affiliation Renewal                                2013-05-08     588HY
+7 Affiliation Renewal                                2012-08-27     595DQ
+7 Affiliation Renewal                                2004-06-04     595PI
+7 Affiliation Renewal                                2011-04-11     652GJ
+7 Affiliation Renewal                                2013-05-08     6571K
+7 Affiliation Renewal                                2012-06-06     6571K
+7 Affiliation Renewal                                2011-11-18     671HH
+7 Affiliation Renewal                                2011-11-20     823PX
+7 Affiliation Renewal                                2010-06-30     8409N
+7 Affiliation Renewal                                2013-06-07     843QG
+7 Affiliation Renewal                                2013-05-08     862PI
+7 Affiliation Renewal                                2012-06-06     862PI
+7 Affiliation Renewal                                2013-11-08     8673P
+7 Affiliation Renewal                                2010-09-15     885JO
+7 Affiliation Renewal                                2011-06-17     914JQ
+7 Affiliation Renewal                                2013-04-09     9664Y
+7 Affiliation Renewal                                2012-04-20     9664Y
+7 Affiliation Renewal                                2011-04-11     974DQ
+7 Affiliation Renewal                                2013-05-08     Z0180
+7 Affiliation Renewal                                2012-06-06     Z0180
+7 Affiliation Renewal                                2012-08-27     Z0338
+7 Affiliation Renewal                                2010-09-15     Z0338
+7 Affiliation Renewal                                2013-10-27     ZN746
+8 TFG New Representative Training Course (TFG101)    No Life Line Old Archived Dates found
+11 IUL Course                                         No Life Line Old Archived Dates found
+12 Annuity Course                                     No Life Line Old Archived Dates found
+13 Long Term Care Renewal                             No Life Line Old Archived Dates found
+14 TFG New IAR Training Course (TFGIAR101)            No Life Line Old Archived Dates found
+15 2015 TFA Firm Element Supervisor (TFG)             No Life Line Old Archived Dates found
+16 2015 TFA Firm Element RR                           No Life Line Old Archived Dates found
+17 2015 TFA Anti-Money Laundering (TFG)               No Life Line Old Archived Dates found
+18 2015 TFA Firm Element General Securities           No Life Line Old Archived Dates found
+19 2015 TFA Firm Element IAR (TFG)                    No Life Line Old Archived Dates found
+20 2015 TFA Annual Compliance Meeting - ACM           No Life Line Old Archived Dates found
+21 FINRA, State Securities and/or IAR Renewal         No Life Line Old Archived Dates found
+22 Canada Agency Agreement                            No Life Line Old Archived Dates found
+23 Mutual Fund License Renewal                        No Life Line Old Archived Dates found
+24 TFA Annual Regulatory Questionaire                 No Life Line Old Archived Dates found
+25 IRS 8233 Form                                      No Life Line Old Archived Dates found
+26 FINRA Regulatory Continuing Education Course       No Life Line Old Archived Dates found
+27 CA E&amp;O Balance Due                                 No Life Line Old Archived Dates found</msg>
+<status status="PASS" endtime="20151203 13:55:09.024" starttime="20151203 13:55:06.650"></status>
+</kw>
+<status status="PASS" endtime="20151203 13:55:09.024" critical="yes" starttime="20151203 13:55:06.185"></status>
+</test>
+<doc>A test suite to find MyWFG LifeLine archived records with old dates excluding AML records
+The purpose of this test is to find LifeLine archived records with old dates excluding AML records
+and create excel report</doc>
+<metadata>
+<item name="Version">0.1</item>
+</metadata>
+<status status="PASS" endtime="20151203 13:55:09.025" starttime="20151203 13:55:05.740"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="LifeLine Old Dates Archived" pass="1">LifeLine Old Dates Archived</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
