@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation    A test suite to change the agent's phone numbers
+Documentation    A test suite to change the Recognition Settings
 ...
 ...               This test will log into MyWFG, open My Preferences menu, verify the page
-...               and changes Associate's phone numbers
+...               and sets up or changes Recognition Settings
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
@@ -14,9 +14,8 @@ Suite Teardown     Close Browser
 
 *** Variables ***
 
-${HOME PHONE}       7701234567
-${CELL PHONE}       4043456789
-${VERIFY_TEXT}      phones were sucessfully changed
+${RECOGNITION NAME}       Steve & Irma
+${VERIFY_TEXT}
 
 *** Test Cases ***
 
@@ -32,31 +31,31 @@ Go to Profile My Preference Page
     Click Menu Item "My Preferences"
     sleep   3s
 
-Verify Webpage
-    Find "Associate Phones" On Webpage
+Scroll Down
+    Scroll Page to Location Where Y equals "400"
 
-Click Change phones button for Cancel
-    Click Button using id "showChangePhone"
+Verify Webpage
+    Find "Recognition Settings" On Webpage
+
+Click Change Recognition Settings for Cancel
+    Click Button using id "showChangeRecognition"
     sleep   3s
 
 Click Cancel button
-    Click Button using id "cancelPhone"
+    Click Button using id "cancelRecognition"
 
-Click Change phones button for Change
-    Click Button using id "showChangePhone"
+Click Change Recognition Settings button for Change
+    Click Button using id "showChangeRecognition"
     sleep   3s
 
-Change Home Phone number
-    Input "${HOME PHONE}" in the "homeTelephone" Field
-
-Change Cell Phone number
-    Input "${CELL PHONE}" in the "cellTelephone" Field
+Change Recognition Settings number
+    Input "${RECOGNITION NAME}" in the "recognitionName" Field
 
 Click Save Changes Button
-    Click Button using id "changePhone"
+    Click Button using id "changeRecognition"
 
-Verify Phones Change
-    Find "${VERIFY_TEXT}" On Webpage
+#Verify Recognition Settings
+#    Find "${VERIFY_TEXT}" On Webpage
 
 Log Out of MyWFG
     Log Out of MyWFG
@@ -66,4 +65,3 @@ Close opened Browser
 
 
 *** Keywords ***
-
