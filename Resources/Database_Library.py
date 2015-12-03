@@ -243,3 +243,41 @@ def lifeline_green_notifications(icount):
     # conn = None
     return result
 
+
+def lifeline_uil_annuity_yellow_notifications(notif_id1, notif_id2):
+    result = ""
+    x = " "
+
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+    for iparam in range(11, 12):
+        cursor.execute("SELECT ll.NotificationID, n.[Description], ll.DateDue, a.AgentCodeNumber, ll.NotificationSubType, \
+            ll.NotificationTypeID, ll.Modified, ll.AgentID \
+            FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+            INNER JOIN [WFGCompass].[dbo].[agAgent] a ON a.AgentID = ll.AgentID \
+            INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+            INNER JOIN (SELECT DISTINCT AgentID FROM [WFGCompass].[dbo].[agAgentCycleType] \
+            WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID \
+            WHERE ll.NotificationTypeID = 2 AND ll.NotificationID = ? \
+            ORDER BY ll.NotificationID, a.AgentCodeNumber", iparam)
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                # [1]-Description, [2]-AgentCodeNo, [3]-Description
+                lldescr = row[1] + (50 - len(row[1]))*x
+                print row[0], lldescr, 3*x, row[3]
+        else:
+                cursor.execute("SELECT NotificationID, Description FROM wfgLU_Notification \
+                                WHERE NotificationID = ?", iparam)
+                rows = cursor.fetchall()
+                if rows:
+                    for row in rows:
+                        print row[0], row[1] + (50 - len(row[0]))*x, "No Yellow Notifications found"
+
+    conn.close()
+    # conn = None
+    return result
+
+
+
