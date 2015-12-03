@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20151203 14:18:09.566" generator="Robot 2.9 (Python 2.7.10 on win32)">
+<robot generated="20151203 14:26:26.370" generator="Robot 2.9 (Python 2.7.10 on win32)">
 <suite source="C:\Github_Projects\MyWFG\Test_Cases\09-LifeLine_Footer\LifeLine_IUL_Annuity_Courses_Yellow.robot" id="s1" name="LifeLine IUL Annuity Courses Yellow">
 <test id="s1-t1" name="Connect from Python file">
 <kw name="Lifeline Uil Annuity Yellow Notifications" library="Database_Library">
@@ -7,15 +7,17 @@
 <arg>${Notification1}</arg>
 <arg>${Notification2}</arg>
 </arguments>
-<msg timestamp="20151203 14:18:10.640" level="INFO">6 Appointment Renewal            No Yellow Notifications found
-11 IUL Course                     03BGU
+<msg timestamp="20151203 14:26:27.354" level="INFO">11 IUL Course                     03BGU
 11 IUL Course                     03EUY
 11 IUL Course                     03KMD
 11 IUL Course                     03QHY
-11 IUL Course                     03YLT</msg>
-<status status="PASS" endtime="20151203 14:18:10.641" starttime="20151203 14:18:10.028"></status>
+11 IUL Course                     03YLT
+12 Annuity Course                 07FZF
+12 Annuity Course                 07QZM
+12 Annuity Course                 07VIR</msg>
+<status status="PASS" endtime="20151203 14:26:27.354" starttime="20151203 14:26:26.760"></status>
 </kw>
-<status status="PASS" endtime="20151203 14:18:10.641" critical="yes" starttime="20151203 14:18:10.027"></status>
+<status status="PASS" endtime="20151203 14:26:27.355" critical="yes" starttime="20151203 14:26:26.760"></status>
 </test>
 <doc>A test suite to verify MyWFG LifeLine IUL and Annuity Courses Yellow Notifications
 The purpose of this test is to verify that MyWFG LifeLine IUL Course and Annuity Course Notifications
@@ -23,7 +25,7 @@ are never displayed in Yellow Life Line section</doc>
 <metadata>
 <item name="Version">0.1</item>
 </metadata>
-<status status="PASS" endtime="20151203 14:18:10.642" starttime="20151203 14:18:09.572"></status>
+<status status="PASS" endtime="20151203 14:26:27.356" starttime="20151203 14:26:26.375"></status>
 </suite>
 <statistics>
 <total>
