@@ -6,7 +6,7 @@ Documentation     A test suite to check MyWFG Site.
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-#Library          ../../../Resources/TestingLibrary.py
+#Library          ../../../Resources/Testing_Library.py
 Test Teardown
 
 *** Test Cases ***
