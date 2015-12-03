@@ -27,8 +27,8 @@
       <file leaf-file-name="LifeLine_Archive_Open_Close.robot" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36859503">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2446281">
+              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -448,7 +448,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449150889261</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Removed testing comments">
+      <created>1449151787251</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1449151787251</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -490,7 +496,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first" />
     <MESSAGE value="Showing Isabella" />
-    <option name="LAST_COMMIT_MESSAGE" value="Showing Isabella" />
+    <MESSAGE value="Removed testing comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed testing comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -810,8 +817,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36859503">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2446281">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
           <folding />
         </state>
       </provider>
