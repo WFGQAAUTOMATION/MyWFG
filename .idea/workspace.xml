@@ -27,8 +27,8 @@
       <file leaf-file-name="LifeLine_Archive_Open_Close.robot" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2446281">
-              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.36859503">
+              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -454,7 +454,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449151787251</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added testing comments">
+      <created>1449151888051</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1449151888051</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -497,7 +503,8 @@
     <MESSAGE value="first" />
     <MESSAGE value="Showing Isabella" />
     <MESSAGE value="Removed testing comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed testing comments" />
+    <MESSAGE value="Added testing comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added testing comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -817,8 +824,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2446281">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.36859503">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
           <folding />
         </state>
       </provider>
