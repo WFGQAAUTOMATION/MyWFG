@@ -279,3 +279,37 @@ def lifeline_uil_annuity_yellow_notifications(notif_id1, notif_id2):
     return result
 
 
+def get_lifeline_explanation_info(agent_id, notif_id, state_code):
+    result = ""
+    state = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+    if len(state_code) == 0:
+        cursor.execute("SELECT ll.* FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent]a  ON a.AgentID = ll.AgentID \
+        WHERE ll.agentID = ? AND ll.NotificationID = ?", agent_id, notif_id)
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                result = row[0]
+                print result
+    else:
+        cursor.execute("SELECT Description FROM [WFGOnline].[dbo].[LU_State_Code] WHERE State_Code = ?", state_code)
+        rows = cursor.fetchall()
+        for row in rows:
+            state = row[0]
+            print state
+
+        cursor.execute("SELECT ll.* FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent]a  ON a.AgentID = ll.AgentID \
+        WHERE ll.agentID = ? AND ll.NotificationID = ? AND  \
+        ll.NotificationSubType = ?", agent_id, notif_id, state)
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                result = row[0]
+                print result
+    return result
+
