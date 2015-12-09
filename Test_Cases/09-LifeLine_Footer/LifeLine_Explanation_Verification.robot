@@ -10,15 +10,17 @@ Library           ../../Resources/Testing_Library.py
 Library           ../../Resources/Database_Library.py
 Library           Selenium2Library
 Library           DatabaseLibrary
+Library           String
 
-#Suite Teardown     Close Browser
+Suite Teardown     Close Browser
 
 *** Variables ***
 ${DATABASE}             WFGOnline
 ${HOSTNAME}             CRDBCOMP03\\CRDBWFGOMOD
-${AGENT_ID}             1114916    # 9763N
-${Notification_ID}      4
-${STATE}                DC
+#${AGENT_ID}            1114916    # 9763N
+${AGENT_ID}             732469
+${Notification_ID}      12
+${STATE}
 
 *** Test Cases ***
 
@@ -32,20 +34,45 @@ Select Agent and Login to MyWFG.com
     Then Home Page Should Be Open
     sleep   3s
 
-Check LifeLine
+Click LifeLine image
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
 
 Get Life Line task Information
-    ${mydata}    Database_Library.Get_LifeLine_Explanation_Info    ${AGENT_ID}    ${Notification_ID}    ${STATE}
-    #********* Click Question image next to Life Line task and verify the text of explanantion  ***********
-    click image    xpath=//img[@id='QuestionMark-${mydata}']
+    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${AGENT_ID}    ${Notification_ID}    ${STATE}
+    #********* Click Question image next to Life Line task   ***********
+    Click image using img where ID is "QuestionMark-${html_ID}"
+    sleep    5
 
-#Log Out of MyWFG
-#    Log Out of MyWFG
+Compare Life Line Explanation Messages
+    #***********  Retrive Explanation description from database  **********
+    ${SQL_Text}    query    SELECT Explanation FROM [WFGOnline].[dbo].[wfgLU_Notification] WHERE NotificationID = ${Notification_ID};
+
+    #  Replace &#8217 ASCI character to " ' "
+    ${SQL_Text[0][0]}=    Replace String    ${SQL_Text[0][0]}    &#8217    '
+
+    #  Remove </br> from Explanation String
+    ${SQL_Text[0][0]}=    Remove String    ${SQL_Text[0][0]}    </br>
+
+    # **********  Get Explanation description from Web page  ***************
+    ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
+
+    # Replace ’ character with ' in order to compare explanations
+    ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
+
+    #  Remove <br> from Explanation String
+    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
+
+    #**********    Verify the text of explanantion  *****************
+    Should be equal    ${SQL_Text[0][0]}    ${Webpage_Text}
+
+Close Explanation message
+    Click image where ID is "close"
+
+Log Out of MyWFG
+    Log Out of MyWFG
 
 Disconnect from SQL Server
     Disconnect From Database
-
 
 *** Keywords ***
 

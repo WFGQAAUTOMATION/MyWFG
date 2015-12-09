@@ -145,6 +145,18 @@ Click image using img where ID is "${ImageID}"
 
 #**************************************************************************
 
+Click Ok on Alert
+    confirm action
+
+#*****************************************************
+
+Click Cancel on Alert
+     Choose Cancel On Next Confirmation
+     sleep      3
+     confirm action
+
+#*********************************************************************************
+
 ######   FIND/VERIFY ELEMENTS      ######
 #*****************************************************
 #*****************************************************
@@ -169,18 +181,9 @@ Verify Title on the page "${titlename}"
 
 #*****************************************************
 
-Click Ok on Alert
-    confirm action
+Find text on the page
 
-#*****************************************************
 
-Click Cancel on Alert
-     Choose Cancel On Next Confirmation
-     sleep      3
-     confirm action
-
-#*********************************************************************************
-
+#******************************************************************************
 Verify element parameters
-
 #//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]
