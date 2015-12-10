@@ -53,6 +53,33 @@ def count_total_notifications():
     return result
 
 
+def get_lifeline_agent_id(notification_id, notification_typeid, state_code):
+    state = ""
+    agent_codeno = ""
+    if len(state_code) > 1:
+        state = get_state_description(state_code)
+
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+    cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentID, ll.AgentNotificationID, ll.NotificationID, \
+        n.[Description], ll.NotificationSubType, ll.NotificationTypeID, ll.DateDue, ll.Modified, ll.URLEnable \
+        FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
+        INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+        INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
+        WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c \
+        ON a.AgentID = c.AgentID WHERE LEN(a.AgentCodeNumber) = 5 \
+        AND  ll.NotificationID = ? AND ll.NotificationTypeID = ? \
+        AND ll.NotificationSubType = ?", notification_id, notification_typeid, state)
+
+    rows = cursor.fetchall()
+    if rows:
+        for row in rows:
+            agent_codeno = row[0]
+            print agent_codeno
+    return agent_codeno
+
+
 def lifeline_records_duplications(icount):
     result = ""
     x = " "
@@ -312,4 +339,16 @@ def get_lifeline_explanation_info(agent_id, notif_id, state_code):
                 result = row[0]
                 print result
     return result
+
+
+def get_state_description(state_code):
+    state = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+    cursor.execute("SELECT Description FROM [WFGOnline].[dbo].[LU_State_Code] WHERE State_Code = ?", state_code)
+    rows = cursor.fetchall()
+    for row in rows:
+        state = row[0]
+    return state
+
 
