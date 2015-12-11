@@ -11,7 +11,7 @@ Library           Testing_Library.py
 ${SERVER}            m-www.mywfg.com
 ${BROWSER}           gc
 ${DELAY}             0
-${VALID USER}        1200W
+${VALID USER}        1708W
 ${VALID PASSWORD}    81u3$ky
 ${LOGIN URL}         https://${SERVER}/Users/Account/AccessDenied?ReturnUrl=%2f
 #${LOGIN URL}         https://${SERVER}
