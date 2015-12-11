@@ -30,7 +30,6 @@ Open Browser To Login Page
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open
 
-
 #*****************************************************
 
 Login Page Should Be Open
@@ -65,6 +64,13 @@ Home Page Should Be Open
     sleep    3
     Location Should Be    ${WELCOME URL}
     title should be     MyWFG
+
+#*****************************************************
+
+Home Page for any Agent Should Be Open
+    sleep    3
+    Location Should Contain    ${WELCOME URL}
+    Page Should Contain     MyWFG
 
 #*****************************************************
 

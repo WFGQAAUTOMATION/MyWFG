@@ -15,11 +15,10 @@ Library           String
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}                WFGOnline
-${HOSTNAME}                CRDBCOMP03\\CRDBWFGOMOD
-${MyAgentID}               616989   # 9763N
-${Notification_ID}        27
-${Notification_TypeID}    2
+${DATABASE}                 WFGOnline
+${HOSTNAME}                 CRDBCOMP03\\CRDBWFGOMOD
+${Notification_ID}          27
+${Notification_TypeID}      1
 ${STATE}
 
 *** Test Cases ***
@@ -29,17 +28,17 @@ Connect to Database
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
 #    ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
-    ${Agent_ID}    Database_Library.Get_LifeLine_Agent_ID    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+    ${Agent_CodeNo}    Database_Library.Get_LifeLine_Agent_ID    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Given browser is opened to login page
 #    When user "${Results[0][0]}" logs in with password "${PASSWORD}"
-    When user "${Agent_ID}" logs in with password "${PASSWORD}"
-    Then Home Page Should Be Open
+    When user "${Agent_CodeNo}" logs in with password "${PASSWORD}"
+    Then Home Page for any Agent Should Be Open
     sleep   3s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
-    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${MyAgentID}    ${Notification_ID}    ${STATE}
+    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${Agent_CodeNo}    ${Notification_ID}    ${STATE}
     #********* Click Question image next to Life Line task   ***********
     Click image using img where ID is "QuestionMark-${html_ID}"
-    sleep    5
+    sleep    2
 
 Compare Life Line Explanation Messages
     # ***********  Retrive Explanation description from database  *****************
