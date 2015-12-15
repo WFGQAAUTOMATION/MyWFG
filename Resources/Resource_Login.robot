@@ -67,6 +67,13 @@ Home Page Should Be Open
 
 #*****************************************************
 
+Home Page for any Agent Should Be Open
+    sleep    3
+    Location Should Contain    ${WELCOME URL}
+    Page Should Contain     MyWFG
+
+#*****************************************************
+
 Browser is opened to login page
     Open browser to login page
 

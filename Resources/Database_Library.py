@@ -53,6 +53,43 @@ def count_total_notifications():
     return result
 
 
+def get_lifeline_agent_id(notification_id, notification_typeid, state_code):
+    state = ""
+    agent_code_no = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+
+    if len(state_code) == 0:
+        cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentID, ll.AgentNotificationID, ll.NotificationID, \
+            n.[Description], ll.NotificationSubType, ll.NotificationTypeID, ll.DateDue, ll.Modified, ll.URLEnable \
+            FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+            INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
+            INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+            INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
+            WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c \
+            ON a.AgentID = c.AgentID WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? \
+            ORDER BY AgentNotificationID desc", notification_id, notification_typeid)
+    else:
+        state = get_state_description(state_code)
+
+        cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentID, ll.AgentNotificationID, ll.NotificationID, \
+            n.[Description], ll.NotificationSubType, ll.NotificationTypeID, ll.DateDue, ll.Modified, ll.URLEnable \
+            FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+            INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
+            INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+            INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
+            WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID \
+            WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? AND ll.NotificationSubType LIKE ? \
+            ORDER BY AgentNotificationID desc", notification_id, notification_typeid, state)
+
+    rows = cursor.fetchall()
+    if rows:
+        for row in rows:
+            agent_code_no = row[0]
+            print agent_code_no
+    return agent_code_no
+
+
 def lifeline_records_duplications(icount):
     result = ""
     x = " "
@@ -242,4 +279,86 @@ def lifeline_green_notifications(icount):
     conn.close()
     # conn = None
     return result
+
+
+def lifeline_uil_annuity_yellow_notifications(notif_id1, notif_id2):
+    result = ""
+    x = " "
+
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT NotificationID, Description FROM wfgLU_Notification \
+                    WHERE NotificationID IN (?, ?)", notif_id1, notif_id2)
+    rows = cursor.fetchall()
+    for row1 in rows:
+        cursor.execute("SELECT ll.NotificationID, n.[Description], ll.DateDue, a.AgentCodeNumber, ll.NotificationSubType, \
+            ll.NotificationTypeID, ll.Modified, ll.AgentID \
+            FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+            INNER JOIN [WFGCompass].[dbo].[agAgent] a ON a.AgentID = ll.AgentID \
+            INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+            INNER JOIN (SELECT DISTINCT AgentID FROM [WFGCompass].[dbo].[agAgentCycleType] \
+            WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID \
+            WHERE ll.NotificationTypeID = 2 AND ll.NotificationID = ? \
+            ORDER BY ll.NotificationID, a.AgentCodeNumber", row1[0])
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                # [1]-Description, [2]-AgentCodeNo, [3]-Description
+                lldescr = row[1] + (30 - len(row[1]))*x
+                print row[0], lldescr, row[3]
+        else:
+            print row1[0], row1[1] + (30 - len(row1[1]))*x, "No Yellow Notifications found"
+
+    conn.close()
+    # conn = None
+    return result
+
+
+def get_lifeline_explanation_info(agent_code_no, notif_id, state_code):
+    result = ""
+    state = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+    if len(state_code) == 0:
+        cursor.execute("SELECT ll.* FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent] a  ON a.AgentID = ll.AgentID \
+        WHERE a.AgentCodeNumber = ? AND ll.NotificationID = ?", agent_code_no, notif_id)
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                result = row[0]
+                print result
+    else:
+        cursor.execute("SELECT Description FROM [WFGOnline].[dbo].[LU_State_Code] WHERE State_Code = ?", state_code)
+        rows = cursor.fetchall()
+        for row in rows:
+            state = row[0]
+            print state
+
+        cursor.execute("SELECT ll.* FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent] a ON a.AgentID = ll.AgentID \
+        WHERE a.AgentCodeNumber = ? AND ll.NotificationID = ? AND  \
+        ll.NotificationSubType = ?", agent_code_no, notif_id, state)
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                result = row[0]
+                print result
+    return result
+
+
+def get_state_description(state_code):
+    state = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+    cursor.execute("SELECT Description FROM [WFGOnline].[dbo].[LU_State_Code] WHERE State_Code = ?", state_code)
+    rows = cursor.fetchall()
+    for row in rows:
+        state = row[0]
+    return state
+
 

@@ -145,6 +145,7 @@ Click image using img where ID is "${ImageID}"
 
 #**************************************************************************
 
+<<<<<<< HEAD
 Select "${team}" from dropdown
     click button    xpath=//td[2]/button
 #    Wait Until Element Is Visible   xpath=//*[@id='generationField']    timeout=15
@@ -166,6 +167,20 @@ Select "${team}" from dropdown
 #        Click //input[@id='ui-multiselect-generationField-option-5']
 
 #**************************************************************************
+=======
+Click Ok on Alert
+    confirm action
+
+#*****************************************************
+
+Click Cancel on Alert
+     Choose Cancel On Next Confirmation
+     sleep      3
+     confirm action
+
+#*********************************************************************************
+
+>>>>>>> remotes/WFG_Master/Isabella
 ######   FIND/VERIFY ELEMENTS      ######
 #*****************************************************
 #*****************************************************
@@ -190,18 +205,9 @@ Verify Title on the page "${titlename}"
 
 #*****************************************************
 
-Click Ok on Alert
-    confirm action
+Find text on the page
 
-#*****************************************************
 
-Click Cancel on Alert
-     Choose Cancel On Next Confirmation
-     sleep      3
-     confirm action
-
-#*********************************************************************************
-
+#******************************************************************************
 Verify element parameters
-
 #//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]
