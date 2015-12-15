@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="679d210b-fe1a-4ae4-ab37-6a73e54b1378" name="Default" comment="update">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Resource_Login.robot" afterPath="$PROJECT_DIR$/Resources/Resource_Login.robot" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resources/Resource_Webpage.robot" afterPath="$PROJECT_DIR$/Resources/Resource_Webpage.robot" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_City.robot" afterPath="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_City.robot" />
+=======
+    <list default="true" id="679d210b-fe1a-4ae4-ab37-6a73e54b1378" name="Default" comment="Completed IUL, Annuity Yellow notifications">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Verify_ALL_Dates.robot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/log.html" afterPath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/log.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/output.xml" afterPath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/output.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/report.html" afterPath="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/report.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> remotes/WFG_Master/Isabella
     </list>
     <ignored path="MyWFG.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,6 +35,7 @@
     <favorites_list name="MyWFG" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Resource_Login.robot" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Resources/Resource_Login.robot">
@@ -56,46 +66,86 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.28333333">
               <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+=======
+    <leaf>
+      <file leaf-file-name="Database_Library.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Resources/Database_Library.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="258" column="52" selection-start-line="258" selection-start-column="52" selection-end-line="258" selection-end-column="52" />
+>>>>>>> remotes/WFG_Master/Isabella
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="MyWFG_Invalid_Login.robot" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test_Cases/01-Login/MyWFG_Invalid_Login.robot">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="14" column="34" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="34" />
+=======
+      <file leaf-file-name="LifeLine_Old_Dates.robot" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Old_Dates.robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="96" />
+>>>>>>> remotes/WFG_Master/Isabella
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="MyWFG_Gherkin_Login.robot" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test_Cases/01-Login/MyWFG_Gherkin_Login.robot">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+=======
+      <file leaf-file-name="LifeLine_Verify_ALL_Dates.robot" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Verify_ALL_Dates.robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.38659793">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+>>>>>>> remotes/WFG_Master/Isabella
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="MyWFG_AS_City.robot" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_City.robot">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+=======
+      <file leaf-file-name="LifeLine_IUL_Annuity_Courses_Yellow.robot" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity_Courses_Yellow.robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="49" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="49" />
+>>>>>>> remotes/WFG_Master/Isabella
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="_selectelement.py" pinned="false" current-in-tab="false">
         <entry file="file://C:/Python27/Lib/site-packages/Selenium2Library/keywords/_selectelement.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="214" column="8" selection-start-line="214" selection-start-column="8" selection-end-line="214" selection-end-column="8" />
+=======
+      <file leaf-file-name="LifeLine_Green_Notification_Expiration.robot" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Green_Notification_Expiration.robot">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+>>>>>>> remotes/WFG_Master/Isabella
               <folding />
             </state>
           </provider>
@@ -106,8 +156,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Robot Test Suite" />
         <option value="Python Script" />
+        <option value="Robot Test Suite" />
       </list>
     </option>
   </component>
@@ -151,24 +201,39 @@
         <option value="$PROJECT_DIR$/Test_Cases/02-Homepage/MyWFG_Verify_Unlicensed_Home.robot" />
         <option value="$PROJECT_DIR$/Test_Cases/02-Homepage/MyWFG_Verify_Vision_and_Mission.robot" />
         <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/MyWFG_DashboardHomeVerify.robot" />
-        <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AssociateSearch_Name.robot" />
         <option value="$PROJECT_DIR$/Resources/TestFunc.py" />
         <option value="$PROJECT_DIR$/Resources/webpage_resource.robot" />
         <option value="$PROJECT_DIR$/Resources/login_resource.robot" />
         <option value="$PROJECT_DIR$/Resources/MyLibrary.py" />
         <option value="$PROJECT_DIR$/Test_Cases/01-Login/Tim_Gherkin_Test.robot" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Test_Cases/01-Login/MyWFG_Gherkin_Login.robot" />
         <option value="$PROJECT_DIR$/Resources/Resource_Login.robot" />
         <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_City.robot" />
         <option value="$PROJECT_DIR$/Resources/Resource_Webpage.robot" />
+=======
+        <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot" />
+        <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_City.robot" />
+        <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_Name.robot" />
+        <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_Zip.robot" />
+        <option value="$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AssociateSearch_Name.robot" />
+        <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity Courses Yellow.robot" />
+        <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity_Cources_Yellow.robot" />
+        <option value="$PROJECT_DIR$/Resources/Database_Library.py" />
+        <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity_Courses_Yellow.robot" />
+        <option value="$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Verify_ALL_Dates.robot" />
+>>>>>>> remotes/WFG_Master/Isabella
       </list>
     </option>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1296" />
-    <option name="height" value="1010" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -216,10 +281,10 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -270,7 +335,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="03-Dashboard" />
+=======
+              <option name="myItemId" value="09-LifeLine_Footer" />
+>>>>>>> remotes/WFG_Master/Isabella
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -284,11 +353,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="Test_Cases" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="01-Login" />
+=======
+              <option name="myItemId" value="Resources" />
+>>>>>>> remotes/WFG_Master/Isabella
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -308,12 +381,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+=======
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
+>>>>>>> remotes/WFG_Master/Isabella
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="select from list&#9;null&#9;null&#10;Set variable&#9;null&#9;null&#10;Run Keyword If&#9;null&#9;null&#10;click ele&#9;null&#9;null&#10;print&#9;null&#9;null&#10;input tex&#9;null&#9;null&#10;log&#9;null&#9;null&#10;get vari&#9;null&#9;null&#10;wait until pa&#9;null&#9;null&#10;wait&#9;null&#9;null&#10;selenium2&#9;null&#9;null&#10;scroll&#9;null&#9;null&#10;locator&#9;null&#9;null&#10;click link&#9;null&#9;null&#10;page should contain&#9;null&#9;null&#10;element should con&#9;null&#9;null&#10;unittest&#9;null&#9;null&#10;testcase&#9;null&#9;null" />
@@ -491,7 +566,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration>C:\Users\tcoffey\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\ifayner\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -500,6 +575,7 @@
       <option name="number" value="Default" />
       <updated>1436299762178</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00001" summary="update">
       <created>1449865712214</created>
       <option name="number" value="00001" />
@@ -532,6 +608,160 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14771394" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+    <task id="LOCAL-00001" summary="first">
+      <created>1449150137053</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1449150137053</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first">
+      <created>1449150243353</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1449150243353</updated>
+    </task>
+    <task id="LOCAL-00003" summary="first">
+      <created>1449150315239</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1449150315239</updated>
+    </task>
+    <task id="LOCAL-00004" summary="first">
+      <created>1449150438401</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1449150438401</updated>
+    </task>
+    <task id="LOCAL-00005" summary="first">
+      <created>1449150758420</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1449150758420</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Showing Isabella">
+      <created>1449150889261</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1449150889261</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Removed testing comments">
+      <created>1449151787251</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1449151787251</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added testing comments">
+      <created>1449151888051</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1449151888051</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added testing comments2">
+      <created>1449152000211</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1449152000211</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Removed comment">
+      <created>1449152146896</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1449152146896</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Created new robot test case">
+      <created>1449152290389</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1449152290389</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changed TestingLibrary.py to Testing_Library.py">
+      <created>1449155565179</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1449155565179</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changed TestingLibrary.py to Testing_Library.py">
+      <created>1449155597767</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1449155597767</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Changed TestingLibrary.py to Testing_Library.py">
+      <created>1449155618610</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1449155618610</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Changed TestingLibrary.py to Testing_Library.py">
+      <created>1449155693202</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1449155693202</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes from 12/03/2015">
+      <created>1449168563051</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1449168563051</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changes from 12/03/2015">
+      <created>1449168616947</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1449168616947</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Changes from 12/03/2015">
+      <created>1449168965410</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1449168965410</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Changes from 12/03/2015">
+      <created>1449169048721</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1449169048721</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Completed IUL, Annuity Yellow notifications">
+      <created>1449170399933</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1449170399933</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Completed IUL, Annuity Yellow notifications">
+      <created>1449170862434</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1449170862434</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290398" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290398" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21470937" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27639383" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290398" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2798092" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1767497" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960254" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24455611" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929742" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> remotes/WFG_Master/Isabella
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -546,8 +776,22 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
+=======
+    <MESSAGE value="first" />
+    <MESSAGE value="Showing Isabella" />
+    <MESSAGE value="Removed testing comments" />
+    <MESSAGE value="Added testing comments" />
+    <MESSAGE value="Added testing comments2" />
+    <MESSAGE value="Removed comment" />
+    <MESSAGE value="Created new robot test case" />
+    <MESSAGE value="Changed TestingLibrary.py to Testing_Library.py" />
+    <MESSAGE value="Changes from 12/03/2015" />
+    <MESSAGE value="Completed IUL, Annuity Yellow notifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed IUL, Annuity Yellow notifications" />
+>>>>>>> remotes/WFG_Master/Isabella
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -606,41 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/_pytest/unittest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/Selenium2Library/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/robot/result/testcase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/_pytest/unittest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/_pytest/unittest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/robot/result/testcase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -679,6 +888,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://C:/Python27/Lib/site-packages/AppiumLibrary/keywords/_element.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -693,6 +903,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> remotes/WFG_Master/Isabella
     <entry file="file://C:/Python27/Lib/site-packages/Selenium2Library/locators/elementfinder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1646489">
@@ -700,13 +912,6 @@
           <folding>
             <element signature="e#0#34#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/appium/webdriver/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3329298">
-          <caret line="154" column="14" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -738,24 +943,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/rundemo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="76" selection-start-line="29" selection-start-column="76" selection-end-line="29" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/Selenium2Library/keywords/_waiting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38916257">
           <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/robotide/log/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6658596">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -844,27 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AssociateSearch_Name.robot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.827586">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AssociateSearchVerify.robot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.068966">
-          <caret line="24" column="19" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/MyWFG_DashboardHomeVerify.robot">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32969698">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/robot/libraries/Collections.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -886,6 +1056,117 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/01-Login/MyWFG_Gherkin_Login.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8765133">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/robot/libraries/BuiltIn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3872">
+          <caret line="1034" column="17" selection-start-line="1034" selection-start-column="17" selection-end-line="1034" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Resource_Webpage.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="183" column="25" selection-start-line="183" selection-start-column="25" selection-end-line="183" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Resource_Login.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/resource.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Testing_Library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_City.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_Name.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AssociateSearch_Name.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="46" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AssociateSearchVerify.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/MyWFG_DashboardHomeVerify.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/testVariable.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_PCode_Check.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/03-Dashboard/01-AssociateSearch/MyWFG_AS_Zip.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28217822">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://C:/Python27/Lib/site-packages/robot/libraries/BuiltIn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3872">
@@ -941,14 +1222,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Old_Dates_Archived.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+>>>>>>> remotes/WFG_Master/Isabella
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Test_Cases/01-Login/MyWFG_Valid_Login.robot">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28333333">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+=======
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Archive_Open_Close.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0567011">
+          <caret line="41" column="37" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/Database_Library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="258" column="52" selection-start-line="258" selection-start-column="52" selection-end-line="258" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Old_Dates.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Green_Notification_Expiration.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_IUL_Annuity_Courses_Yellow.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test_Cases/09-LifeLine_Footer/LifeLine_Verify_ALL_Dates.robot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38659793">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+>>>>>>> remotes/WFG_Master/Isabella
           <folding />
         </state>
       </provider>
@@ -956,6 +1290,9 @@
   </component>
   <component name="hg4idea.settings">
     <option name="CHECK_INCOMING_OUTGOING" value="true" />
+<<<<<<< HEAD
     <option name="RECENT_HG_ROOT_PATH" value="$PROJECT_DIR$" />
+=======
+>>>>>>> remotes/WFG_Master/Isabella
   </component>
 </project>
