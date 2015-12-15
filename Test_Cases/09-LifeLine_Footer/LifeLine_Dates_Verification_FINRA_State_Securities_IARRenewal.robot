@@ -29,7 +29,7 @@ Connect to Database
 
 Select Agent and Login to MyWFG.com
     ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
-    ${Agent_CodeNo}    Database_Library.Get_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID    ${STATE}
+    ${Agent_CodeNo}    Database_Library.Get_LifeLine_Agent_ID    ${Notification_ID}    ${Notification_TypeID    ${STATE}
     Given browser is opened to login page
     When user "${Results[0][0]}" logs in with password "${PASSWORD}"
     Then Home Page Should Be Open
