@@ -65,7 +65,5 @@ Log Out of MyWFG
     sleep    3s
     Log Out of MyWFG
 
-
-
 *** Keywords ***
 

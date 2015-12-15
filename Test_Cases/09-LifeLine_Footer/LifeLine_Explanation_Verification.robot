@@ -17,8 +17,7 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}                 WFGOnline
 ${HOSTNAME}                 CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}          27
-${Notification_TypeID}      1
+${Notification_ID}          12
 ${STATE}
 
 *** Test Cases ***
@@ -27,10 +26,9 @@ Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
-#    ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
-    ${Agent_CodeNo}    Database_Library.Get_LifeLine_Agent_ID    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+
+    ${Agent_CodeNo}    Database_Library.Get_LifeLine_Explanation_Agent_ID    ${Notification_ID}
     Given browser is opened to login page
-#    When user "${Results[0][0]}" logs in with password "${PASSWORD}"
     When user "${Agent_CodeNo}" logs in with password "${PASSWORD}"
     Then Home Page for any Agent Should Be Open
     sleep   3s
@@ -48,12 +46,12 @@ Compare Life Line Explanation Messages
     # ***********  Remove </br> from Explanation String ***************************
     ${SQL_Text[0][0]}=    Remove String    ${SQL_Text[0][0]}    </br>
     # ***********  Get Explanation description from Web page  *********************
-    ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
-    # ***********  Replace ’ character with ' in order to compare explanations ****
-    ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
-    # ***********  Remove <br> from Explanation String  ***************************
-    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
-    # ***********  Verify the text of explanantion  *******************************
+   ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
+#    # ***********  Replace ’ character with ' in order to compare explanations ****
+#    ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
+#    # ***********  Remove <br> from Explanation String  ***************************
+#    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
+#    # ***********  Verify the text of explanantion  *******************************
     Should be equal    ${SQL_Text[0][0]}    ${Webpage_Text}
 
 Close Explanation message

@@ -54,7 +54,6 @@ def count_total_notifications():
 
 
 def get_lifeline_agent_id(notification_id, notification_typeid, state_code):
-    state = ""
     agent_code_no = ""
     conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
     cursor = conn.cursor()
@@ -82,6 +81,25 @@ def get_lifeline_agent_id(notification_id, notification_typeid, state_code):
             WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? AND ll.NotificationSubType LIKE ? \
             ORDER BY AgentNotificationID desc", notification_id, notification_typeid, state)
 
+    rows = cursor.fetchall()
+    if rows:
+        for row in rows:
+            agent_code_no = row[0]
+            print agent_code_no
+    return agent_code_no
+
+
+def get_lifeline_explanation_agent_id(notification_id):
+    agent_code_no = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentID, ll.AgentNotificationID, ll.NotificationID \
+        FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
+        INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
+        WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID WHERE ll.NotificationID = ? \
+        ORDER BY AgentNotificationID desc", notification_id)
     rows = cursor.fetchall()
     if rows:
         for row in rows:
@@ -360,5 +378,3 @@ def get_state_description(state_code):
     for row in rows:
         state = row[0]
     return state
-
-
