@@ -150,7 +150,7 @@ Select "${team}" from dropdown
 #    Wait Until Element Is Visible   xpath=//*[@id='generationField']    timeout=15
 #    ${clickthis} =      Set Variable        ${team}
 #    Run Keyword If    "${clickthis}" == "Base"
-    Selenium2Library.Click    xpath=//*[@id='generationField']/option[text()='Base']
+     select from list by value  xpath=//*[@id='generationField']/option[text()='Base']  ${team}
 
 #    If ${team} == "Base"
 #        Click //input[@id='ui-multiselect-generationField-option-0']

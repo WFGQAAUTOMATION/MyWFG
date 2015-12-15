@@ -24,13 +24,14 @@ Verify Associate Search Page is Opened
     And Element Header "Associate Search" Should Be Present
 
 Enter Name and Search
-    And Input "10YUO" in The "searchFieldCity" Field
-    Then Click Button named "Search"
-    And Wait "20" Seconds
-    And Find "Temple City" in the Results List
-
-Log Out and Close Browser
-    Then log out of mywfg
-    And close browser
+	Then Select "Base" from dropdown
+    And Input "Irvine" in The "searchFieldCity" Field
+#    Then Click Button named "Search"
+#    And Wait "20" Seconds
+#    And Find "Temple City" in the Results List
+#
+#Log Out and Close Browser
+#    Then log out of mywfg
+#    And close browser
 
 *** Keywords ***

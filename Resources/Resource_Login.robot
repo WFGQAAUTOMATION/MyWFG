@@ -30,7 +30,6 @@ Open Browser To Login Page
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open
 
-
 #*****************************************************
 
 Login Page Should Be Open
