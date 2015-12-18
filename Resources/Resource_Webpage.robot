@@ -143,7 +143,7 @@ Click iamge named "${Image}"
 Click image using img where ID is "${ImageID}"
     click image     xpath=//img[@id='${ImageID}']
 
-#**************************************************************************
+#*****************************************************
 
 Click Ok on Alert
     confirm action
@@ -155,7 +155,7 @@ Click Cancel on Alert
      sleep      3
      confirm action
 
-#*********************************************************************************
+#**************************************************************************
 
 ######   FIND/VERIFY ELEMENTS      ######
 #*****************************************************
@@ -184,6 +184,6 @@ Verify Title on the page "${titlename}"
 Find text on the page
 
 
-#******************************************************************************
+#*********************************************************************************
 Verify element parameters
 #//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]
