@@ -11,6 +11,7 @@ Library           ../../Resources/Database_Library.py
 Library           Selenium2Library
 Library           DatabaseLibrary
 Library           String
+Library           DateTime
 
 Suite Teardown     Close Browser
 
@@ -20,7 +21,7 @@ ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 #${AGENT_ID}               1032171
 ${Notification_ID}        13
 ${Notification_TypeID}    2
-${STATE}                  TX
+${STATE}
 
 *** Test Cases ***
 
@@ -38,7 +39,14 @@ Select Agent and Login to MyWFG.com
     Click image using img where ID is "QuestionMark-${Agent_Info[1]}"
     sleep    2s
     Click image where ID is "close"
-#    Elements should be equal "${Agent_Info[7]}"
+    ${Webpage_DateDue}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
+#    ***** Convert date to match with database formate
+    ${Webpage_DateDue}    Remove String     ${Webpage_DateDue}     (Expired)
+    ${Webpage_DateDue}    Replace String    ${Webpage_DateDue}    /    -
+
+    Should be equal    ${Agent_Info[2].strip()}    ${Webpage_DateDue.strip()}
+
+
 Log Out of MyWFG
     Log Out of MyWFG
 

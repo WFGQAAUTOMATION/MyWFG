@@ -61,12 +61,22 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
             agent_notification_id = row[1]
             # ******* use "strip" method for "Trim" function to eliminate leading and ending spaces*********
             date_due = str(row[7]).strip()
-            # ******* use "in" method for "InStr" function to find the char in string and "index" to find position
+            # ******* use "in" method for "InStr" to find the char and "index" to find the position to eliminate time
             if " " in date_due:
                 date_due = date_due[0:date_due.index(" ")]
-
+            day = date_due[8:]
+            if day[0] == "0":
+                day = day[1:2]
+            month = date_due[5:7]
+            if month[0] == "0":
+                month = month[1:2]
+            year = date_due[:4]
+            date_due = month + "-" + day + "-" + year
             print agent_code_no
             print agent_notification_id
+            print "year - " + year
+            print "month - " + month
+            print "day - " + day
             print date_due
     return [agent_code_no, agent_notification_id, date_due]
 
@@ -157,6 +167,10 @@ def get_state_description(state_code):
     for row in rows:
         state = row[0]
     return state
+
+
+def lifeline_convert_date(lifeline_due_date):
+    lifeline_due_date = lifeline_due_date
 
 
 def lifeline_green_notifications(icount):
