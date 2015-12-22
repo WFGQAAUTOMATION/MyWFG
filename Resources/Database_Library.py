@@ -72,12 +72,6 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
                 month = month[1:2]
             year = date_due[:4]
             date_due = month + "-" + day + "-" + year
-            print agent_code_no
-            print agent_notification_id
-            print "year - " + year
-            print "month - " + month
-            print "day - " + day
-            print date_due
     return [agent_code_no, agent_notification_id, date_due]
 
 
