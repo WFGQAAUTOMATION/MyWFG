@@ -12,7 +12,7 @@ Library           Selenium2Library
 Suite Teardown     Close Browser
 
 *** Variables ***
-
+${button_option}    Isabella
 
 *** Test Cases ***
 
@@ -40,15 +40,16 @@ Click Close Disclosure button
 #************************************************************************************
 Run Opt In
     ${passed} =     run keyword and return status    Click button named "Opt In"
-    ${button_option} =    check_opt_in_option    ${passed}
+#    ${button_option} =    check_opt_in_option    ${passed}
+
     Run Keyword If    "${button_option}" == "Isabella"
-    ...    sleep    2s
+    ...    sleep    1s
     ...    ELSE IF    "${button_option}" == "Disabled"
     ...    sleep    2s
     ...    ELSE IF    "${button_option}" == "Enabled"
     ...    Click button named "Opt In"
     ...    ELSE
-    ...    sleep    2s
+    ...    sleep    3s
     Run Keyword If    "${button_option}" == "Enabled"
     ...    sleep   1s
     Run Keyword If    "${button_option}" == "Enabled"
