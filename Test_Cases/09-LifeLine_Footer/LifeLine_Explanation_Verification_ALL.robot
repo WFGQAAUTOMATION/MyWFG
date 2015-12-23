@@ -70,6 +70,7 @@ Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Inf
     Click image using img where ID is "QuestionMark-${html_ID}"
     Compare Life Line Explanation Messages    ${Notification_ID}
     sleep    2s
+    Click image where ID is "close"
     Log Out of MyWFG
     sleep    2s
 

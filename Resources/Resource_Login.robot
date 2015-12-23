@@ -66,7 +66,7 @@ Home Page Should Be Open
     title should be     MyWFG
 
 #*****************************************************
-
+# This keyword includes new agents
 Home Page for any Agent Should Be Open
     sleep    3
     Location Should Contain    ${WELCOME URL}

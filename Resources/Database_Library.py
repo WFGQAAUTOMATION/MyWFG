@@ -22,6 +22,7 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
     agent_code_no = ""
     agent_notification_id = 0
     date_due = "01/01/1900"
+    date_due_full = "01/01/1900"
     state = state_code
 
     conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
@@ -59,6 +60,7 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
         for row in rows:
             agent_code_no = row[0]
             agent_notification_id = row[1]
+            date_due_full = str(row[7])
             # ******* use "strip" method for "Trim" function to eliminate leading and ending spaces*********
             date_due = str(row[7]).strip()
             # ******* use "in" method for "InStr" to find the char and "index" to find the position to eliminate time
@@ -72,7 +74,7 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
                 month = month[1:2]
             year = date_due[:4]
             date_due = month + "-" + day + "-" + year
-    return [agent_code_no, agent_notification_id, date_due]
+    return [agent_code_no, agent_notification_id, date_due, date_due_full]
 
 
 def get_lifeline_explanation_agent_id(notification_id):
