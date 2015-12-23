@@ -2,7 +2,7 @@
 Documentation    A test suite to verify MyWFG LifeLine AMLCourse Expiration dates for Canada
 ...
 ...               This test will log into MyWFG and verify that MyWFG LifeLine AML Course notification
-...               for Cananda is displayed according to expiration dates
+...               for Canada is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -55,8 +55,10 @@ Select Agent and Login to MyWFG.com
 
     Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} >= 10
     ...    log    AML Course Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} > 12
+    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} < 12
     ...    log    '(Expired)' is missing in expired AML Course Red notification Due Date
+    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} > 12
+    ...    log    AML Course Red notification test Passed
     ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 10
     ...    log    AML Course Red notification test Passed
 
