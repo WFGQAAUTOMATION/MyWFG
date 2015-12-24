@@ -18,8 +18,7 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-#${AGENT_ID}              1032171
-${Notification_ID}        21
+${Notification_ID}        11
 ${Notification_TypeID}    1
 ${STATE}
 
@@ -39,35 +38,17 @@ Select Agent and Login to MyWFG.com
     Click image using img where ID is "QuestionMark-${Agent_Info[1]}"
     sleep    2s
     Click image where ID is "close"
+
     ${Webpage_DateDue}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
+    Run Keyword If    ${Notification_TypeID} == 1
+    ...    Should be equal    Immediately    ${Webpage_DateDue.strip()}
 
-#    ***** Convert date to match with database formate
-    ${Webpage_DateDue}    Remove String     ${Webpage_DateDue}     (Expired)
-    ${Webpage_DateDue}    Replace String    ${Webpage_DateDue}    /    -
-
-    Should be equal    ${Agent_Info[2].strip()}    ${Webpage_DateDue.strip()}
-
-    ${Today_Date}    Get Current Date
-    ${Dates_Diff}    Subtract Date From Date    ${Agent_Info[3]}    ${Today_Date}
-#   ***** Convert Dates difference from sec into min then into hours and into days.
-    ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
-    log    Days difference is ${Dates_Diff}
-
-    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} <= 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification test Passed
-
-    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Yellow notification should be a Red notification
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 60
-    ...    log    FINRA, State Securities and/or IAR Renewal Yellow notification was displayed too early
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification test Passed
-
-    Run Keyword If    ${Notification_TypeID} == 3
+    Run Keyword If    ${Notification_TypeID} == 1
+    ...    log    IUL Course Red notification test Passed
+    ...    ELSE IF    ${Notification_TypeID} == 2
+    ...    log    IUL Course should never be displayed in Yellow notification!
+    ...    ELSE IF    ${Notification_TypeID} == 3
     ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'
-
 
 Log Out of MyWFG
     Log Out of MyWFG

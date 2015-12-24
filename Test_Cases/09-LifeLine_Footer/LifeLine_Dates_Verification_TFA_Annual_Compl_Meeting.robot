@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine FINRA, State Securities, and/or IAR Renewal Expiration dates
+Documentation    A test suite to verify MyWFG LifeLine TFA Annual Compl Meeting Expiration dates
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine FINRA, State Securities and/or
-...               IAR Renewal notifications are displayed according to expiration dates
+...               This test will log into MyWFG and verify that MyWFG LifeLine TFA Annual Compl Meeting
+...               notification is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -18,9 +18,8 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-#${AGENT_ID}              1032171
-${Notification_ID}        21
-${Notification_TypeID}    1
+${Notification_ID}        20
+${Notification_TypeID}    2
 ${STATE}
 
 *** Test Cases ***
@@ -53,17 +52,17 @@ Select Agent and Login to MyWFG.com
     ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
     log    Days difference is ${Dates_Diff}
 
-    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} <= 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification test Passed
+    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
+    ...    log    TFA Annual Compl Meeting Red notification was displayed too early
+    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} <= 30
+    ...    log    TFA Annual Compl Meeting Red notification test Passed
 
-    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Yellow notification should be a Red notification
+    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 30
+    ...    log    TFA Annual Compl Meeting Yellow notification should be a Red notification
     ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 60
-    ...    log    FINRA, State Securities and/or IAR Renewal Yellow notification was displayed too early
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification test Passed
+    ...    log    TFA Annual Compl Meeting Yellow notification was displayed too early
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 30
+    ...    log    TFA Annual Compl Meeting Yellow notification test Passed
 
     Run Keyword If    ${Notification_TypeID} == 3
     ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'

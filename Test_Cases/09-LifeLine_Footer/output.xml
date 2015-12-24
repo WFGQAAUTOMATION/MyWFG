@@ -1,41 +1,388 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20151203 14:26:26.370" generator="Robot 2.9 (Python 2.7.10 on win32)">
-<suite source="C:\Github_Projects\MyWFG\Test_Cases\09-LifeLine_Footer\LifeLine_IUL_Annuity_Courses_Yellow.robot" id="s1" name="LifeLine IUL Annuity Courses Yellow">
-<test id="s1-t1" name="Connect from Python file">
-<kw name="Lifeline Uil Annuity Yellow Notifications" library="Database_Library">
+<robot generated="20151224 13:46:10.281" generator="Robot 2.9 (Python 2.7.10 on win32)">
+<suite source="C:\Github_Projects\MyWFG\Test_Cases\09-LifeLine_Footer\LifeLine_Dates_Verifications_Affiliation_Renewal.robot" id="s1" name="LifeLine Dates Verifications Affiliation Renewal">
+<test id="s1-t1" name="Connect to Database">
+<kw name="Connect To Database Using Custom Params" library="DatabaseLibrary">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to</doc>
 <arguments>
-<arg>${Notification1}</arg>
-<arg>${Notification2}</arg>
+<arg>pymssql</arg>
+<arg>host='${HOSTNAME}', database='${DATABASE}'</arg>
 </arguments>
-<msg timestamp="20151203 14:26:27.354" level="INFO">11 IUL Course                     03BGU
-11 IUL Course                     03EUY
-11 IUL Course                     03KMD
-11 IUL Course                     03QHY
-11 IUL Course                     03YLT
-12 Annuity Course                 07FZF
-12 Annuity Course                 07QZM
-12 Annuity Course                 07VIR</msg>
-<status status="PASS" endtime="20151203 14:26:27.354" starttime="20151203 14:26:26.760"></status>
+<status status="PASS" endtime="20151224 13:46:11.083" starttime="20151224 13:46:10.730"></status>
 </kw>
-<status status="PASS" endtime="20151203 14:26:27.355" critical="yes" starttime="20151203 14:26:26.760"></status>
+<status status="PASS" endtime="20151224 13:46:11.084" critical="yes" starttime="20151224 13:46:10.729"></status>
 </test>
-<doc>A test suite to verify MyWFG LifeLine IUL and Annuity Courses Yellow Notifications
-The purpose of this test is to verify that MyWFG LifeLine IUL Course and Annuity Course Notifications
-are never displayed in Yellow Life Line section</doc>
+<test id="s1-t2" name="Select Agent and Login to MyWFG.com">
+<kw name="Find Lifeline Agent" library="Database_Library">
+<arguments>
+<arg>${Notification_ID}</arg>
+<arg>${Notification_TypeID}</arg>
+<arg>${STATE}</arg>
+</arguments>
+<assign>
+<var>${Agent_Info}</var>
+</assign>
+<msg timestamp="20151224 13:46:11.957" level="INFO">I am in Date_Due part</msg>
+<msg timestamp="20151224 13:46:11.957" level="INFO">${Agent_Info} = ['01HLF', 10382918L, '1-2-2016', '2016-01-02 00:00:00']</msg>
+<status status="PASS" endtime="20151224 13:46:11.958" starttime="20151224 13:46:11.085"></status>
+</kw>
+<kw name="Browser is opened to login page" library="Resource_Login">
+<kw name="Open Browser To Login Page" library="Resource_Login">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20151224 13:46:11.960" level="INFO">Opening browser 'gc' to base url 'https://m-www.mywfg.com/Users/Account/AccessDenied?ReturnUrl=%2f'</msg>
+<status status="PASS" endtime="20151224 13:46:15.835" starttime="20151224 13:46:11.959"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20151224 13:46:16.028" starttime="20151224 13:46:15.835"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20151224 13:46:16.030" starttime="20151224 13:46:16.029"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="Resource_Login">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>MyWFG - Log In</arg>
+</arguments>
+<msg timestamp="20151224 13:46:16.084" level="INFO">Page title is 'MyWFG - Log In'.</msg>
+<status status="PASS" endtime="20151224 13:46:16.084" starttime="20151224 13:46:16.031"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:16.085" starttime="20151224 13:46:16.030"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:16.085" starttime="20151224 13:46:11.959"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:16.086" starttime="20151224 13:46:11.958"></status>
+</kw>
+<kw name="User &quot;${Agent_Info[0]}&quot; logs in with password &quot;${PASSWORD}&quot;" library="Resource_Login">
+<kw name="Input Username" library="Resource_Login">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>username-email</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20151224 13:46:16.089" level="INFO">Typing text '01HLF' into text field 'username-email'</msg>
+<status status="PASS" endtime="20151224 13:46:17.178" starttime="20151224 13:46:16.088"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:17.178" starttime="20151224 13:46:16.087"></status>
+</kw>
+<kw name="Input Password" library="Resource_Login">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20151224 13:46:17.181" level="INFO">Typing text '81u3$ky' into text field 'password'</msg>
+<status status="PASS" endtime="20151224 13:46:17.616" starttime="20151224 13:46:17.180"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:17.617" starttime="20151224 13:46:17.179"></status>
+</kw>
+<kw name="Submit Credentials" library="Resource_Login">
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>Log In</arg>
+</arguments>
+<msg timestamp="20151224 13:46:17.618" level="INFO">Clicking button 'Log In'.</msg>
+<status status="PASS" endtime="20151224 13:46:17.705" starttime="20151224 13:46:17.618"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:17.706" starttime="20151224 13:46:17.617"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:17.706" starttime="20151224 13:46:16.086"></status>
+</kw>
+<kw name="Home Page for any Agent Should Be Open" library="Resource_Login">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<msg timestamp="20151224 13:46:20.708" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20151224 13:46:20.708" starttime="20151224 13:46:17.707"></status>
+</kw>
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>${WELCOME URL}</arg>
+</arguments>
+<msg timestamp="20151224 13:46:21.426" level="INFO">Current location contains 'https://m-www.mywfg.com/'.</msg>
+<status status="PASS" endtime="20151224 13:46:21.427" starttime="20151224 13:46:20.709"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>MyWFG</arg>
+</arguments>
+<msg timestamp="20151224 13:46:21.451" level="INFO">Current page contains text 'MyWFG'.</msg>
+<status status="PASS" endtime="20151224 13:46:21.451" starttime="20151224 13:46:21.427"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:21.452" starttime="20151224 13:46:17.707"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20151224 13:46:23.453" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20151224 13:46:23.453" starttime="20151224 13:46:21.452"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]</arg>
+</arguments>
+<msg timestamp="20151224 13:46:23.454" level="INFO">Clicking element 'xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]'.</msg>
+<status status="PASS" endtime="20151224 13:46:23.515" starttime="20151224 13:46:23.454"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20151224 13:46:25.516" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20151224 13:46:25.516" starttime="20151224 13:46:23.516"></status>
+</kw>
+<kw name="Click image using img where ID is &quot;QuestionMark-${Agent_Info[1]}&quot;" library="Resource_Webpage">
+<kw name="Click Image" library="Selenium2Library">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//img[@id='${ImageID}']</arg>
+</arguments>
+<msg timestamp="20151224 13:46:25.518" level="INFO">Clicking image 'xpath=//img[@id='QuestionMark-10382918']'.</msg>
+<status status="PASS" endtime="20151224 13:46:25.589" starttime="20151224 13:46:25.517"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:25.590" starttime="20151224 13:46:25.517"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20151224 13:46:27.591" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20151224 13:46:27.591" starttime="20151224 13:46:25.590"></status>
+</kw>
+<kw name="Click image where ID is &quot;close&quot;" library="Resource_Webpage">
+<kw name="Click Image" library="Selenium2Library">
+<doc>Clicks an image found by `locator`.</doc>
+<arguments>
+<arg>xpath=//input[@id='${ImageID}']</arg>
+</arguments>
+<msg timestamp="20151224 13:46:27.593" level="INFO">Clicking image 'xpath=//input[@id='close']'.</msg>
+<status status="PASS" endtime="20151224 13:46:27.682" starttime="20151224 13:46:27.592"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:27.683" starttime="20151224 13:46:27.592"></status>
+</kw>
+<kw name="Get Text" library="Selenium2Library">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>xpath=//*[@id='DueDate-${Agent_Info[1]}']</arg>
+</arguments>
+<assign>
+<var>${Webpage_DateDue_Str}</var>
+</assign>
+<msg timestamp="20151224 13:46:27.726" level="INFO">${Webpage_DateDue_Str} = 1/2/2016</msg>
+<status status="PASS" endtime="20151224 13:46:27.726" starttime="20151224 13:46:27.683"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${Webpage_DateDue_Str}</arg>
+</arguments>
+<assign>
+<var>${DateDue_Length}</var>
+</assign>
+<msg timestamp="20151224 13:46:27.727" level="INFO">Length is 8</msg>
+<msg timestamp="20151224 13:46:27.728" level="INFO">${DateDue_Length} = 8</msg>
+<status status="PASS" endtime="20151224 13:46:27.728" starttime="20151224 13:46:27.727"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${Webpage_DateDue_Str}</arg>
+<arg>(Expired)</arg>
+</arguments>
+<assign>
+<var>${Webpage_DateDue}</var>
+</assign>
+<msg timestamp="20151224 13:46:27.730" level="INFO">${Webpage_DateDue} = 1/2/2016</msg>
+<status status="PASS" endtime="20151224 13:46:27.730" starttime="20151224 13:46:27.729"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${Webpage_DateDue}</arg>
+<arg>/</arg>
+<arg>-</arg>
+</arguments>
+<assign>
+<var>${Webpage_DateDue}</var>
+</assign>
+<msg timestamp="20151224 13:46:27.731" level="INFO">${Webpage_DateDue} = 1-2-2016</msg>
+<status status="PASS" endtime="20151224 13:46:27.731" starttime="20151224 13:46:27.730"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${Agent_Info[2].strip()}</arg>
+<arg>${Webpage_DateDue.strip()}</arg>
+</arguments>
+<status status="PASS" endtime="20151224 13:46:27.733" starttime="20151224 13:46:27.732"></status>
+</kw>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<assign>
+<var>${Today_Date}</var>
+</assign>
+<msg timestamp="20151224 13:46:27.734" level="INFO">${Today_Date} = 2015-12-24 13:46:27.734</msg>
+<status status="PASS" endtime="20151224 13:46:27.734" starttime="20151224 13:46:27.733"></status>
+</kw>
+<kw name="Subtract Date From Date" library="DateTime">
+<doc>Subtracts date from another date and returns time between.</doc>
+<arguments>
+<arg>${Agent_Info[3]}</arg>
+<arg>${Today_Date}</arg>
+</arguments>
+<assign>
+<var>${Dates_Diff}</var>
+</assign>
+<msg timestamp="20151224 13:46:27.744" level="INFO">${Dates_Diff} = 728012.266</msg>
+<status status="PASS" endtime="20151224 13:46:27.744" starttime="20151224 13:46:27.735"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${Dates_Diff}/60/60/24</arg>
+</arguments>
+<assign>
+<var>${Dates_Diff}</var>
+</assign>
+<msg timestamp="20151224 13:46:27.746" level="INFO">${Dates_Diff} = 8.42606789352</msg>
+<status status="PASS" endtime="20151224 13:46:27.746" starttime="20151224 13:46:27.744"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Days difference is ${Dates_Diff}</arg>
+</arguments>
+<msg timestamp="20151224 13:46:27.747" level="INFO">Days difference is 8.42606789352</msg>
+<status status="PASS" endtime="20151224 13:46:27.748" starttime="20151224 13:46:27.747"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${Notification_TypeID} == 1 and ${Dates_Diff} &lt;= -30</arg>
+<arg>log</arg>
+<arg>Affiliation Renewal Red notification should be archived</arg>
+<arg>ELSE IF</arg>
+<arg>${Notification_TypeID} == 1 and ${Dates_Diff} &gt;=10</arg>
+<arg>log</arg>
+<arg>Affiliation Renewal Red notification was displayed too early</arg>
+<arg>ELSE IF</arg>
+<arg>${Notification_TypeID} == 1 and ${Dates_Diff} &lt; 0 and ${DateDue_Length} &lt; 12</arg>
+<arg>log</arg>
+<arg>'(Expired)' is missing in expired Affiliation Renewal Red notification Due Date</arg>
+<arg>ELSE IF</arg>
+<arg>${Notification_TypeID} == 1 and ${Dates_Diff} &lt; 0 and ${DateDue_Length} &gt; 12</arg>
+<arg>log</arg>
+<arg>Affiliation Renewal Red notification test Passed</arg>
+<arg>ELSE IF</arg>
+<arg>${Notification_TypeID} == 1 and ${Dates_Diff} &lt; 10</arg>
+<arg>log</arg>
+<arg>Affiliation Renewal Red notification test Passed</arg>
+</arguments>
+<status status="PASS" endtime="20151224 13:46:27.755" starttime="20151224 13:46:27.748"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${Notification_TypeID} == 2 and ${Dates_Diff} &lt; 10</arg>
+<arg>log</arg>
+<arg>Affiliation Renewal Yellow notification should be a Red notification</arg>
+<arg>ELSE IF</arg>
+<arg>${Notification_TypeID} == 2 and ${Dates_Diff} &gt;= 10</arg>
+<arg>log</arg>
+<arg>Affiliation Renewal Yellow notification test Passed</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Affiliation Renewal Yellow notification should be a Red notification</arg>
+</arguments>
+<msg timestamp="20151224 13:46:27.758" level="INFO">Affiliation Renewal Yellow notification should be a Red notification</msg>
+<status status="PASS" endtime="20151224 13:46:27.758" starttime="20151224 13:46:27.757"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:27.759" starttime="20151224 13:46:27.755"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${Notification_TypeID} == 3</arg>
+<arg>log</arg>
+<arg>Green Notification will be tested in separate component 'Green Notification Expiration'</arg>
+</arguments>
+<status status="PASS" endtime="20151224 13:46:27.761" starttime="20151224 13:46:27.759"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:27.762" critical="yes" starttime="20151224 13:46:11.084"></status>
+</test>
+<test id="s1-t3" name="Log Out of MyWFG">
+<kw name="Log Out of MyWFG" library="Resource_Webpage">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>xpath=//a[@href="/Wfg.MyWfgLogin/Account/LogOff"]</arg>
+</arguments>
+<msg timestamp="20151224 13:46:27.764" level="INFO">Clicking link 'xpath=//a[@href="/Wfg.MyWfgLogin/Account/LogOff"]'.</msg>
+<status status="PASS" endtime="20151224 13:46:27.833" starttime="20151224 13:46:27.763"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:27.833" starttime="20151224 13:46:27.763"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:27.833" critical="yes" starttime="20151224 13:46:27.762"></status>
+</test>
+<test id="s1-t4" name="Disconnect from SQL Server">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" endtime="20151224 13:46:27.835" starttime="20151224 13:46:27.835"></status>
+</kw>
+<status status="PASS" endtime="20151224 13:46:27.836" critical="yes" starttime="20151224 13:46:27.834"></status>
+</test>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20151224 13:46:29.047" starttime="20151224 13:46:27.837"></status>
+</kw>
+<doc>A test suite to verify MyWFG LifeLine Affiliation Renewal Expiration dates
+
+This test will log into MyWFG and verify that MyWFG LifeLine Affiliation Renewal
+notification is displayed according to expiration dates</doc>
 <metadata>
 <item name="Version">0.1</item>
 </metadata>
-<status status="PASS" endtime="20151203 14:26:27.356" starttime="20151203 14:26:26.375"></status>
+<status status="PASS" endtime="20151224 13:46:29.047" starttime="20151224 13:46:10.286"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
+<stat fail="0" pass="4">Critical Tests</stat>
+<stat fail="0" pass="4">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="LifeLine IUL Annuity Courses Yellow" pass="1">LifeLine IUL Annuity Courses Yellow</stat>
+<stat fail="0" id="s1" name="LifeLine Dates Verifications Affiliation Renewal" pass="4">LifeLine Dates Verifications Affiliation Renewal</stat>
 </suite>
 </statistics>
 <errors>
