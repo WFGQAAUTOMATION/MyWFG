@@ -55,7 +55,7 @@ Select Agent and Login to MyWFG.com
 
     Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
     ...    log    AML Course Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} < 22
+    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} < 12
     ...    log    '(Expired)' is missing in expired AML Course Red notification Due Date
     ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} > 12
     ...    log    AML Course Red notification test Passed

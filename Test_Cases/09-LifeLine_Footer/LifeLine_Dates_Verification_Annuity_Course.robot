@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine IUL Course Expiration dates
+Documentation    A test suite to verify MyWFG LifeLine Annuity Course Expiration dates
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine IUL Course
-...               is displayed according to expiration dates
+...               This test will log into MyWFG and verify that MyWFG LifeLine Annuity Course
+...               notification is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -18,7 +18,7 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        11
+${Notification_ID}        12
 ${Notification_TypeID}    1
 ${STATE}
 
@@ -44,9 +44,9 @@ Select Agent and Login to MyWFG.com
     ...    Should be equal    Immediately    ${Webpage_DateDue.strip()}
 
     Run Keyword If    ${Notification_TypeID} == 1
-    ...    log    IUL Course Red notification test Passed
+    ...    log    Annuity Course Red notification test Passed
     ...    ELSE IF    ${Notification_TypeID} == 2
-    ...    log    IUL Course should never be displayed in Yellow notification!
+    ...    log    Annuity Course should never be displayed in Yellow notification!
     ...    ELSE IF    ${Notification_TypeID} == 3
     ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'
 

@@ -2,7 +2,7 @@
 Documentation    A test suite to verify MyWFG LifeLine Explanation image
 ...
 ...               This test will log into MyWFG, clicks LifeLine task Explanation image and
-...               verifies the message
+...               verifies the message for one chosen Life Line ID
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot

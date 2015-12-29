@@ -10,7 +10,7 @@ Library           ../../../Resources/TestingLibrary.py
 Library           Selenium2Library
 
 
-Suite Teardown     Close Browser
+#Suite Teardown     Close Browser
 
 *** Test Cases ***
 
@@ -87,8 +87,8 @@ Click Continue and confirm upload
 Close Uploader
     Click image where ID is "dialogClose"
 
-Log Out of MyWFG
-    sleep   1s
+#Log Out of MyWFG
+#    sleep   1s
     Log Out of MyWFG
 
 

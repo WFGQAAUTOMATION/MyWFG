@@ -1,9 +1,9 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine FINRA, State Securities,
-...              and/or IAR Renewal Expiration dates
+Documentation    A test suite to verify MyWFG LifeLine Finra Regulatory Continuing Education Course Expiration dates
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine FINRA, State Securities and/or
-...               IAR Renewal notifications are displayed according to expiration dates
+...
+...               This test will log into MyWFG LifeLine Finra Regulatory Continuing Education Course
+...               notifications are displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -19,8 +19,7 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-#${AGENT_ID}              1032171
-${Notification_ID}        21
+${Notification_ID}        26
 ${Notification_TypeID}    1
 ${STATE}
 
@@ -54,21 +53,20 @@ Select Agent and Login to MyWFG.com
     ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
     log    Days difference is ${Dates_Diff}
 
-    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} <= 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification test Passed
+    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
+    ...    log    Finra Regulatory Continuing Education Course Red notification was displayed too early
+    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} <= 30
+    ...    log    Finra Regulatory Continuing Education Course Red notification test Passed
 
-    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Yellow notification should be a Red notification
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 60
-    ...    log    FINRA, State Securities and/or IAR Renewal Yellow notification was displayed too early
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 15
-    ...    log    FINRA, State Securities and/or IAR Renewal Red notification test Passed
+    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 30
+    ...    log    FINRA Regulatory Continuing Education Course Yellow notification should be a Red notification
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 120
+    ...    log    FINRA Regulatory Continuing Education Course Yellow notification was displayed too early
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 30
+    ...    log    FINRA Regulatory Continuing Education Course Yellow notification test Passed
 
     Run Keyword If    ${Notification_TypeID} == 3
     ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'
-
 
 Log Out of MyWFG
     Log Out of MyWFG
