@@ -10,5 +10,5 @@ Valid Login
     input username  ${VALID USER}
     input password  ${VALID PASSWORD}
     Submit Credentials
-    Welcome Page Should Be Open
+    Home Page Should Be Open
     [Teardown]    Close Browser
