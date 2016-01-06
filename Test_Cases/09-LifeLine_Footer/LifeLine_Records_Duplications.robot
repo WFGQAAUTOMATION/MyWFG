@@ -20,5 +20,5 @@ ${Testing_DIR}    C:/PERSONAL/SELENIUM/TESTING_FOLDER
 
 *** Test Cases ***
 Connect from Python file
-    ${mydata}   Database_Library.count_total_notifications
+    ${mydata}   Database_Library.Count_Total_Notifications
     Database_Library.LifeLine_Records_Duplications    ${mydata}
