@@ -31,29 +31,40 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
     # if state_code == "TX" and life_line_id == 4:
     if state_code == "TX" and life_line_id == "4":
         state = ""
-
-    if len(state) == 0:
+    if life_line_id == 1:
         cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentNotificationID, ll.AgentID,  ll.NotificationID, \
             n.[Description], ll.NotificationSubType, ll.NotificationTypeID, ll.DateDue, ll.Modified, ll.URLEnable \
             FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
             INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
             INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+            INNER JOIN [WFGWorkflow].[dbo].[Agent_EandO_Collections] wf ON a.AgentCodeNumber = wf.AgentID \
             INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
-            WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c \
-            ON a.AgentID = c.AgentID WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? \
+            WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID  \
+            WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? \
             ORDER BY AgentNotificationID desc", life_line_id, notification_typeid)
     else:
-        state_name = get_state_description(state_code)
+        if len(state) == 0:
+            cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentNotificationID, ll.AgentID,  ll.NotificationID, \
+                n.[Description], ll.NotificationSubType, ll.NotificationTypeID, ll.DateDue, ll.Modified, ll.URLEnable \
+                FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+                INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
+                INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+                INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
+                WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID  \
+                WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? \
+                ORDER BY AgentNotificationID desc", life_line_id, notification_typeid)
+        else:
+            state_name = get_state_description(state_code)
 
-        cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentNotificationID, ll.AgentID,  ll.NotificationID, \
-            n.[Description], ll.NotificationSubType, ll.NotificationTypeID, ll.DateDue, ll.Modified, ll.URLEnable \
-            FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
-            INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
-            INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
-            INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
-            WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID \
-            WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? AND ll.NotificationSubType = ?  \
-            ORDER BY AgentNotificationID desc", life_line_id, notification_typeid, state_name)
+            cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentNotificationID, ll.AgentID,  ll.NotificationID, \
+                n.[Description], ll.NotificationSubType, ll.NotificationTypeID, ll.DateDue, ll.Modified, ll.URLEnable \
+                FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+                INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
+                INNER JOIN [WFGOnline].[dbo].[wfgLU_Notification] n ON ll.NotificationID= n.NotificationID \
+                INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
+                WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID \
+                WHERE ll.NotificationID = ? AND ll.NotificationTypeID = ? AND ll.NotificationSubType = ?  \
+                ORDER BY AgentNotificationID desc", life_line_id, notification_typeid, state_name)
 
     rows = cursor.fetchall()
     if rows:
