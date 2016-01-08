@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine IRS 8233 Form Expiration dates
 ...
-...               This test will log into MyWFG LifeLine IRS 8233 Form notification
+...               This test will log into MyWFG and verify that MyWFG LifeLine IRS 8233 Form notification
 ...               is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot

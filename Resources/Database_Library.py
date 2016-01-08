@@ -72,7 +72,6 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
             agent_code_no = row[0]
             agent_notification_id = row[1]
             if life_line_id != "11" and life_line_id != "12":
-                print "I am in Date_Due part"
                 date_due_full = str(row[7])
                 # ***** use "strip" method for "Trim" function to eliminate leading and ending spaces*********
                 date_due = str(row[7]).strip()

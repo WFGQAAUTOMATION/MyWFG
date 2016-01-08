@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine Mutual Fund License Renewal Expiration dates
 ...
-...               This test will log into MyWFG LifeLine Mutual Fund License Renewal
+...               This test will log into MyWFG and verify that MyWFG LifeLine Mutual Fund License Renewal
 ...               notification is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot

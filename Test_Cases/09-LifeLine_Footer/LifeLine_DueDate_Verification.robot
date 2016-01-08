@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine Annuity Course Expiration dates
+Documentation    A test suite to verify MyWFG LifeLine E&O Expiration dates for US
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine Annuity Course
-...               notification is displayed according to expiration dates
+...               This test will log into MyWFG and verify that MyWFG LifeLine E&O notification
+...               for US is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -18,9 +18,9 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        11
+${Notification_ID}        4
 ${Notification_TypeID}    1
-${STATE}
+${STATE}                  CA
 
 *** Test Cases ***
 
@@ -39,16 +39,20 @@ Select Agent and Login to MyWFG.com
     sleep    2s
     Click image where ID is "close"
 
-    ${Webpage_DateDue}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
-    Run Keyword If    ${Notification_TypeID} == 1
-    ...    Should be equal    Immediately    ${Webpage_DateDue.strip()}
+#   Get Due Date from the web page
+    ${Webpage_DateDue_Str}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
+    ${DateDue_Length}    Get Length    ${Webpage_DateDue_Str}
 
-    Run Keyword If    ${Notification_TypeID} == 1
-    ...    log    Annuity Course Red notification test Passed
-    ...    ELSE IF    ${Notification_TypeID} == 2
-    ...    log    Annuity Course should never be displayed in Yellow notification!
-    ...    ELSE IF    ${Notification_TypeID} == 3
-    ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'
+#    ***** Convert date to match with database formate
+    ${Webpage_DateDue}    Remove String     ${Webpage_DateDue_Str}     (Expired)
+    ${Webpage_DateDue}    Replace String    ${Webpage_DateDue}    /    -
+
+    Should be equal    ${Agent_Info[2].strip()}    ${Webpage_DateDue.strip()}
+
+    Run Keyword If    ${Agent_Info[2].strip()} == ${Webpage_DateDue.strip()}
+    ...    log    Date Due verification Passed.
+    ...    ELSE
+    ...    log    Date Due verification Failed.
 
 Log Out of MyWFG
     Log Out of MyWFG

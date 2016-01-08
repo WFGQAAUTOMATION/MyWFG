@@ -1,9 +1,8 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine TFA Annual Registration Questionaire Expiration dates
-...
-...
-...               This test will log into MyWFG and verify that MyWFG LifeLine TFA Annual Registration Questionaire
-...               notifications are displayed according to expiration dates
+Documentation    A test suite to verify MyWFG LifeLine TFA Firm Element Supervisor(TFG) Expiration dates
+...              (former ACS for TFA Supervisors Course -(Advanced Case Studies))
+...               This test will log into MyWFG and verify that MyWFG TFA Firm Element Supervisor(TFG)
+...               notification is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -19,8 +18,8 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        24
-${Notification_TypeID}    2
+${Notification_ID}        15
+${Notification_TypeID}    1
 ${STATE}
 
 *** Test Cases ***
@@ -53,21 +52,20 @@ Select Agent and Login to MyWFG.com
     ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
     log    Days difference is ${Dates_Diff}
 
-    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 15
-    ...    log    TFA Annual Registration Questionaire Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} <= 15
-    ...    log    TFA Annual Registration Questionaire Red notification test Passed
+    Run Keyword If    ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
+    ...    log    TFA Firm Element Supervisor(TFG) Red notification was displayed too early
+    ...    ELSE IF    ${Notification_TypeID} == 1 and ${Dates_Diff} <= 30
+    ...    log    TFA Firm Element Supervisor(TFG) Red notification test Passed
 
-    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 15
-    ...    log    TFA Annual Registration Questionaire Yellow notification should be a Red notification
+    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 30
+    ...    log    TFA Firm Element Supervisor(TFG) Yellow notification should be a Red notification
     ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 60
-    ...    log    TFA Annual Registration Questionaire Yellow notification was displayed too early
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 15
-    ...    log    TFA Annual Registration Questionaire Yellow notification test Passed
+    ...    log    TFA Firm Element Supervisor(TFG) Yellow notification was displayed too early
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 30
+    ...    log    TFA Firm Element Supervisor(TFG) Yellow notification test Passed
 
     Run Keyword If    ${Notification_TypeID} == 3
     ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'
-
 
 Log Out of MyWFG
     Log Out of MyWFG
