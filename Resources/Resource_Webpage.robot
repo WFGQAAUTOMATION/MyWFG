@@ -62,6 +62,11 @@ Scroll Page to Location
 Scroll Page to Location Where Y equals "${y_location}"
     Execute JavaScript    window.scrollTo(0,${y_location})
 
+
+Click OK Button On Java Dialog
+    Execute JavaScript    window.close()
+#    driver.findelement(By.xpath("//span[@class="ui-button-text"][contains(text(),'Ok')]")).click();
+
 #********************************************************************
 
 #*****************************************************
