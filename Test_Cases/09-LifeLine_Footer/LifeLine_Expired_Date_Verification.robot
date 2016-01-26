@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine New IAR Training Course Renewal Expiration dates
+Documentation    A test suite to verify MyWFG LifeLine Expired date
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine New IAR Training Course Renewal
-...               notification is displayed according to expiration dates
+...               This test will log into MyWFG and verify that MyWFG LifeLine Expired date is shown correctly
+...
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot

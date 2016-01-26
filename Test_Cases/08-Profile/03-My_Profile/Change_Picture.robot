@@ -6,11 +6,11 @@ Documentation    A test suite to upload or change the photo on Profile page
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 
-#Suite Teardown     Close Browser
+Suite Teardown     Close Browser
 
 *** Test Cases ***
 
@@ -22,12 +22,12 @@ Login to MyWFG.com
 
 Go to Profile My Profile Page
     Hover Over "Profile"
-    sleep   2s
+    sleep   3s
     Click Menu Item "My Profile"
-    sleep   2s
+    sleep   3s
 
 Verify Webpage
-    sleep   2s
+    sleep   3s
     Find "My Profile" On Webpage
 
 Click Delete Photo button for Cancel
@@ -76,7 +76,10 @@ Click Continue button
 
 Click Browse button
     Click image where ID is "Image"
-    sleep    10   # when sleeps choose the file from File Uploader and close it
+    sleep    10  # when sleeps choose the file from File Uploader and close it
+
+#Download Image
+#    Choose File    id=Image    C:\\PERSONAL\\Pick of Lee.JPG
 
 Click Upload button
     Click button named "Upload"
@@ -87,8 +90,8 @@ Click Continue and confirm upload
 Close Uploader
     Click image where ID is "dialogClose"
 
-#Log Out of MyWFG
-#    sleep   1s
+Log Out of MyWFG
+    sleep   3s
     Log Out of MyWFG
 
 

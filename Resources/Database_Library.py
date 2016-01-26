@@ -27,8 +27,7 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
 
     conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
     cursor = conn.cursor()
-    # LIKE doesn't work in Python, so Texas with Licence# cannot be accepted. See WFGLLNotifications table.
-    # if state_code == "TX" and life_line_id == 4:
+    # LIKE doesn't work in Python, so Texas with Licence# should not be accepted. See WFGLLNotifications table.
     if state_code == "TX" and life_line_id == "4":
         state = ""
     if life_line_id == 1:
@@ -89,6 +88,31 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
     return [agent_code_no, agent_notification_id, date_due, date_due_full]
 
 
+def get_lifeline_dismiss_notification_agent(life_line_id):
+    agent_code_no = ""
+    agent_notification_id = 0
+
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentNotificationID, \
+         ll.AgentID, Count(a.AgentCodeNumber) as AgentCount  \
+         FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+         INNER JOIN [WFGCompass].[dbo].[agAgent] a ON a.AgentID = ll.AgentID \
+         WHERE a.AgentCodeNumber IN \
+         (SELECT a.AgentCodeNumber FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+         INNER JOIN [WFGCompass].[dbo].[agAgent]a  ON a.AgentID=ll.AgentID \
+         WHERE ll.NotificationTypeID <> 3) AND ll.NotificationID = ? \
+         GROUP BY ll.AgentID, a.AgentCodeNumber, ll.AgentNotificationID \
+         ORDER BY COUNT(a.AgentID) desc", life_line_id)
+    rows = cursor.fetchall()
+    if rows:
+        for row in rows:
+            agent_code_no = row[0]
+            agent_notification_id = row[1]
+    return [agent_code_no, agent_notification_id]
+
+
 def get_lifeline_explanation_agent_id(notification_id):
     agent_code_no = ""
     conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
@@ -98,7 +122,8 @@ def get_lifeline_explanation_agent_id(notification_id):
         FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
         INNER JOIN [WFGCompass].[dbo].[agAgent]a ON a.AgentID = ll.AgentID \
         INNER JOIN (SELECT DISTINCT AgentID from [WFGCompass].[dbo].[agAgentCycleType] \
-        WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID WHERE ll.NotificationID = ? \
+        WHERE CycleTypeStatusID = 1 AND EndDate > GETDATE()) c ON a.AgentID = c.AgentID \
+        WHERE ll.NotificationID = ? AND ll.NotificationTypeID <> 3 \
         ORDER BY AgentNotificationID desc", notification_id)
     rows = cursor.fetchall()
     if rows:

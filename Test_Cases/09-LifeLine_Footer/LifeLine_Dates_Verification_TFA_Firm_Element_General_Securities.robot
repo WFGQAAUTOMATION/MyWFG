@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine TFA Firm Element General Securities Expiration dates
 ...              (former Variable Annuities & 1035)
+...
 ...               This test will log into MyWFG and verify that MyWFG TFA Firm Element General Securities
 ...               notification is displayed according to expiration dates
 Metadata          Version   0.1

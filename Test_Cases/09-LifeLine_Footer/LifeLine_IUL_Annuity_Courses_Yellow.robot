@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation     A test suite to verify MyWFG LifeLine IUL and Annuity Courses Yellow Notifications
+...
 ...               The purpose of this test is to verify that MyWFG LifeLine IUL Course and Annuity Course Notifications
 ...               are never displayed in Yellow Life Line section
 Metadata          Version   0.1

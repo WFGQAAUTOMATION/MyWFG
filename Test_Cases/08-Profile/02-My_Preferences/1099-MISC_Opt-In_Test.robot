@@ -38,7 +38,6 @@ Click Close Disclosure button
    Click element    xpath=//span[@class="ui-button-text"][contains(text(),'Close')]
 
 #************************************************************************************
-
 Run Opt In
     ${passed} =     run keyword and return status    Click button named "Opt In"
     ${button_option} =    check_opt_in_option    ${passed}

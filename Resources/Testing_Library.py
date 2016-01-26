@@ -73,6 +73,13 @@ def temperature_calculations(convert_from, convert_to, temp_value):
     return result
 
 
+def verify_lifeline_dismiss_reason(ella, roma, rita, jane):
+    result = ella + roma + rita + jane
+    print "New function"
+
+    return result
+
+
 def print_hello_world(your_name, my_name):
     if your_name == "Jane":
         print "This is If ", your_name

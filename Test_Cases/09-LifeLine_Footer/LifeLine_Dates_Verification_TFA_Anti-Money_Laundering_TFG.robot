@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine TFA Anti-Money Laundering(TFG) Expiration dates
 ...              (former Use of Social Media)
+...
 ...               This test will log into MyWFG and verify that MyWFG TFA Anti-Money Laundering(TFG)
 ...               notification is displayed according to expiration dates
 Metadata          Version   0.1

@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine TFA Annual Registration Questionaire Expiration dates
 ...
-...
 ...               This test will log into MyWFG and verify that MyWFG LifeLine TFA Annual Registration Questionaire
 ...               notifications are displayed according to expiration dates
 Metadata          Version   0.1
@@ -20,7 +19,7 @@ Suite Teardown     Close Browser
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${Notification_ID}        24
-${Notification_TypeID}    2
+${Notification_TypeID}    1
 ${STATE}
 
 *** Test Cases ***

@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine TFA Firm Element IAR (TFG) Expiration dates
 ...              (former IA Conflicts of Interest)
+...
 ...               This test will log into MyWFG and verify that MyWFG TFA Firm Element IAR (TFG)
 ...               notification is displayed according to expiration dates
 Metadata          Version   0.1
@@ -19,7 +20,7 @@ Suite Teardown     Close Browser
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${Notification_ID}        19
-${Notification_TypeID}    2
+${Notification_TypeID}    1
 ${STATE}
 
 *** Test Cases ***

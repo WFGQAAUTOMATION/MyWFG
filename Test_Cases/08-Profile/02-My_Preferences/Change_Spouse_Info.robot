@@ -6,8 +6,7 @@ Documentation    A test suite to add or change the Spouse Info
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Resources/TestingLibrary.py
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 Suite Teardown     Close Browser
@@ -15,9 +14,9 @@ Suite Teardown     Close Browser
 *** Variables ***
 
 ${SPOUSE AGENT NO}
-${SPOUSE FIRST NAME}        LIHN
-${SPOUSE COMMON NAME}       LYNNA
-${SPOUSE LAST NAME}         NGHUYEN
+${SPOUSE FIRST NAME}        SHARMILA
+${SPOUSE COMMON NAME}       MILA
+${SPOUSE LAST NAME}         CHEN
 ${VERIFY TEXT}              spouse information was sucessfully changed
 
 *** Test Cases ***

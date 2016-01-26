@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine TFA Firm Element Supervisor(TFG) Expiration dates
-...              (former ACS for TFA Supervisors Course -(Advanced Case Studies))
+...              (former ACS for TFA Supervisors Course -(Advanced Case Studies)
+...
 ...               This test will log into MyWFG and verify that MyWFG TFA Firm Element Supervisor(TFG)
 ...               notification is displayed according to expiration dates
 Metadata          Version   0.1

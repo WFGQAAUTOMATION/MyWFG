@@ -1,8 +1,7 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine E&O Expiration dates for US
+Documentation    A test suite to verify MyWFG LifeLine Due date
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine E&O notification
-...               for US is displayed according to expiration dates
+...               This test will log into MyWFG and verify MyWFG LifeLine Due Date
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot

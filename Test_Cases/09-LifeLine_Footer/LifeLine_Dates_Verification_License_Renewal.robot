@@ -18,9 +18,9 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        5
-${Notification_TypeID}    2
-${STATE}                  ON
+${Notification_ID}        4
+${Notification_TypeID}    1
+${STATE}                  FL
 
 *** Test Cases ***
 

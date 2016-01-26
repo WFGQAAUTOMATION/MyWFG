@@ -6,18 +6,16 @@ Documentation     A test suite to change the associate contact
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Resources/TestingLibrary.py
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 Suite Teardown     Close Browser
 
 *** Variables ***
-
-${ADDRESS}         123 Clearbrooke Court
-${CITY}            DULUTH
-${STATE}           UT
-${ZIP}             30097
+${ADDRESS}         1234 Main Street
+${CITY}            Duluth
+${STATE}           GA
+${ZIP}             30309
 ${VERIFY_TEXT}     Thank you for submitting your home address change
 
 *** Test Cases ***

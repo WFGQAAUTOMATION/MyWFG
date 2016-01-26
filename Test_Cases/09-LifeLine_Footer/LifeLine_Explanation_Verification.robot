@@ -17,7 +17,7 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}                 WFGOnline
 ${HOSTNAME}                 CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}          12
+${Notification_ID}          19
 ${STATE}
 
 *** Test Cases ***
@@ -47,11 +47,11 @@ Compare Life Line Explanation Messages
     ${SQL_Text[0][0]}=    Remove String    ${SQL_Text[0][0]}    </br>
     # ***********  Get Explanation description from Web page  *********************
    ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
-#    # ***********  Replace ’ character with ' in order to compare explanations ****
-#    ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
-#    # ***********  Remove <br> from Explanation String  ***************************
-#    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
-#    # ***********  Verify the text of explanantion  *******************************
+    # ***********  Replace ’ character with ' in order to compare explanations ****
+    ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
+    # ***********  Remove <br> from Explanation String  ***************************
+    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
+    # ***********  Verify the text of explanantion  *******************************
     Should be equal    ${SQL_Text[0][0]}    ${Webpage_Text}
 
 Close Explanation message

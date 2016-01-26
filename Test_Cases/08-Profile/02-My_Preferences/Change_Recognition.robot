@@ -6,15 +6,14 @@ Documentation    A test suite to change the Recognition Settings
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Resources/TestingLibrary.py
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 Suite Teardown     Close Browser
 
 *** Variables ***
 
-${RECOGNITION NAME}       Steve & Irma
+${RECOGNITION NAME}       Ella & Daniel
 ${VERIFY_TEXT}
 
 *** Test Cases ***
