@@ -8,7 +8,7 @@ Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
 Library           ../../Resources/Testing_Library.py
 Library           Selenium2Library
-Library           DatabaseLibrary
+Library           ../../Resources/Database_Library.py
 
 Suite Teardown     Close Browser
 
