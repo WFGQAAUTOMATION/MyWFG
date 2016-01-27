@@ -26,7 +26,7 @@ Check Leadership Names
     And Find "Susan Davies" On Webpage
     And Find "Leesa Easley" On Webpage
     And Find "John Joseph" On Webpage
-
+# did it merge??
 Log Out and Close Browser
     Then log out of mywfg
     And close browser
