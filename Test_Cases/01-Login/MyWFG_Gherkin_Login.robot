@@ -15,15 +15,6 @@ Valid Login
     Then Home Page Should Be Open
     Then Hover Over "Profile"
     And Select Menu Item "My Profile"
-<<<<<<< HEAD
-=======
-
-Select Frame
-    click button named "Upload Photo"
-#    select frame where id is "agentImageUploaderContainer"
-#    select checkbox where id is "chkAgree"
-    click button named "Cancel"
->>>>>>> fa1654788efdb8b0f80ac0c7f2fd41c3ebf3bf9e
 
 Valid Login - Click Menu Item
     Given browser is opened to login page
@@ -42,20 +33,6 @@ Invalid Login - Bad Username
     When User "invalid" logs in with password "${VALID PASSWORD}"
     Then Login Should Have Failed
 
-<<<<<<< HEAD
-#*** Keywords ***
-#Browser is opened to login page
-#    Open browser to login page
-#
-#User "${username}" logs in with password "${password}"
-#    Input username        ${username}
-#    Input password        ${password}
-#    Submit credentials
-#
-#Login Should Have Failed
-#    Location Should Be    ${ERROR URL}
-#    Title Should Be       MyWFG - Log In
-=======
 *** Keywords ***
 Browser is opened to login page
     Open browser to login page
@@ -68,4 +45,4 @@ User "${username}" logs in with password "${password}"
 Login Should Have Failed
     Location Should Be    ${ERROR URL}
     Title Should Be       MyWFG - Log In
->>>>>>> fa1654788efdb8b0f80ac0c7f2fd41c3ebf3bf9e
+
