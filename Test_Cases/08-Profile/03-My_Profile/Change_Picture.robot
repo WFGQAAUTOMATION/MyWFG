@@ -10,10 +10,11 @@ Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 
-#Suite Teardown     Close Browser
+Suite Teardown     Close Browser
 
 *** Test Cases ***
 
+<<<<<<< HEAD
 #Login to MyWFG.com
 #    Given browser is opened to login page
 #    When user "${USER ID}" logs in with password "${PASSWORD}"
@@ -101,14 +102,94 @@ Click OK button
 ##    sleep   1s
 #    Log Out of MyWFG
 #    Close Browser
+=======
+Login to MyWFG.com
+    Given browser is opened to login page
+    When user "${USER ID}" logs in with password "${PASSWORD}"
+    Then Home Page Should Be Open
+    sleep   4s
+
+Go to Profile My Profile Page
+    Hover Over "Profile"
+    sleep   3s
+    Click Menu Item "My Profile"
+    sleep   3s
+
+Verify Webpage
+    sleep   3s
+    Find "My Profile" On Webpage
+
+Click Delete Photo button for Cancel
+    Click Object Named "Delete Photo"
+
+Confirm Cancel to keep the picture
+    Click Cancel on Alert
+
+Click Delete Photo button
+    click element   //a[@id='agentimage-delete']
+
+Confirm Delete to delete the picture
+    sleep    2s
+    Click Ok on Alert
+
+Click Upload Photo button for OK
+    sleep   2s
+    Click button named "Upload Photo"
+
+Click OK button
+    sleep   2s
+    Click element   xpath=//span[@class="ui-button-text"][contains(text(),'Ok')]
+
+Click Upload Photo button for Cancel
+    sleep   2s
+    Click Button named "Upload Photo"
+
+Select Frame for Cancel
+    select frame where id is "agentImageUploaderContainer"
+
+Click Cancel button
+    click button named "Cancel"
+
+Click Upload Photo button
+    sleep   2s
+    Click Button named "Upload Photo"
+
+Select Frame for Continue
+    select frame where id is "agentImageUploaderContainer"
+
+Click Agree checkbox
+    select checkbox where id is "chkAgree"
+
+Click Continue button
+    click button named "Continue"
+
+Click Browse button
+    Click image where ID is "Image"
+    sleep    10  # when sleeps choose the file from File Uploader and close it
+
+#Download Image
+#    Choose File    id=Image    C:\\PERSONAL\\Pick of Lee.JPG
+
+Click Upload button
+    Click button named "Upload"
+
+Click Continue and confirm upload
+    Click button named "Continue"
+>>>>>>> a014a5ef3126805c82c20db88910e884459d5fbd
 
 *** Keywords ***
 Maybe open browser
     # Don't capture screenshot if this fails
     ${fail keyword}=   Register keyword to run on failure  Nothing
 
+<<<<<<< HEAD
     # Run a keyword and capture the status
     ${status}=  run keyword and return status   Get Window Identifiers
+=======
+Log Out of MyWFG
+    sleep   3s
+    Log Out of MyWFG
+>>>>>>> a014a5ef3126805c82c20db88910e884459d5fbd
 
     # Reset the run-on-failure keyword
     Register keyword to run on failure   ${fail keyword}
