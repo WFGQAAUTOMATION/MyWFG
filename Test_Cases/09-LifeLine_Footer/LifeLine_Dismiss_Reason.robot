@@ -27,7 +27,7 @@ Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent, Login to MyWFG.com, Check Dismiss Notifications
-    ${Agent_Info}    Database_Library.get_lifeline_dismiss_notification_agent    ${Notification_ID}
+    ${Agent_Info}    Database_Library.Get_lifeline_dismiss_notification_agent    ${Notification_ID}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
     Home Page for any Agent Should Be Open

@@ -8,7 +8,10 @@ Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
 Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
+<<<<<<< HEAD
 
+=======
+>>>>>>> 154670324ceed0c3fea2dbb48db6e443d7ae342a
 Suite Teardown     Close Browser
 
 *** Variables ***

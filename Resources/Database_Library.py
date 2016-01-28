@@ -99,8 +99,7 @@ def get_lifeline_dismiss_notification_agent(life_line_id):
          ll.AgentID, Count(a.AgentCodeNumber) as AgentCount  \
          FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
          INNER JOIN [WFGCompass].[dbo].[agAgent] a ON a.AgentID = ll.AgentID \
-         WHERE a.AgentCodeNumber IN \
-         (SELECT a.AgentCodeNumber FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+         WHERE a.AgentCodeNumber IN (SELECT a.AgentCodeNumber FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
          INNER JOIN [WFGCompass].[dbo].[agAgent]a  ON a.AgentID=ll.AgentID \
          WHERE ll.NotificationTypeID <> 3) AND ll.NotificationID = ? \
          GROUP BY ll.AgentID, a.AgentCodeNumber, ll.AgentNotificationID \

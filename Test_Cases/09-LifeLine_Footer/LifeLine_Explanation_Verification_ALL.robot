@@ -21,7 +21,6 @@ Suite Teardown    Close Browser and Disconnect from SQL Server
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-
 ${STATE}
 
 *** Test Cases ***                      NotificationID

@@ -1,4 +1,5 @@
 /.hg/thgstatus
 
+/.hg/dirstate
 /.hg
 ./idea

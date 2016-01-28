@@ -149,6 +149,29 @@ Click image using img where ID is "${ImageID}"
 
 #*****************************************************
 
+<<<<<<< HEAD
+Select "${team}" from dropdown
+    click button    xpath=//td[2]/button
+#    Wait Until Element Is Visible   xpath=//*[@id='generationField']    timeout=15
+#    ${clickthis} =      Set Variable        ${team}
+#    Run Keyword If    "${clickthis}" == "Base"
+     select from list by value  xpath=//*[@id='generationField']/option[text()='Base']  ${team}
+
+#    If ${team} == "Base"
+#        Click //input[@id='ui-multiselect-generationField-option-0']
+#    Elif ${team} == "Super Base"
+#        Click //input[@id='ui-multiselect-generationField-option-1']
+#    Elif ${team} == "Super Team"
+#        Click //input[@id='ui-multiselect-generationField-option-2']
+#    Elif ${team} == "Securities"
+#        Click //input[@id='ui-multiselect-generationField-option-3']
+#    Elif ${team} == "WFG Terminated"
+#        Click //input[@id='ui-multiselect-generationField-option-4']
+#    Else:
+#        Click //input[@id='ui-multiselect-generationField-option-5']
+
+#**************************************************************************
+=======
 Click Ok on Alert
     confirm action
 
@@ -161,6 +184,7 @@ Click Cancel on Alert
 
 #**************************************************************************
 
+>>>>>>> remotes/WFG_Master/Isabella
 ######   FIND/VERIFY ELEMENTS      ######
 #*****************************************************
 #*****************************************************

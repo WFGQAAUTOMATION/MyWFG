@@ -25,6 +25,8 @@ ${Archive_Question}    ArchieveQuestionMark
 ${Dismiss_Index}       3
 ${Dismiss_Task}        Yes
 
+#************** NOT COMPLETED !!!!! **************************************************************
+
 *** Test Cases ***
 Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
