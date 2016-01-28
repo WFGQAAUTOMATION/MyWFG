@@ -6,16 +6,15 @@ Documentation    A test suite to change the agent's phone numbers
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Resources/TestingLibrary.py
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 Suite Teardown     Close Browser
 
 *** Variables ***
 
-${HOME PHONE}       7701234567
-${CELL PHONE}       4043456789
+${HOME PHONE}       7709876543
+${CELL PHONE}       4041234567
 ${VERIFY_TEXT}      phones were sucessfully changed
 
 *** Test Cases ***
@@ -59,6 +58,7 @@ Verify Phones Change
     Find "${VERIFY_TEXT}" On Webpage
 
 Log Out of MyWFG
+    sleep    3s
     Log Out of MyWFG
 
 Close opened Browser

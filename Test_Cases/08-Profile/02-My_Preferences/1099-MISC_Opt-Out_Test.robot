@@ -25,7 +25,7 @@ Login to MyWFG.com
 Go to Profile My Preference Page
     Hover Over "Profile"
     Click Menu Item "My Preferences"
-    sleep   3s
+    sleep   4s
 
 Verify Webpage
     And Verify A Link Named "View Disclosure" Is On The Page

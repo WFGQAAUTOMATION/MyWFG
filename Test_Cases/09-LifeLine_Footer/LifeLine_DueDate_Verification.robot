@@ -1,8 +1,7 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine AMLCourse Expiration dates for Canada
+Documentation    A test suite to verify MyWFG LifeLine Due date
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine AML Course notification
-...               for Canada is displayed according to expiration dates
+...               This test will log into MyWFG and verify MyWFG LifeLine Due Date
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -18,9 +17,9 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        10
+${Notification_ID}        4
 ${Notification_TypeID}    1
-${STATE}
+${STATE}                  CA
 
 *** Test Cases ***
 
@@ -38,6 +37,8 @@ Select Agent and Login to MyWFG.com
     Click image using img where ID is "QuestionMark-${Agent_Info[1]}"
     sleep    2s
     Click image where ID is "close"
+
+#   Get Due Date from the web page
     ${Webpage_DateDue_Str}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
     ${DateDue_Length}    Get Length    ${Webpage_DateDue_Str}
 
@@ -47,28 +48,10 @@ Select Agent and Login to MyWFG.com
 
     Should be equal    ${Agent_Info[2].strip()}    ${Webpage_DateDue.strip()}
 
-    ${Today_Date}    Get Current Date
-    ${Dates_Diff}    Subtract Date From Date    ${Agent_Info[3]}    ${Today_Date}
-#   ***** Convert Dates difference from sec into min then into hours and into days.
-    ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
-    log    Days difference is ${Dates_Diff}
-
-    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} >= 10
-    ...    log    AML Course Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} < 12
-    ...    log    '(Expired)' is missing in expired AML Course Red notification Due Date
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} > 12
-    ...    log    AML Course Red notification test Passed
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 10
-    ...    log    AML Course Red notification test Passed
-
-    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} < 10
-    ...    log    AML Course Yellow notification should be a Red notification
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} >= 10
-    ...    log    AML Course Yellow notification test Passed
-
-    Run Keyword If    ${Notification_TypeID} == 3
-    ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'
+    Run Keyword If    ${Agent_Info[2].strip()} == ${Webpage_DateDue.strip()}
+    ...    log    Date Due verification Passed.
+    ...    ELSE
+    ...    log    Date Due verification Failed.
 
 Log Out of MyWFG
     Log Out of MyWFG

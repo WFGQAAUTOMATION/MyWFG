@@ -114,14 +114,14 @@ Input "${Text}" in the "${Fieldname}" Field With ID
 
 #************************************************************************
 
-Select Frame Where ID is "${frameID}"
-    log  ${frameID}
-    select frame    xpath=//iframe[@id='${frameID}']
+Select Checkbox Where ID is "${cbName}"
+    select checkbox     xpath=//input[@id='${cbName}']
 
 #************************************************************************
 
-Select Checkbox Where ID is "${cbName}"
-    select checkbox     xpath=//input[@id='${cbName}']
+Select Frame Where ID is "${frameID}"
+    log  ${frameID}
+    select frame    xpath=//iframe[@id='${frameID}']
 
 #************************************************************************
 
@@ -135,6 +135,10 @@ Click List Box With ID "${ItemID}" and select "${Item}"
 
 #*************************************************************************
 
+Click List Box With ID "${ItemID}" and select by index "${Index}"
+    Select From List By Index    xpath=//select[@id='${ItemID}']  ${Index}
+
+#*************************************************************************
 Click image where ID is "${ImageID}"
     click image     xpath=//input[@id='${ImageID}']
 

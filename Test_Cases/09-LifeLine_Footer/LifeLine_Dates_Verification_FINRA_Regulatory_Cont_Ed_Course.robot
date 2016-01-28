@@ -1,9 +1,8 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine Finra Regulatory Continuing Education Course Expiration dates
 ...
-...
-...               This test will log into MyWFG LifeLine Finra Regulatory Continuing Education Course
-...               notifications are displayed according to expiration dates
+...               This test will log into MyWFG LifeLine and verify that MyWFG LifeLine Finra Regulatory
+...               Continuing Education Course notifications are displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot

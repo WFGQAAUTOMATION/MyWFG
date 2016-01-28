@@ -8,10 +8,13 @@ Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
 Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
+<<<<<<< HEAD
+
+=======
+>>>>>>> 154670324ceed0c3fea2dbb48db6e443d7ae342a
 Suite Teardown     Close Browser
 
 *** Variables ***
-${button_option}    Isabella
 
 *** Test Cases ***
 
@@ -19,7 +22,7 @@ Login to MyWFG.com
     Given browser is opened to login page
     When user "${USER ID}" logs in with password "${PASSWORD}"
     Then Home Page Should Be Open
-    sleep   3s
+    sleep   4s
 
 Go to Profile My Preference Page
     Hover Over "Profile"
@@ -39,17 +42,16 @@ Click Close Disclosure button
 #************************************************************************************
 Run Opt In
     ${passed} =     run keyword and return status    Click button named "Opt In"
-#    ${button_option} =    check_opt_in_option    ${passed}
+    ${button_option} =    check_opt_in_option    ${passed}
 
-    Run Keyword If    "${button_option}" == "Isabella"
-    ...    sleep    1s
-    ...    ELSE IF    "${button_option}" == "Disabled"
+    Run Keyword If    "${button_option}" == "Disabled"
     ...    sleep    2s
     ...    ELSE IF    "${button_option}" == "Enabled"
     ...    Click button named "Opt In"
     ...    ELSE
     ...    sleep    3s
     Run Keyword If    "${button_option}" == "Enabled"
+#    ...    Run Enabled Case
     ...    sleep   1s
     Run Keyword If    "${button_option}" == "Enabled"
     ...    Scroll Page to Location Where Y equals "450"
@@ -70,6 +72,9 @@ Run Opt In
     Run Keyword If    "${button_option}" == "Enabled"
     ...    sleep   2s
 
+#    Run Keyword If    "${button_option}" == "Disabled"
+#    ...    Run Disable Case
+
 Run Opt Out
     Click button named "Opt Out"
     sleep    3s
@@ -85,6 +90,14 @@ Log Out of MyWFG
 
 
 *** Keywords ***
-My Custom Keyword
-    sleep   1s    AND    sleep    1s
-    sleep   1s
+#Run Enabled Case
+#    sleep   1s
+#    Scroll Page to Location Where Y equals "450"
+#    Click button named "Disagree"
+#    Click button named "Opt In"
+#    Scroll Page To Location    0    450
+#    Click button named "Agree"
+#    sleep   2s
+#
+#Run Disable Case
+#    sleep    2s

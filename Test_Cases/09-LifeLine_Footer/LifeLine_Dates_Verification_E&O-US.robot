@@ -1,7 +1,7 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine AMLCourse Expiration dates for US
+Documentation    A test suite to verify MyWFG LifeLine E&O Expiration dates for US
 ...
-...               This test will log into MyWFG and verify that MyWFG LifeLine AML Course notification
+...               This test will log into MyWFG and verify that MyWFG LifeLine E&O notification
 ...               for US is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
@@ -18,8 +18,8 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        9
-${Notification_TypeID}    1
+${Notification_ID}        1
+${Notification_TypeID}    2
 ${STATE}
 
 *** Test Cases ***
@@ -38,6 +38,9 @@ Select Agent and Login to MyWFG.com
     Click image using img where ID is "QuestionMark-${Agent_Info[1]}"
     sleep    2s
     Click image where ID is "close"
+#   This is for E&O dates verifications only
+    ${NoticeID}    query    SELECT Top 1 NoticeID FROM [WFGWorkFlow].[dbo].[Agent_EandO_Collections] WHERE AgentID = '${Agent_Info[0]}' ORDER BY OpenDate Desc;
+
     ${Webpage_DateDue_Str}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
     ${DateDue_Length}    Get Length    ${Webpage_DateDue_Str}
 
@@ -53,21 +56,26 @@ Select Agent and Login to MyWFG.com
     ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
     log    Days difference is ${Dates_Diff}
 
-    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
-    ...    log    AML Course Red notification was displayed too early
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} < 12
-    ...    log    '(Expired)' is missing in expired AML Course Red notification Due Date
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} > 12
-    ...    log    AML Course Red notification test Passed
-    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 10
-    ...    log    AML Course Red notification test Passed
+    Run Keyword If    ${Notification_TypeID} == 1 and ${DateDue_Length} > 12
+    ...    log    (Expired) verbiage should NOT be added to the Due Date
 
-    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} > 60
-    ...    log    AML Course Yellow notification was displayed too early
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 30
-    ...    log    AML Course Yellow notification should be a Red notification
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 30
-    ...    log    AML Course Yellow notification test Passed
+    Run Keyword If     ${Notification_TypeID} == 1 and ${NoticeID[0][0]} == 3
+    ...    log    E&O Red Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 1 and ${NoticeID[0][0]} == 5
+    ...    log    E&O Red Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 1 and ${NoticeID[0][0]} == 6
+    ...    log    E&O Red Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 1
+    ...    log    This E&O LifeLine task with NoticeID = ${NoticeID[0][0]} should NOT be in Red Notification
+
+    Run Keyword If    ${Notification_TypeID} == 2 and ${NoticeID[0][0]} == 1
+    ...    log    E&O Yellow Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${NoticeID[0][0]} == 2
+    ...    log    E&O Yellow Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${NoticeID[0][0]} == 4
+    ...    log    Due Date should be updated for saved agents with NoticeID = ${NoticeID[0][0]}
+    ...    ELSE IF    ${Notification_TypeID} == 2
+    ...    log    This E&O LifeLine task with NoticeID = ${NoticeID[0][0]} should NOT be in Yellow Notification
 
     Run Keyword If    ${Notification_TypeID} == 3
     ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'

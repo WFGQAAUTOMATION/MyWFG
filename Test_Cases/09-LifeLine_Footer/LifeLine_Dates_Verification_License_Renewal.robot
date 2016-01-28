@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine License Renewal Expiration dates
 ...
-...               This test will log into MyWFG LifeLine License Renewal notification
+...               This test will log into MyWFG and verify that MyWFG LifeLine License Renewal notification
 ...               is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
@@ -18,9 +18,9 @@ Suite Teardown     Close Browser
 *** Variables ***
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        5
-${Notification_TypeID}    2
-${STATE}                  ON
+${Notification_ID}        4
+${Notification_TypeID}    1
+${STATE}                  FL
 
 *** Test Cases ***
 

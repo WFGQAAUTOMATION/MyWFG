@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation    A test suite to verify that MyWFG LifeLine records are not duplictated
+...
 ...               This test will connect to database and verify that MywFG LifeLine
 ...               records are not duplicated
 Metadata          Version   0.1

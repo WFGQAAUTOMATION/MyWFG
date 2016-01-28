@@ -6,17 +6,16 @@ Documentation     A test suite to change the associate profile
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Resources/TestingLibrary.py
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 Suite Teardown     Close Browser
 
 *** Variables ***
 
-${BUS_PHILOSOPHY}     NEW GENERATRION
-${PREV_CAREER}        DANTIST
-${LANGUAGE}           RUSSIAN
+${BUS_PHILOSOPHY}     MY BUSINESS PHILOSOPHY
+${PREV_CAREER}        DOCTOR MD
+${LANGUAGE}           SPANISH
 ${WORK_TIME}          Full-Time
 ${OPEN_TO_MAP}        Yes
 ${DISPLAY_BUS_STAT}   Yes
@@ -91,6 +90,7 @@ Click Save Changes Button
 
 Verify Associate Contact Change
     Find "${VERIFY_TEXT}" On Webpage
+    sleep    3s
 
 
 *** Keywords ***
