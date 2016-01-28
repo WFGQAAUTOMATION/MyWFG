@@ -8,10 +8,6 @@ Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
 Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
-<<<<<<< HEAD
-
-=======
->>>>>>> 154670324ceed0c3fea2dbb48db6e443d7ae342a
 Suite Teardown     Close Browser
 
 *** Variables ***
@@ -26,6 +22,7 @@ Login to MyWFG.com
 
 Go to Profile My Preference Page
     Hover Over "Profile"
+    Verify A Link Named "My Preferences" Is On The Page
     Click Menu Item "My Preferences"
     sleep  5s
 
