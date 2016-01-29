@@ -25,11 +25,12 @@ Login to MyWFG.com
     Given browser is opened to login page
     When user "${USER ID}" logs in with password "${PASSWORD}"
     Then Home Page Should Be Open
-    sleep   3s
+    Verify A Link Named "Profile" Is On The Page
 
 Go to Profile My Preference Page
-    Hover Over "Profile"
     sleep   3s
+    Hover Over "Profile"
+    Verify A Link Named "My Preferences" Is On The Page
     Click Menu Item "My Preferences"
     sleep   3s
 
