@@ -19,7 +19,7 @@ Suite Teardown     Close Browser
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${Notification_ID}        7
-${Notification_TypeID}    2
+${Notification_TypeID}    1
 ${STATE}                  NJ
 
 *** Test Cases ***
