@@ -1,6 +1,11 @@
-/.idea/vcs.xml
-/.idea/workspace.xml
-/.idea
+*.png
+*report.html
+*log.html
+*output.xml
+*.idea
 /.hg
+/.idea
 /Test_Cases/01-Login/.idea
 /Test_Cases/02-Homepage/.idea
+*.gitignore
+*.pyc
