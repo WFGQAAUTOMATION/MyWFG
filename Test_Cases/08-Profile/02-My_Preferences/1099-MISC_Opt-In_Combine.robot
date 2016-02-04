@@ -23,6 +23,7 @@ Login to MyWFG.com
 
 Go to Profile My Preference Page
     Hover Over "Profile"
+    wait until element is visible   xpath=//a[(text()='My Preferences')]    30s
     Click Menu Item "My Preferences"
     sleep  5s
 
