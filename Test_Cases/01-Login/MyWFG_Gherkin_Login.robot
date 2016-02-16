@@ -16,12 +16,6 @@ Valid Login
     Then Hover Over "Profile"
     And Select Menu Item "My Profile"
 
-Select Frame
-    click button named "Upload Photo"
-#    select frame where id is "agentImageUploaderContainer"
-#    select checkbox where id is "chkAgree"
-    click button named "Cancel"
-
 Valid Login - Click Menu Item
     Given browser is opened to login page
     When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
