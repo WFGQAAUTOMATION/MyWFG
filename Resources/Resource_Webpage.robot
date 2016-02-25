@@ -29,7 +29,7 @@ Click Menu Item "${menuitem}"
 #*****************************************************
 
 Navigate to webpage
-    click link  ${LinkName}
+    click link   ${LinkName}
 
 #*****************************************************
 
@@ -63,6 +63,9 @@ Scroll Page to Location Where Y equals "${y_location}"
     Execute JavaScript    window.scrollTo(0,${y_location})
 
 #********************************************************************
+Click Menu Item Named
+    Execute JavaScript    JavaScriptExecutor js = (JavaScriptExecutor) driver;WebElement hiddenElement = js.executeScript("return document.getElementBy.id("<your element id>"));hiddenElement.click();
+
 
 #*****************************************************
 ######   INTERACT ELEMENTS    ######
