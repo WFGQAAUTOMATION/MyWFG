@@ -17,7 +17,8 @@ Login to MyWFG.com
 Navigate to Vision and Mission
     Then Hover Over "Home"
     Then Wait "3" Seconds
-    Then Select Menu Item "WFG Vision and Mission"
+    Then click link     xpath=//a[contains(@href, '/vision-and-mission')]
+#    Then Select Menu Item "WFG Vision and Mission"
 
 Find Text On Webpage
     And Find "WFG Vision" On Webpage

@@ -14,11 +14,12 @@ Login to MyWFG.com
     When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
-#will it merge??
+
 Navigate to Home Office Leadership
     Then Hover Over "Home"
     Then Wait "3" Seconds
-    And Select Menu Item "Home Office Executive Leadership"
+    Then click link     xpath=//a[contains(@href, '/wfg-home-office-executive-leadership')]
+#    And Select Menu Item "Home Office Executive Leadership"
 
 Check Leadership Names
     And Find "Joe DiPaola" On Webpage
