@@ -16,7 +16,7 @@ Login to MyWFG.com
 
 Navigate to Licensed Home
     Then Hover Over "Home"
-    Then Wait "3" Seconds
+    Then Wait "6" Seconds
     Then Select Menu Item "Licensed Home"
 
 Find Text On Webpage
