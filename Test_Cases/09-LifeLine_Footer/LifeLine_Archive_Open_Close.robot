@@ -8,14 +8,14 @@ Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
 Library           ../../Resources/Testing_Library.py
 Library           Selenium2Library
-Library           ../../Resources/Database_Library.py
+Library           DatabaseLibrary
 
 Suite Teardown     Close Browser
 
 *** Variables ***
 ${DATABASE}     WFGOnline
 ${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
-${AGENT_ID}     919824
+${AGENT_ID}     982036
 ${Archive_Question}    ArchieveQuestionMark
 
 *** Test Cases ***
@@ -27,29 +27,35 @@ Select Agent and Login to MyWFG.com
     Given browser is opened to login page
     When user "${Results[0][0]}" logs in with password "${PASSWORD}"
     Then Home Page Should Be Open
-    sleep   3s
+    sleep   5s
 
 Click LifeLine button
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
-    sleep    2s
+    sleep    5s
 
 Click Archive Question Image
     Click image    xpath=//img[@alt='explanation']
+	sleep    5s
 
 Close Question Image
     Click image    xpath= //input[@id='close']
+	sleep    5s
 
 Click Archive Question Image using id
     Click image using img where ID is "${Archive_Question}"
+	sleep    5s
 
 Close Question Image Again
-     click image    xpath= //input[@id='close']
+    click image    xpath= //input[@id='close']
+	sleep    5s
 
 Click Archive link
-     click link     xpath=//a[@id='linkArchive']
+    click link     xpath=//a[@id='linkArchive']
+	sleep    5s
 
 Click Back link and Close Archive page
     click link     xpath=//a[@id='linkBack']
+	sleep    5s
 
 Log Out of MyWFG
     Log Out of MyWFG

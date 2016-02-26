@@ -24,8 +24,8 @@ ${STATE}
 
 *** Test Cases ***
 
-Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent and Login to MyWFG.com
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
@@ -53,8 +53,8 @@ Select Agent and Login to MyWFG.com
 Log Out of MyWFG
     Log Out of MyWFG
 
-Disconnect from SQL Server
-    Disconnect From Database
+#Disconnect from SQL Server
+#    Disconnect From Database
 
 *** Keywords ***
 
