@@ -16,6 +16,7 @@ Login to MyWFG.com
 
 Navigate to Vision and Mission
     Then Hover Over "Home"
+    Then Wait "3" Seconds
     Then Select Menu Item "WFG Vision and Mission"
 
 Find Text On Webpage

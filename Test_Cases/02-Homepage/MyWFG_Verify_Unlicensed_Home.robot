@@ -16,6 +16,7 @@ Login to MyWFG.com
 
 Navigate to Licensed Home
     Then Hover Over "Home"
+    Then Wait "3" Seconds
     Then Select Menu Item "Unlicensed Home"
 
 Find Text On Webpage

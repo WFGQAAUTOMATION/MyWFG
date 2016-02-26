@@ -17,6 +17,7 @@ Login to MyWFG.com
 
 Navigate to Home Office Leadership
     Then Hover Over "Home"
+    Then Wait "3" Seconds
     And Select Menu Item "Home Office Executive Leadership"
 
 Check Leadership Names
