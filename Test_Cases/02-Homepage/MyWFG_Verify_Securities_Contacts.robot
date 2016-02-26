@@ -16,6 +16,7 @@ Login to MyWFG.com
 
 Navigate to Securities Home Office Contacts
     Then Hover Over "Home"
+    Then Wait "3" Seconds
     Then Select Menu Item "Securities Home Office Contacts"
 
 Find Text On Webpage

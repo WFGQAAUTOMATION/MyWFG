@@ -17,6 +17,7 @@ Login to MyWFG.com
 
 Navigate to Home Office Contacts
     Then Hover Over "Home"
+    Then Wait "3" Seconds
     And Select Menu Item "Home Office Contacts"
 
 Check Info on Home Office Contacts page

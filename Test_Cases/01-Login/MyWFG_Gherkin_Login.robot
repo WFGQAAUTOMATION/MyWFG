@@ -14,6 +14,7 @@ Valid Login
     When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Profile"
+    Then Wait "3" Seconds
     And Select Menu Item "My Profile"
 
 Valid Login - Click Menu Item
@@ -21,6 +22,7 @@ Valid Login - Click Menu Item
     When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Resources"
+    Then Wait "3" Seconds
     And Select Menu Item "Media Center"
 
 Invalid Login - Bad Password

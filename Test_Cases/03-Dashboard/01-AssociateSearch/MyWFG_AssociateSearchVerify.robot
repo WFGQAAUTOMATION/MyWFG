@@ -17,6 +17,7 @@ Login to MyWFG.com
 Go to Associate Search Page
     And Verify A Link Named "Home" Is On The Page
     Then Hover Over "Dashboard"
+    Then Wait "3" Seconds
     Then Select Menu Item "Associate Search"
 
 Verify Associate Search Page is Opened
