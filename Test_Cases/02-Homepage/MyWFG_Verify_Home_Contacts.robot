@@ -15,11 +15,12 @@ Login to MyWFG.com
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
 
-Navigate to Home Office Contacts
-    Then Hover Over "Home"
+Hover over Home
+	Then Hover Over "Home"
     Then Wait "3" Seconds
-    Then click link     xpath=//a[contains(@href, '/home-office-contacts')]
-#    And Select Menu Item "Home Office Contacts"
+
+Click Home Office Contacts
+    Then Go To  https://m-www.mywfg.com/home-office-contacts
 
 Check Info on Home Office Contacts page
     And Find "Home Office Contacts" On Webpage
