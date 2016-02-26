@@ -14,11 +14,12 @@ Login to MyWFG.com
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
 
-Navigate to Licensed Home
-    Then Hover Over "Home"
+Hover over Home
+	Then Hover Over "Home"
     Then Wait "3" Seconds
-    Then click link     xpath=//a[contains(@href, '/new-unlicensed-home')]
-#    Then Select Menu Item "Unlicensed Home"
+
+Click Licensed Home
+    Then Go To  https://m-www.mywfg.com/new-unlicensed-home
 
 Find Text On Webpage
     And Find "WFG Fast Start Manual" On Webpage
