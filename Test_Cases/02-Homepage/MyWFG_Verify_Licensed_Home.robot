@@ -14,11 +14,12 @@ Login to MyWFG.com
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
 
-Navigate to Licensed Home
-    Then Hover Over "Home"
-    Then Wait "6" Seconds
-    Then click link     xpath=//a[contains(@href, '/new-licensed-home')]
-#    Then Select Menu Item "Licensed Home"
+Hover over Home
+	Then Hover Over "Home"
+    Then Wait "3" Seconds
+
+Click Licensed Home
+    Then Go To  https://m-www.mywfg.com/new-licensed-home
 
 Find Text On Webpage
     And Find "AppVantage" On Webpage
