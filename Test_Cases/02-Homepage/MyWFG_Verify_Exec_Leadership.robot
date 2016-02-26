@@ -18,7 +18,8 @@ Login to MyWFG.com
 Navigate to Home Office Leadership
     Then Hover Over "Home"
     Then Wait "3" Seconds
-    And Select Menu Item "Home Office Executive Leadership"
+    Then click link     xpath=//a[contains(@href, '/wfg-home-office-executive-leadership')]
+#    And Select Menu Item "Home Office Executive Leadership"
 
 Check Leadership Names
     And Find "Joe DiPaola" On Webpage
