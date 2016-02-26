@@ -17,7 +17,8 @@ Login to MyWFG.com
 Navigate to Securities Home Office Contacts
     Then Hover Over "Home"
     Then Wait "6" Seconds
-    Then Select Menu Item "Securities Home Office Contacts"
+    Then click link     xpath=//a[contains(@href, '/securitieshomeofficecontacts')]
+#    Then Select Menu Item "Securities Home Office Contacts"
 
 Find Text On Webpage
     And Find "WFG Securities of Canada" On Webpage
