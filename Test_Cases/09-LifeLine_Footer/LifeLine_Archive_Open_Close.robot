@@ -20,7 +20,7 @@ ${Archive_Question}    ArchieveQuestionMark
 
 *** Test Cases ***
 Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}',user='US\tcoffey', password='Scout765', database='${DATABASE}'
+    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}',   database='${DATABASE}'
 
 Select Agent and Login to MyWFG.com
     ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
