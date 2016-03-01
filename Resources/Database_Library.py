@@ -25,7 +25,7 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
     date_due_full = "01/01/1900"
     state = state_code
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     # LIKE doesn't work in Python, so Texas with Licence# should not be accepted. See WFGLLNotifications table.
     if state_code == "TX" and life_line_id == "4":

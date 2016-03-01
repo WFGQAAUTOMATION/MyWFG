@@ -25,7 +25,7 @@ ${PASSWORD}          81u3$ky
 #*****************************************************
 
 Open Browser To Login Page
-    Open Browser    ${LOGIN URL}    ${BROWSER}
+    Open Browser    ${LOGIN URL}    ${BROWSER}      None  http://161.179.241.85:4444/wd/hub
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open

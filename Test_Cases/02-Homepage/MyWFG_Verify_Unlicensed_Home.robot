@@ -18,7 +18,7 @@ Hover over Home
 	Then Hover Over "Home"
     Then Wait "3" Seconds
 
-Click Licensed Home
+Click Unlicensed Home
     Then Go To  https://m-www.mywfg.com/new-unlicensed-home
 
 Find Text On Webpage
