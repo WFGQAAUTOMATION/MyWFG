@@ -5,7 +5,7 @@ import pyodbc
 
 def count_total_notifications():
     result = ""
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     cursor.execute("SELECT Count(NotificationID) AS NotificationID  FROM wfgLU_Notification")
     rows = cursor.fetchall()
@@ -92,7 +92,7 @@ def get_lifeline_dismiss_notification_agent(life_line_id):
     agent_code_no = ""
     agent_notification_id = 0
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
 
     cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentNotificationID, \
@@ -114,7 +114,7 @@ def get_lifeline_dismiss_notification_agent(life_line_id):
 
 def get_lifeline_explanation_agent_id(notification_id):
     agent_code_no = ""
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
 
     cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentID, ll.AgentNotificationID, ll.NotificationID \
@@ -135,7 +135,7 @@ def get_lifeline_explanation_agent_id(notification_id):
 def get_lifeline_explanation_info(agent_code_no, notif_id, state_code):
     result = ""
     state = ""
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     if len(state_code) == 0:
         cursor.execute("SELECT ll.* FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
@@ -169,7 +169,7 @@ def get_lifeline_explanation_info(agent_code_no, notif_id, state_code):
 
 def get_lifeline_html_id(agent_code_no, notif_id, notif_type_id, state_code):
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     if len(state_code) == 0:
         cursor.execute("SELECT Top 1 a.AgentCodeNumber, ll.AgentID, ll.NotificationID, ll.NotificationSubType, \
@@ -192,7 +192,7 @@ def get_lifeline_html_id(agent_code_no, notif_id, notif_type_id, state_code):
 
 def get_state_description(state_code):
     state = ""
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     cursor.execute("SELECT Description FROM [WFGOnline].[dbo].[LU_State_Code] WHERE State_Code = ?", state_code)
     rows = cursor.fetchall()
@@ -209,7 +209,7 @@ def lifeline_green_notifications(icount):
     result = ""
     x = " "
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     for iparam in range(icount+1):
         cursor.execute("SELECT ll.NotificationID, n.[Description], ll.DateDue, a.AgentCodeNumber,  \
@@ -247,7 +247,7 @@ def lifeline_old_dates(icount, ll_2, ll_3, ll_9, ll_10):
     result = ""
     x = " "
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     for iparam in range(icount+1):
         cursor.execute("SELECT ll.NotificationID, n.[Description], ll.DateDue, a.AgentCodeNumber,   \
@@ -285,7 +285,7 @@ def lifeline_old_dates_archived(icount, ll_2, ll_3, ll_9, ll_10):
     result = ""
     x = " "
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     for iparam in range(icount+1):
         cursor.execute("SELECT llh.NotificationID, n.[Description], llh.DateDue, a.AgentCodeNumber, llh.AgentID, \
@@ -324,7 +324,7 @@ def lifeline_pcodes(notif_id, p_code1, p_code2, p_code3, p_code4, p_code5, p_cod
     result = ""
     x = " "
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     cursor.execute("SELECT ll.NotificationID, n.[Description], ll.DateDue, a.AgentCodeNumber, ll.NotificationSubType, \
         ll.NotificationTypeID, ll.Modified, ll.AgentID \
@@ -362,7 +362,7 @@ def lifeline_records_duplications(icount):
     result = ""
     x = " "
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
     for iparam in range(icount+1):
         cursor.execute("SELECT ll.NotificationID, n.[Description], a.AgentCodeNumber, \
@@ -400,7 +400,7 @@ def lifeline_uil_annuity_yellow_notifications(notif_id1, notif_id2):
     result = ""
     x = " "
 
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;trusted_connection=true")
     cursor = conn.cursor()
 
     cursor.execute("SELECT NotificationID, Description FROM wfgLU_Notification \
@@ -436,7 +436,7 @@ def select_agent_id_info(agent_id1, agent_id2):
     print "First agent - " + agent_id1
     print "Second agent - " + agent_id2
     # conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;UID=;PWD=")
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGCompass")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGCompass;trusted_connection=true")
     cursor = conn.cursor()
     cursor.execute("SELECT AgentCodeNumber,FirstName,LastName FROM agAgent WHERE AgentID IN(?,?)", agent_id1, agent_id2)
     rows = cursor.fetchall()
@@ -453,7 +453,7 @@ def select_agent_id_info(agent_id1, agent_id2):
 def select_agent_id(agent_id):
     result = ""
     print "Selected agent - " + agent_id
-    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGCompass")
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGCompass;trusted_connection=true")
     cursor = conn.cursor()
     cursor.execute("SELECT AgentCodeNumber,FirstName,LastName FROM agAgent WHERE AgentID = ?", agent_id)
     rows = cursor.fetchall()
