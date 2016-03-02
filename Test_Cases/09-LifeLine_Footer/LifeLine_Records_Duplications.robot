@@ -13,9 +13,9 @@ Library           DatabaseLibrary
 #Library           ExcelLibrary
 
 *** Variables ***
-${DATABASE}       WFGOnline
-${HOSTNAME}       CRDBCOMP03\\CRDBWFGOMOD
-${AGENT_ID}
+#${DATABASE}       WFGOnline
+#${HOSTNAME}       CRDBCOMP03\\CRDBWFGOMOD
+#${AGENT_ID}
 ${Current_DIR}    O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Test_Cases/09-LifeLine_Footer
 ${Testing_DIR}    C:/PERSONAL/SELENIUM/TESTING_FOLDER
 

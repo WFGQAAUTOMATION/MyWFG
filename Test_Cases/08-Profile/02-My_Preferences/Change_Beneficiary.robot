@@ -29,7 +29,7 @@ ${VERIFY_TEXT}       beneficiary information was sucessfully changed
 
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${USER ID}" logs in with password "${PASSWORD}"
+    When user "${PREF_USER_ID}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     sleep   3s
 

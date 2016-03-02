@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine AMLCourse Expiration dates for Canada
+Documentation    A test suite to verify MyWFG LifeLine AMLCourse Expiration dates for US
 ...
 ...               This test will log into MyWFG and verify that MyWFG LifeLine AML Course notification
-...               for Canada is displayed according to expiration dates
+...               for US is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -16,21 +16,21 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}               WFGOnline
-${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        10
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+${Notification_ID}        9
 ${Notification_TypeID}    1
 ${STATE}
 
 *** Test Cases ***
 
-Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent and Login to MyWFG.com
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
-    User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
+    User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
     sleep   2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
@@ -53,7 +53,7 @@ Select Agent and Login to MyWFG.com
     ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
     log    Days difference is ${Dates_Diff}
 
-    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} >= 10
+    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
     ...    log    AML Course Red notification was displayed too early
     ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 0 and ${DateDue_Length} < 12
     ...    log    '(Expired)' is missing in expired AML Course Red notification Due Date
@@ -62,9 +62,11 @@ Select Agent and Login to MyWFG.com
     ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} < 10
     ...    log    AML Course Red notification test Passed
 
-    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} < 10
+    Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} > 60
+    ...    log    AML Course Yellow notification was displayed too early
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 30
     ...    log    AML Course Yellow notification should be a Red notification
-    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} >= 10
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 30
     ...    log    AML Course Yellow notification test Passed
 
     Run Keyword If    ${Notification_TypeID} == 3
@@ -73,8 +75,7 @@ Select Agent and Login to MyWFG.com
 Log Out of MyWFG
     Log Out of MyWFG
 
-Disconnect from SQL Server
-    Disconnect From Database
+#Disconnect from SQL Server
+#    Disconnect From Database
 
 *** Keywords ***
-

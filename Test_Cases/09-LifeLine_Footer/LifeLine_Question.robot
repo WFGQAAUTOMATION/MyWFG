@@ -26,7 +26,7 @@ Connect to Database
 Select Agent and Login to MyWFG.com
     ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
     Given browser is opened to login page
-    When user "${Results[0][0]}" logs in with password "${PASSWORD}"
+    When user "${Results[0][0]}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     sleep   3s
 

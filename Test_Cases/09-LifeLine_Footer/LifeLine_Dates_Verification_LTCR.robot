@@ -16,11 +16,11 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}               WFGOnline
-${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${Notification_ID}        13
 ${Notification_TypeID}    2
-${STATE}                  GA
+${LL_STATE}                  GA
 
 *** Test Cases ***
 
@@ -28,7 +28,7 @@ Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent and Login to MyWFG.com
-    ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+    ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${LL_STATE}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
     Home Page for any Agent Should Be Open

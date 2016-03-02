@@ -11,7 +11,7 @@ Test Teardown
 *** Test Cases ***
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
 

@@ -9,8 +9,8 @@ Test Teardown     Close Browser
 *** Test Cases ***
 Valid Login
     Open Browser To Login Page
-    input username  ${VALID USER}
-    input password  ${VALID PASSWORD}
+    input username  ${VALID_USER}
+    input password  ${VALID_PASSWORD}
     Submit Credentials
     Home Page Should Be Open
 
