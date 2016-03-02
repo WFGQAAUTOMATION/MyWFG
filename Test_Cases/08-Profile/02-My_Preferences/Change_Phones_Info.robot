@@ -27,8 +27,7 @@ Login to MyWFG.com
 
 Go to Profile My Preference Page
     Hover Over "Profile"
-    Then Wait "3" Seconds
-    Verify A Link Named "My Preferences" Is On The Page
+    Wait "3" Seconds
     Click Menu Item "My Preferences"
     sleep   3s
 
