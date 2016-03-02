@@ -18,7 +18,7 @@ ${DELAY}             0
 #${WELCOME_URL}       https://${SERVER}/
 #${ERROR_URL}         https://${SERVER}/Users/Account/LogOn?ReturnUrl=%2F
 ${linkname}          REPORTS
-${PREF_USER_ID}           3330T
+#${PREF_USER_ID}           3330T
 
 *** Keywords ***
 

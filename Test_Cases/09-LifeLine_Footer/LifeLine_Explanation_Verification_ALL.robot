@@ -21,7 +21,7 @@ Suite Teardown    Close Browser and Disconnect from SQL Server
 *** Variables ***
 #${DATABASE}               WFGOnline
 #${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-#${STATE}
+${STATE}
 
 *** Test Cases ***                      NotificationID
 US E&O/TFA Balance Due                      1
@@ -64,7 +64,7 @@ Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Inf
     Then Home Page for any Agent Should Be Open
     sleep    2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
-    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${Agent_CodeNo}    ${Notification_ID}    ${LL_STATE}
+    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${Agent_CodeNo}    ${Notification_ID}    ${STATE}
     #********* Click Question image next to Life Line task   ***********
     Click image using img where ID is "QuestionMark-${html_ID}"
     Compare Life Line Explanation Messages    ${Notification_ID}

@@ -22,15 +22,15 @@ Suite Teardown     Close Browser
 #${AGENT_ID}              1032171
 ${Notification_ID}        21
 ${Notification_TypeID}    1
-#${STATE}
+${STATE}
 
 *** Test Cases ***
 
 #Connect to Database
 #    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
-Select Agent and Login to MyWFG.com
-    ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${LL_STATE}
+Select Agent and Login to MyWFG.com and Check LifeLine
+    ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open

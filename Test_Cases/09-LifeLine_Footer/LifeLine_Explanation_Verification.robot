@@ -18,7 +18,7 @@ Suite Teardown     Close Browser
 #${DATABASE}                 WFGOnline
 #${HOSTNAME}                 CRDBCOMP03\\CRDBWFGOMOD
 ${Notification_ID}          19
-#${STATE}
+${STATE}
 
 *** Test Cases ***
 
@@ -33,7 +33,7 @@ Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Inf
     Then Home Page for any Agent Should Be Open
     sleep   3s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
-    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${Agent_CodeNo}    ${Notification_ID}    ${LL_STATE}
+    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${Agent_CodeNo}    ${Notification_ID}    ${STATE}
     #********* Click Question image next to Life Line task   ***********
     Click image using img where ID is "QuestionMark-${html_ID}"
     sleep    2
