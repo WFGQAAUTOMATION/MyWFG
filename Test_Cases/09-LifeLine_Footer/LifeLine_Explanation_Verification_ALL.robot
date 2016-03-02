@@ -54,7 +54,7 @@ CA E&O Balance Due                          27
 
 *** Keywords ***
 Connect to SQL Server and Open Browser
-     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
      Open Browser To Login Page
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information

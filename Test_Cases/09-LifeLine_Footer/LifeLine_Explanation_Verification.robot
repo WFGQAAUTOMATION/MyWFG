@@ -22,8 +22,8 @@ ${STATE}
 
 *** Test Cases ***
 
-#Connect to Database
-#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+Connect to Database
+    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
 
@@ -60,8 +60,8 @@ Close Explanation message
 Log Out of MyWFG
     Log Out of MyWFG
 
-#Disconnect from SQL Server
-#    Disconnect From Database
+Disconnect from SQL Server
+    Disconnect From Database
 
 *** Keywords ***
 

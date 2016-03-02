@@ -24,12 +24,13 @@ ${STATE}
 
 *** Test Cases ***
 
-#Connect to Database
-#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+Connect to Database
+    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
 Select Agent and Login to MyWFG.com and Check LifeLine
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
+    Log     ${Agent_Info}
     User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
     sleep   2s
@@ -39,6 +40,7 @@ Select Agent and Login to MyWFG.com and Check LifeLine
     sleep    2s
     Click image where ID is "close"
 #   This is for E&O dates verifications only
+	Log     ${Agent_Info}
     ${NoticeID}    query    SELECT Top 1 NoticeID FROM [WFGWorkFlow].[dbo].[Agent_EandO_Collections] WHERE AgentID = '${Agent_Info[0]}' ORDER BY OpenDate Desc;
 
     ${Webpage_DateDue_Str}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
@@ -83,8 +85,8 @@ Select Agent and Login to MyWFG.com and Check LifeLine
 Log Out of MyWFG
     Log Out of MyWFG
 
-#Disconnect from SQL Server
-#    Disconnect From Database
+Disconnect from SQL Server
+    Disconnect From Database
 
 *** Keywords ***
 
