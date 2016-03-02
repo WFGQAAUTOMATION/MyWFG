@@ -8,24 +8,26 @@ Library           Selenium2Library
 Library           Testing_Library.py
 
 *** Variables ***
-${SERVER}            m-www.mywfg.com
+#${SERVER}            m-www.mywfg.com
 ${BROWSER}           gc
 ${DELAY}             0
-${VALID USER}        1708W
-${VALID PASSWORD}    81u3$ky
-${LOGIN URL}         https://${SERVER}/Users/Account/AccessDenied?ReturnUrl=%2f
+#${VALID USER}        1708W
+#${VALID PASSWORD}    81u3$ky
+#${LOGIN_URL}         https://${SERVER}/Users/Account/AccessDenied?ReturnUrl=%2f
 #${LOGIN URL}         https://${SERVER}
-${WELCOME URL}       https://${SERVER}/
-${ERROR URL}         https://${SERVER}/Users/Account/LogOn?ReturnUrl=%2F
+#${WELCOME_URL}       https://${SERVER}/
+#${ERROR_URL}         https://${SERVER}/Users/Account/LogOn?ReturnUrl=%2F
 ${linkname}          REPORTS
-${USER ID}           3330T
-${PASSWORD}          81u3$ky
+#${PREF_USER_ID}           3330T
 
 *** Keywords ***
-#*****************************************************
 
 Open Browser To Login Page
+<<<<<<< HEAD
     Open Browser    ${LOGIN URL}    ${BROWSER}      None  http://161.179.241.85:4444/wd/hub
+=======
+    Open Browser    ${LOGIN_URL}    ${BROWSER}  None  http://161.179.241.85:4444/wd/hub
+>>>>>>> master
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open
@@ -33,12 +35,12 @@ Open Browser To Login Page
 #*****************************************************
 
 Login Page Should Be Open
-    Title Should Be    MyWFG - Log In
+    Title Should Be    ${PAGE_TITLE}
 
 #*****************************************************
 
 Go To Login Page
-    Go To    ${LOGIN URL}
+    Go To    ${LOGIN_URL}
     Login Page Should Be Open
 
 #*****************************************************
@@ -62,14 +64,14 @@ Submit Credentials
 
 Home Page Should Be Open
     sleep    3
-    Location Should Be    ${WELCOME URL}
+    Location Should Be    ${WELCOME_URL}
     title should be     MyWFG
 
 #*****************************************************
 # This keyword includes new agents
 Home Page for any Agent Should Be Open
     sleep    3
-    Location Should Contain    ${WELCOME URL}
+    Location Should Contain    ${WELCOME_URL}
     Page Should Contain     MyWFG
 
 #*****************************************************
@@ -87,7 +89,7 @@ User "${username}" logs in with password "${password}"
 #*****************************************************
 
 Login Should Have Failed
-    Location Should Be    ${ERROR URL}
+    Location Should Be    ${ERROR_URL}
     Title Should Be    MyWFG - Log In
 
 #*****************************************************

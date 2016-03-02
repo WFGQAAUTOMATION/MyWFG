@@ -6,8 +6,7 @@ Documentation    A test suite to add or change the Spouse Info
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Resources/TestingLibrary.py
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 Suite Teardown     Close Browser
@@ -15,22 +14,23 @@ Suite Teardown     Close Browser
 *** Variables ***
 
 ${SPOUSE AGENT NO}
-${SPOUSE FIRST NAME}        LIHN
-${SPOUSE COMMON NAME}       LYNNA
-${SPOUSE LAST NAME}         NGHUYEN
+${SPOUSE FIRST NAME}        SHARMILA
+${SPOUSE COMMON NAME}       MILA
+${SPOUSE LAST NAME}         CHEN
 ${VERIFY TEXT}              spouse information was sucessfully changed
 
 *** Test Cases ***
 
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${USER ID}" logs in with password "${PASSWORD}"
+    When user "${PREF_USER_ID}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
-    sleep   3s
+    Verify A Link Named "Profile" Is On The Page
 
 Go to Profile My Preference Page
-    Hover Over "Profile"
     sleep   3s
+    Hover Over "Profile"
+	Wait "3" Seconds
     Click Menu Item "My Preferences"
     sleep   3s
 

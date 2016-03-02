@@ -16,20 +16,34 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
+<<<<<<< HEAD
 ${DATABASE}     WFGOnline
 ${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
+=======
+#${DATABASE}     WFGOnline
+#${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
+>>>>>>> master
 ${Notification_ID}    4
 ${Dismiss_Index}      3
 ${Dismiss_Task}       Yes
 
 *** Test Cases ***
+<<<<<<< HEAD
 Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+=======
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+>>>>>>> master
 
 Select Agent, Login to MyWFG.com, Check Dismiss Notifications
     ${Agent_Info}    Database_Library.Get_lifeline_dismiss_notification_agent    ${Notification_ID}
     Browser is opened to login page
+<<<<<<< HEAD
     User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
+=======
+    User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
+>>>>>>> master
     Home Page for any Agent Should Be Open
     sleep   3s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
@@ -54,8 +68,13 @@ Log Out of MyWFG
     sleep    1s
     Log Out of MyWFG
 
+<<<<<<< HEAD
 Disconnect from SQL Server
     Disconnect From Database
+=======
+#Disconnect from SQL Server
+#    Disconnect From Database
+>>>>>>> master
 
 *** Keywords ***
 Confirm No for Dismiss

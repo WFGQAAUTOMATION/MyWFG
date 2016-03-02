@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine License Renewal Expiration dates
 ...
-...               This test will log into MyWFG LifeLine License Renewal notification
+...               This test will log into MyWFG and verify that MyWFG LifeLine License Renewal notification
 ...               is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
@@ -16,21 +16,21 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}               WFGOnline
-${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        5
-${Notification_TypeID}    2
-${STATE}                  ON
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+${Notification_ID}        4
+${Notification_TypeID}    1
+${LL_STATE}                  FL
 
 *** Test Cases ***
 
-Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent and Login to MyWFG.com
-    ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+    ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${LL_STATE}
     Browser is opened to login page
-    User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
+    User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
     sleep   2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
@@ -75,8 +75,8 @@ Select Agent and Login to MyWFG.com
 Log Out of MyWFG
     Log Out of MyWFG
 
-Disconnect from SQL Server
-    Disconnect From Database
+#Disconnect from SQL Server
+#    Disconnect From Database
 
 *** Keywords ***
 

@@ -6,20 +6,19 @@ Documentation    A test suite to set up or change the agent's designated benefic
 Metadata          Version   0.1
 Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
-Library           O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Resources/TestingLibrary.py
-Library           ../../../Resources/TestingLibrary.py
+Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 
 Suite Teardown     Close Browser
 
 *** Variables ***
 
-${FIRST NAME}        ELLA
+${FIRST NAME}        Ella
 ${LAST NAME}         NGUEN
 ${PHONE}             7701234567
 ${RELATIONSHIP}      Wife
-${ADDRESS 1}         123 Clearbrooke Court
-${ADDRESS 2}         APT. V5
+${ADDRESS 1}         1234 Clearbrooke Way
+${ADDRESS 2}         APT. A5
 ${COUNTRY}           US
 ${STATE}             GA
 ${CITY}              DULUTH
@@ -30,13 +29,13 @@ ${VERIFY_TEXT}       beneficiary information was sucessfully changed
 
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${USER ID}" logs in with password "${PASSWORD}"
+    When user "${PREF_USER_ID}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     sleep   3s
 
 Go to Profile My Preference Page
     Hover Over "Profile"
-    sleep   3s
+    Wait "3" Seconds
     Click Menu Item "My Preferences"
     sleep   3s
 

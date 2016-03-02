@@ -9,9 +9,10 @@ Resource          ../../Resources/Resource_Webpage.robot
 Test Teardown     Close Browser
 
 *** Test Cases ***
+
 Valid Login
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Profile"
     Then Wait "3" Seconds
@@ -19,7 +20,7 @@ Valid Login
 
 Valid Login - Click Menu Item
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Resources"
     Then Wait "3" Seconds
@@ -27,12 +28,12 @@ Valid Login - Click Menu Item
 
 Invalid Login - Bad Password
     Given Browser is opened to login page
-    When User "${VALID USER}" logs in with password "none"
+    When User "${VALID_USER}" logs in with password "none"
     Then Login Should Have Failed
 
 Invalid Login - Bad Username
     Given Browser is opened to login page
-    When User "invalid" logs in with password "${VALID PASSWORD}"
+    When User "invalid" logs in with password "${VALID_PASSWORD}"
     Then Login Should Have Failed
 
 *** Keywords ***
@@ -45,6 +46,11 @@ User "${username}" logs in with password "${password}"
     Submit credentials
 
 Login Should Have Failed
+<<<<<<< HEAD
     Location Should Be    ${ERROR URL}
     Title Should Be       MyWFG - Log In
+=======
+    Location Should Be    ${ERROR_URL}
+    Title Should Be       ${PAGE_TITLE}
+>>>>>>> master
 

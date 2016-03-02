@@ -18,13 +18,17 @@ Suite Teardown     Close Browser
 
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${USER ID}" logs in with password "${PASSWORD}"
+    When user "${PREF_USER_ID}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     sleep   4s
 
 Go to Profile My Preference Page
     Hover Over "Profile"
+<<<<<<< HEAD
     Then Wait "3" Seconds
+=======
+    Wait "3" Seconds
+>>>>>>> master
     Click Menu Item "My Preferences"
     sleep   3s
 
@@ -39,7 +43,6 @@ Click Close Disclosure button
    Click element    xpath=//span[@class="ui-button-text"][contains(text(),'Close')]
 
 #************************************************************************************
-
 Run Opt In
     ${passed} =     run keyword and return status    Click button named "Opt In"
     ${button_option} =    check_opt_in_option    ${passed}

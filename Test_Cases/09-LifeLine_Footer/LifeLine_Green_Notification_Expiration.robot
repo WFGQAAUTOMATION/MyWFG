@@ -1,5 +1,6 @@
 *** Settings ***
 Documentation     A test suite to verify MyWFG LifeLine Green Notification Expiration
+...
 ...               The purpose of this test is to verify that LifeLine records stay in
 ...               Green Notification section for 7 days and dismissed after that
 Metadata          Version   0.1

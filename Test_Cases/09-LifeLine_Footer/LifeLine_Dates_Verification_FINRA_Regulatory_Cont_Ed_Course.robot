@@ -1,9 +1,8 @@
 *** Settings ***
 Documentation    A test suite to verify MyWFG LifeLine Finra Regulatory Continuing Education Course Expiration dates
 ...
-...
-...               This test will log into MyWFG LifeLine Finra Regulatory Continuing Education Course
-...               notifications are displayed according to expiration dates
+...               This test will log into MyWFG LifeLine and verify that MyWFG LifeLine Finra Regulatory
+...               Continuing Education Course notifications are displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -17,21 +16,21 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}               WFGOnline
-${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${Notification_ID}        26
 ${Notification_TypeID}    1
 ${STATE}
 
 *** Test Cases ***
 
-Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
-Select Agent and Login to MyWFG.com
+Select Agent and Login to MyWFG.com and Check LifeLine
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
-    User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
+    User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
     sleep   2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
@@ -71,8 +70,8 @@ Select Agent and Login to MyWFG.com
 Log Out of MyWFG
     Log Out of MyWFG
 
-Disconnect from SQL Server
-    Disconnect From Database
+#Disconnect from SQL Server
+#    Disconnect From Database
 
 *** Keywords ***
 

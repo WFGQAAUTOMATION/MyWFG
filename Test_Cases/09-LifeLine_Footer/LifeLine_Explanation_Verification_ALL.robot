@@ -19,8 +19,8 @@ Test Template     Select Agent, Login to MyWFG.com, click LifeLine image and get
 Suite Teardown    Close Browser and Disconnect from SQL Server
 
 *** Variables ***
-${DATABASE}                 WFGOnline
-${HOSTNAME}                 CRDBCOMP03\\CRDBWFGOMOD
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${STATE}
 
 *** Test Cases ***                      NotificationID
@@ -54,14 +54,13 @@ CA E&O Balance Due                          27
 
 *** Keywords ***
 Connect to SQL Server and Open Browser
-    Connect To Database Using Custom Params    pymssql    host='CRDBCOMP03\\CRDBWFGOMOD', database='WFGOnline'
-#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
-    Open Browser To Login Page
+     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
+     Open Browser To Login Page
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
     [Arguments]    ${Notification_ID}
     ${Agent_CodeNo}    Database_Library.Get_LifeLine_Explanation_Agent_ID    ${Notification_ID}
-    User "${Agent_CodeNo}" logs in with password "${PASSWORD}"
+    User "${Agent_CodeNo}" logs in with password "${VALID_PASSWORD}"
     Then Home Page for any Agent Should Be Open
     sleep    2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]

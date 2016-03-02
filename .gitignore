@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.png
 *report.html
 *log.html
@@ -9,3 +10,10 @@
 /Test_Cases/02-Homepage/.idea
 *.gitignore
 *.pyc
+=======
+/.hg/thgstatus
+
+/.hg/dirstate
+/.hg
+./idea
+>>>>>>> master

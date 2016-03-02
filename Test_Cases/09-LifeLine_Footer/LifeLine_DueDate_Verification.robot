@@ -15,21 +15,35 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
+<<<<<<< HEAD
 ${DATABASE}               WFGOnline
 ${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+=======
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+>>>>>>> master
 ${Notification_ID}        4
 ${Notification_TypeID}    1
 ${STATE}                  CA
 
 *** Test Cases ***
 
+<<<<<<< HEAD
 Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+=======
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+>>>>>>> master
 
 Select Agent and Login to MyWFG.com
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
+<<<<<<< HEAD
     User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
+=======
+    User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
+>>>>>>> master
     Home Page for any Agent Should Be Open
     sleep   2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
@@ -56,8 +70,13 @@ Select Agent and Login to MyWFG.com
 Log Out of MyWFG
     Log Out of MyWFG
 
+<<<<<<< HEAD
 Disconnect from SQL Server
     Disconnect From Database
+=======
+#Disconnect from SQL Server
+#    Disconnect From Database
+>>>>>>> master
 
 *** Keywords ***
 

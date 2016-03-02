@@ -11,7 +11,7 @@ Test Teardown
 *** Test Cases ***
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
 
@@ -24,7 +24,6 @@ Navigate to Home Office Leadership
 Check Leadership Names
     And Find "Joe DiPaola" On Webpage
     And Find "Richard Williams" On Webpage
-    And Find "Paul Mineck" On Webpage
     And Find "Susan Davies" On Webpage
     And Find "Leesa Easley" On Webpage
     And Find "John Joseph" On Webpage
