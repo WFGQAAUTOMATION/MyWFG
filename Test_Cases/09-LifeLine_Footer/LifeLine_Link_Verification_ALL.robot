@@ -12,15 +12,15 @@ Library           Selenium2Library
 Library           DatabaseLibrary
 Library           String
 
-Suite Setup       Open Browser to MyWFG
+Suite Setup       Connect to SQL Server and Open Browser
 Test Setup        Go To Login Page
 Test Template     Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
 #Test Teardown     Log Out of MyWFG
-Suite Teardown    Close MyWFG Browser
+Suite Teardown    Close Browser and Disconnect from SQL Server
 
 *** Variables ***
-#${DATABASE}               WFGOnline
-#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+${DATABASE}               WFGOnline
+${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${STATE}
 
 *** Test Cases ***                      NotificationID
@@ -35,7 +35,7 @@ TFG New Rep Training Course                 8
 AML Course - US                             9
 AML Course - CA                             10
 IUL Course                                  11
-#Annuity Course                              12
+Annuity Course                              12
 Long Term Care Renewal                      13
 TFG New IAR Training Course                 14
 2015 TFA Firm Element Supervisor            15
@@ -53,14 +53,14 @@ FINRA Regulatory Education Course           26
 CA E&O Balance Due                          27
 
 *** Keywords ***
-Open Browser to MyWFG
-     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
+Connect to SQL Server and Open Browser
+     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
      Open Browser To Login Page
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
     [Arguments]    ${Notification_ID}
     ${Agent_CodeNo}    Database_Library.Get_LifeLine_Explanation_Agent_ID    ${Notification_ID}
-    User "${Agent_CodeNo}" logs in with password "${VALID_PASSWORD}"
+    User "${Agent_CodeNo}" logs in with password "${PASSWORD}"
     Home Page for any Agent Should Be Open
 #    ***** Temporarely commented for DEV testing
     sleep    2s
@@ -73,7 +73,7 @@ Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Inf
     Log Out of MyWFG
     sleep    2s
 
-Close MyWFG Browser
+Close Browser and Disconnect from SQL Server
     Close Browser
     Disconnect From Database
 
