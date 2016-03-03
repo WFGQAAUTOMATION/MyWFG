@@ -199,3 +199,8 @@ Elements should be equal ${SQL_Text} ${Webpage_Text}
 
 Verify element parameters
 #//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]
+
+#*********************************************************************************
+
+Zoom out to "${zoomLevel}" (percentage)
+	Execute javascript  document.body.style.zoom="${zoomLevel}"
