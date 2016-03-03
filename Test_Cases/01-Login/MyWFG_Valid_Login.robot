@@ -14,8 +14,3 @@ Valid Login
     Submit Credentials
     Home Page Should Be Open
 
-<<<<<<< HEAD
-    [Teardown]    Close Browser
-
-=======
->>>>>>> master

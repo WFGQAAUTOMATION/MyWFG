@@ -13,17 +13,10 @@ Library           DatabaseLibrary
 Suite Teardown     Close Browser
 
 *** Variables ***
-<<<<<<< HEAD
-${DATABASE}     WFGOnline
-${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
-${AGENT_ID}     982036
-${Archive_Question}    ArchieveQuestionMark
-=======
 #${DATABASE}     WFGOnline
 #${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
 #${AGENT_ID}     982036
 #${Archive_Question}    ArchieveQuestionMark
->>>>>>> master
 
 *** Test Cases ***
 Connect to Database
@@ -33,36 +26,30 @@ Select Agent and Login to MyWFG.com
     ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${LL_AGENT_ID});
     Given browser is opened to login page
     When user "${Results[0][0]}" logs in with password "${VALID_PASSWORD}"
-    Then Home Page Should Be Open
-    sleep   5s
+    Then Home Page for any Agent Should Be Open
+    sleep   3s
 
 Click LifeLine button
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
-    sleep    5s
+    sleep    2s
 
 Click Archive Question Image
     Click image    xpath=//img[@alt='explanation']
-	sleep    5s
 
 Close Question Image
     Click image    xpath= //input[@id='close']
-	sleep    5s
 
 Click Archive Question Image using id
     Click image using img where ID is "${Archive_Question}"
-	sleep    5s
 
 Close Question Image Again
-    click image    xpath= //input[@id='close']
-	sleep    5s
+     click image    xpath= //input[@id='close']
 
 Click Archive link
-    click link     xpath=//a[@id='linkArchive']
-	sleep    5s
+     click link     xpath=//a[@id='linkArchive']
 
 Click Back link and Close Archive page
     click link     xpath=//a[@id='linkBack']
-	sleep    5s
 
 Log Out of MyWFG
     Log Out of MyWFG

@@ -24,11 +24,7 @@ Login to MyWFG.com
 
 Go to Profile My Preference Page
     Hover Over "Profile"
-<<<<<<< HEAD
-    Then Wait "3" Seconds
-=======
     Wait "3" Seconds
->>>>>>> master
     Click Menu Item "My Preferences"
     sleep   3s
 

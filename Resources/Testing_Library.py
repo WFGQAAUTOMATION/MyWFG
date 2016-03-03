@@ -50,6 +50,13 @@ def check_1099_misc_button(button_id, button_style):
         return button_name
 
 
+def replace_extra_spaces(explanation_string):
+    explanation_string = explanation_string.replace("  ", " ")
+    # ***** remove leading and trailing spaces *************
+    explanation_string = explanation_string.strip()
+    return explanation_string
+
+
 def title_should_start_with(expected):
     selenium_lib = BuiltIn().get_library_instance('SeleniumLibrary')
     title = selenium_lib.get_title()

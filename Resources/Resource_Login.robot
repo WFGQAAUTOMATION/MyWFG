@@ -23,11 +23,7 @@ ${linkname}          REPORTS
 *** Keywords ***
 
 Open Browser To Login Page
-<<<<<<< HEAD
-    Open Browser    ${LOGIN URL}    ${BROWSER}      None  http://161.179.241.85:4444/wd/hub
-=======
     Open Browser    ${LOGIN_URL}    ${BROWSER}  None  http://161.179.241.85:4444/wd/hub
->>>>>>> master
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open

@@ -1,8 +1,7 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine TFA Firm Element IAR (TFG) Expiration dates
-...              (former IA Conflicts of Interest)
+Documentation    A test suite to verify MyWFG LifeLine New IAR Training Course Renewal Expiration dates
 ...
-...               This test will log into MyWFG and verify that MyWFG TFA Firm Element IAR (TFG)
+...               This test will log into MyWFG and verify that MyWFG LifeLine New IAR Training Course Renewal
 ...               notification is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
@@ -19,16 +18,16 @@ Suite Teardown     Close Browser
 *** Variables ***
 #${DATABASE}               WFGOnline
 #${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        19
+${Notification_ID}        14
 ${Notification_TypeID}    1
 ${STATE}
 
 *** Test Cases ***
 
 #Connect to Database
-#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
-Select Agent and Login to MyWFG.com and Check LifeLine
+Select Agent and Login to MyWFG.com
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
@@ -53,20 +52,21 @@ Select Agent and Login to MyWFG.com and Check LifeLine
     ${Dates_Diff}    Evaluate    ${Dates_Diff}/60/60/24
     log    Days difference is ${Dates_Diff}
 
-    Run Keyword If    ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
-    ...    log    TFA Firm Element IAR (TFG) Red notification was displayed too early
-    ...    ELSE IF    ${Notification_TypeID} == 1 and ${Dates_Diff} <= 30
-    ...    log    TFA Firm Element IAR (TFG) Red notification test Passed
+    Run Keyword If     ${Notification_TypeID} == 1 and ${Dates_Diff} > 30
+    ...    log    New IAR Training Course Renewal Red notification was displayed too early
+    ...    ELSE IF     ${Notification_TypeID} == 1 and ${Dates_Diff} <= 30
+    ...    log    New IAR Training Course Renewal Red notification test Passed
 
     Run Keyword If    ${Notification_TypeID} == 2 and ${Dates_Diff} <= 30
-    ...    log    TFA Firm Element IAR (TFG) Yellow notification should be a Red notification
+    ...    log    New IAR Training Course Renewal Yellow notification should be a Red notification
     ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 60
-    ...    log    TFA Firm Element IAR (TFG) Yellow notification was displayed too early
+    ...    log    New IAR Training Course Renewal Yellow notification was displayed too early
     ...    ELSE IF    ${Notification_TypeID} == 2 and ${Dates_Diff} > 30
-    ...    log    TFA Firm Element IAR (TFG) Yellow notification test Passed
+    ...    log    New IAR Training Course Renewal Yellow notification test Passed
 
     Run Keyword If    ${Notification_TypeID} == 3
     ...    log    Green Notification will be tested in separate component 'Green Notification Expiration'
+
 
 Log Out of MyWFG
     Log Out of MyWFG
@@ -75,3 +75,4 @@ Log Out of MyWFG
 #    Disconnect From Database
 
 *** Keywords ***
+

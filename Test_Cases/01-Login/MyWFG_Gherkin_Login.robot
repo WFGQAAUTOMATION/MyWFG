@@ -46,11 +46,6 @@ User "${username}" logs in with password "${password}"
     Submit credentials
 
 Login Should Have Failed
-<<<<<<< HEAD
-    Location Should Be    ${ERROR URL}
-    Title Should Be       MyWFG - Log In
-=======
     Location Should Be    ${ERROR_URL}
     Title Should Be       ${PAGE_TITLE}
->>>>>>> master
 

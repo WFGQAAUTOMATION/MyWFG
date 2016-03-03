@@ -16,11 +16,7 @@ Login to MyWFG.com
     And Verify A Link Named "Home" Is On The Page
 
 Hover over Home
-<<<<<<< HEAD
-	Then Hover Over "Home"
-=======
     Then Hover Over "Home"
->>>>>>> master
     Then Wait "3" Seconds
 
 Click Home Office Contacts

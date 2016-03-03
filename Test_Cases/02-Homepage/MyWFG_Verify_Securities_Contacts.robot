@@ -16,11 +16,7 @@ Login to MyWFG.com
 
 Navigate to Securities Home Office Contacts
     Then Hover Over "Home"
-<<<<<<< HEAD
-    Then Wait "3" Seconds
-=======
     Then Wait "6" Seconds
->>>>>>> master
     Then click link     xpath=//a[contains(@href, '/securitieshomeofficecontacts')]
 #    Then Select Menu Item "Securities Home Office Contacts"
 

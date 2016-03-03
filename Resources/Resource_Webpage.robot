@@ -194,11 +194,8 @@ Find text on the page
     Page Should Contain Element    xpath=//
                                    .//*[@id='DueDate-10379399']
 #*********************************************************************************
-
 Elements should be equal ${SQL_Text} ${Webpage_Text}
     Should be equal    ${SQL_Text}    ${Webpage_Text}
-
-#*********************************************************************************
 
 Verify element parameters
 #//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]
