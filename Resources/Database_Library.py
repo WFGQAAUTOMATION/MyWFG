@@ -3,6 +3,23 @@ __author__ = 'ifayner'
 import pyodbc
 
 
+def convert_the_date(str_date):
+    # *** use "strip" method for "Trim" function to eliminate leading and ending spaces ***
+    str_date = str(str_date).strip()
+    # *** use "in" method for "InStr" to find the char and "index" to find the position to eliminate time ***
+    if " " in str_date:
+        str_date = str_date[0:str_date.index(" ")]
+    day = str_date[8:]
+    if day[0] == "0":
+        day = day[1:2]
+    month = str_date[5:7]
+    if month[0] == "0":
+        month = month[1:2]
+    year = str_date[:4]
+    str_date = month + "-" + day + "-" + year
+    return str_date
+
+
 def count_total_notifications():
     result = ""
     conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;Trusted_Connection=True")
@@ -72,19 +89,21 @@ def find_lifeline_agent(life_line_id, notification_typeid, state_code):
             agent_notification_id = row[1]
             if life_line_id != "11" and life_line_id != "12":
                 date_due_full = str(row[7])
-                # ***** use "strip" method for "Trim" function to eliminate leading and ending spaces*********
-                date_due = str(row[7]).strip()
-                # ***** use "in" method for "InStr" to find the char and "index" to find the position to eliminate time
-                if " " in date_due:
-                    date_due = date_due[0:date_due.index(" ")]
-                day = date_due[8:]
-                if day[0] == "0":
-                    day = day[1:2]
-                month = date_due[5:7]
-                if month[0] == "0":
-                    month = month[1:2]
-                year = date_due[:4]
-                date_due = month + "-" + day + "-" + year
+                date_due = convert_the_date(row[7])
+                print date_due
+                # # ***** use "strip" method for "Trim" function to eliminate leading and ending spaces*********
+                # date_due = str(row[7]).strip()
+                # # *** use "in" method for "InStr" to find the char and "index" to find the position to eliminate time
+                # if " " in date_due:
+                #     date_due = date_due[0:date_due.index(" ")]
+                # day = date_due[8:]
+                # if day[0] == "0":
+                #     day = day[1:2]
+                # month = date_due[5:7]
+                # if month[0] == "0":
+                #     month = month[1:2]
+                # year = date_due[:4]
+                # date_due = month + "-" + day + "-" + year
     return [agent_code_no, agent_notification_id, date_due, date_due_full]
 
 
@@ -167,6 +186,41 @@ def get_lifeline_explanation_info(agent_code_no, notif_id, state_code):
     return result
 
 
+def get_lifeline_link_html_id(agent_code_no, notif_id, state_code):
+    result = ""
+    state = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;Trusted_Connection=True")
+    cursor = conn.cursor()
+    if len(state_code) == 0:
+        cursor.execute("SELECT ll.* FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent] a  ON a.AgentID = ll.AgentID \
+        WHERE a.AgentCodeNumber = ? AND ll.NotificationID = ?", agent_code_no, notif_id)
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                result = row[0]
+                print result
+    else:
+        cursor.execute("SELECT Description FROM [WFGOnline].[dbo].[LU_State_Code] WHERE State_Code = ?", state_code)
+        rows = cursor.fetchall()
+        for row in rows:
+            state = row[0]
+            print state
+
+        cursor.execute("SELECT ll.* FROM [WFGOnline].[dbo].[WFGLLNotifications] ll \
+        INNER JOIN [WFGCompass].[dbo].[agAgent] a ON a.AgentID = ll.AgentID \
+        WHERE a.AgentCodeNumber = ? AND ll.NotificationID = ? AND  \
+        ll.NotificationSubType = ?", agent_code_no, notif_id, state)
+
+        rows = cursor.fetchall()
+        if rows:
+            for row in rows:
+                result = row[0]
+                print result
+    return result
+
+
 def get_lifeline_html_id(agent_code_no, notif_id, notif_type_id, state_code):
 
     conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;Trusted_Connection=True")
@@ -190,6 +244,19 @@ def get_lifeline_html_id(agent_code_no, notif_id, notif_type_id, state_code):
         AND c.CycleTypeStatusID = 1 AND c.EndDate = '01/01/3000'", agent_code_no, notif_id, notif_type_id)
 
 
+def get_lifeline_url(lifeline_id):
+    result = ""
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;Trusted_Connection=True")
+    cursor = conn.cursor()
+    cursor.execute("SELECT Count(NotificationID) AS NotificationID FROM wfgLU_Notification")
+    rows = cursor.fetchall()
+    if rows:
+            for row in rows:
+                result = row[0]
+                print result
+    return result
+
+
 def get_state_description(state_code):
     state = ""
     conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;Trusted_Connection=True")
@@ -199,10 +266,6 @@ def get_state_description(state_code):
     for row in rows:
         state = row[0]
     return state
-
-
-def lifeline_convert_date(lifeline_due_date):
-    lifeline_due_date = lifeline_due_date
 
 
 def lifeline_green_notifications(icount):
@@ -317,6 +380,26 @@ def lifeline_old_dates_archived(icount, ll_2, ll_3, ll_9, ll_10):
 
     conn.close()
     # conn = None
+    return result
+
+
+def get_archived_datedue(archived_task_html_id):
+    result = ""
+    x = " "
+
+    conn = pyodbc.connect("DRIVER={SQL Server};SERVER=CRDBCOMP03\CRDBWFGOMOD;DATABASE=WFGOnline;Trusted_Connection=True")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT DateDue FROM [WFGOnline].[dbo].[WFGLLNotificationsHistory] \
+                   WHERE AgentNotificationID = ?", archived_task_html_id)
+    rows = cursor.fetchall()
+    if rows:
+        for row in rows:
+            result = convert_the_date(row[0])
+    else:
+        print "No Life Line Old Archived Dates found"
+
+    conn.close()
     return result
 
 
@@ -465,3 +548,20 @@ def select_agent_id(agent_id):
     # conn = None
     return result
 
+
+def find_excel_data(var_Name):
+    result = ""
+    # conn = pyodbc.connect("Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)}; \
+    #                         DBQ=C:\Get_Robot_Variables\RobotFramework.xls;ReadOnly=0", autocommit=True)
+    conn = pyodbc.connect("Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)}; \
+                          DBQ=C:\Get_Robot_Variables\RobotFramework.xls;ReadOnly=0", autocommit=True)
+    cursor = conn.cursor()
+    # for tab in cursor.tables():
+    #     print tab
+    cursor.execute("SELECT var_Value FROM [MyWFGData$] WHERE var_Name = ?", var_Name)
+    rows = cursor.fetchall()
+    if rows:
+        for row in rows:
+            result = row[0]
+    conn.close()
+    return result
