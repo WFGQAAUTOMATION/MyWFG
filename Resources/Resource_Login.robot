@@ -31,7 +31,7 @@ Open Browser To Login Page
 #*****************************************************
 
 Login Page Should Be Open
-    Title Should Be    ${PAGE_TITLE}
+    Title Should Be    ${LOGIN_TITLE}
 
 #*****************************************************
 
@@ -60,8 +60,8 @@ Submit Credentials
 
 Home Page Should Be Open
     sleep    3
-    Location Should Be    ${WELCOME_URL}
-    title should be     MyWFG
+    Location Should Contain    ${WELCOME_URL}
+    title should be     ${PAGE_TITLE}
 
 #*****************************************************
 # This keyword includes new agents
@@ -86,7 +86,7 @@ User "${username}" logs in with password "${password}"
 
 Login Should Have Failed
     Location Should Be    ${ERROR_URL}
-    Title Should Be    MyWFG - Log In
+    Title Should Be    ${PAGE_TITLE}
 
 #*****************************************************
 

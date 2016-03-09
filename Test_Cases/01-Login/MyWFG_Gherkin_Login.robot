@@ -7,6 +7,8 @@ Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
 Test Teardown     Close Browser
+Force Tags        Dev_Sanity
+
 
 *** Test Cases ***
 
@@ -15,7 +17,7 @@ Valid Login
     When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Profile"
-    Then Wait "3" Seconds
+    Then Wait "5" Seconds
     And Select Menu Item "My Profile"
 
 Valid Login - Click Menu Item
@@ -23,7 +25,7 @@ Valid Login - Click Menu Item
     When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Resources"
-    Then Wait "3" Seconds
+    Then Wait "5" Seconds
     And Select Menu Item "Media Center"
 
 Invalid Login - Bad Password
@@ -46,6 +48,6 @@ User "${username}" logs in with password "${password}"
     Submit credentials
 
 Login Should Have Failed
-    Location Should Be    ${ERROR_URL}
-    Title Should Be       ${PAGE_TITLE}
+    Location Should Contain    ${ERROR_URL}
+    Title Should Be       ${LOGIN_TITLE}
 

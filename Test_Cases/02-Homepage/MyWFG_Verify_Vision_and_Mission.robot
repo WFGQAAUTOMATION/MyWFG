@@ -6,6 +6,7 @@ Documentation     A test suite to check Vision and Mission page.
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
+Force Tags        Dev_Sanity
 
 *** Test Cases ***
 Login to MyWFG.com

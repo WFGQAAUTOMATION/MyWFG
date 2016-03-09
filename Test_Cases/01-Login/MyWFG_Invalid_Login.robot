@@ -14,6 +14,7 @@ Suite Setup       Open Browser To Login Page
 Test Template     Login With Invalid Credentials Should Fail
 Test Setup        Go To Login Page
 Suite Teardown    Close Browser
+Force Tags        Dev_Sanity
 
 #This is an example of Data Driven Testing (DDD)
 
@@ -35,5 +36,5 @@ Login With Invalid Credentials Should Fail
     Login Should Have Failed
 
 Login Should Have Failed
-    Location Should Be    ${ERROR_URL}
-    Title Should Be    ${PAGE_TITLE}
+    location should contain   ${ERROR_URL}
+    Title Should Be    ${LOGIN_TITLE}

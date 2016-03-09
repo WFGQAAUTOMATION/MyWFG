@@ -8,35 +8,37 @@ Resource          ../../../Resources/Resource_Login.robot
 Resource          ../../../Resources/Resource_Webpage.robot
 Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
-
 Suite Teardown     Close Browser
 
 *** Test Cases ***
 
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${USER ID}" logs in with password "${PASSWORD}"
+    When user "${PREF_USER_ID}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
 
 Go to Profile My Preference Page
     Hover Over "Profile"
-    Then Wait "3" Seconds
+    Wait "5" Seconds
     Click Menu Item "My Preferences"
 
 Verify Webpage
-    And Verify A Link Named "View Disclosure" Is On The Page
+    Verify A Link Named "View Disclosure" Is On The Page
 
 Click View Disclosure
     Click link with name contained "View Disclosure"
 
 Click Close Disclosure button
-   Click element    xpath=//span[@class="ui-button-text"][contains(text(),'Close')]
+	Wait "2" Seconds
+    Click element    xpath=//span[@class="ui-button-text"][contains(text(),'Close')]
 
 #************************************************************************************
 Check if Opted In
+	Wait "2" Seconds
     Find "You have not Opted-In" On Webpage
 
 Click Opt In button to Disagree
+	Wait "5" Seconds
     Click button named "Opt In"
     sleep   3s
 
@@ -47,6 +49,7 @@ Click Disagree
     Click button named "Disagree"
 
 Click Opt In button to Agree
+	Wait "5" Seconds
     Click button named "Opt In"
 
 Scroll Down Again

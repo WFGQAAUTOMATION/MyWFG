@@ -19,7 +19,7 @@ Hover over Home
     Then Wait "3" Seconds
 
 Click Unlicensed Home
-    Then Go To  https://m-www.mywfg.com/new-unlicensed-home
+    Then Go To  http://${SERVER}/new-unlicensed-home
 
 Find Text On Webpage
     And Find "WFG Fast Start Manual" On Webpage

@@ -6,6 +6,7 @@ Documentation     A test suite to check Licensed Home page.
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
+Force Tags        Dev_Sanity
 
 *** Test Cases ***
 Login to MyWFG.com
@@ -19,7 +20,7 @@ Hover over Home
     Then Wait "3" Seconds
 
 Click Licensed Home
-    Then Go To  https://m-www.mywfg.com/new-licensed-home
+    Then Go To  http://${SERVER}/new-licensed-home
 
 Find Text On Webpage
     And Find "AppVantage" On Webpage

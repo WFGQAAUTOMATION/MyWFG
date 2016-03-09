@@ -20,7 +20,7 @@ Hover over Home
     Then Wait "3" Seconds
 
 Click Home Office Contacts
-    Then Go To  https://m-www.mywfg.com/home-office-contacts
+    Then Go To   http://${SERVER}/home-office-contacts
 
 Check Info on Home Office Contacts page
     And Find "Home Office Contacts" On Webpage
