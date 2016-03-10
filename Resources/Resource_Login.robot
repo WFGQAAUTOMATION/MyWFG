@@ -9,7 +9,7 @@ Library           Testing_Library.py
 
 *** Variables ***
 #${SERVER}            m-www.mywfg.com
-${BROWSER}           gc
+${BROWSER}           ff
 ${DELAY}             0
 #${VALID USER}        1708W
 #${VALID PASSWORD}    81u3$ky
@@ -23,7 +23,7 @@ ${linkname}          REPORTS
 *** Keywords ***
 
 Open Browser To Login Page
-    Open Browser    ${LOGIN_URL}    ${BROWSER}  None  http://161.179.241.85:4444/wd/hub
+    Open Browser    ${LOGIN_URL}    ${BROWSER}  #None  http://161.179.241.85:4444/wd/hub
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
     Login Page Should Be Open

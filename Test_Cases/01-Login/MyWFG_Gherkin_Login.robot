@@ -9,7 +9,6 @@ Resource          ../../Resources/Resource_Webpage.robot
 Test Teardown     Close Browser
 Force Tags        Dev_Sanity
 
-
 *** Test Cases ***
 
 Valid Login
