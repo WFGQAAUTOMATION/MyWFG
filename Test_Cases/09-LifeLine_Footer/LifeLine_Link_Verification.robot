@@ -4,10 +4,10 @@ Documentation    A test suite to verify MyWFG LifeLine Links for each Lire Line 
 ...               This test will log into MyWFG, clicks MyWFG Lifeline and
 ...               verifies each  MyWFG LifeLine Link separately
 Metadata          Version   0.1
-Resource          ../../Resources/Resource_Login_DEV.robot
-Resource          ../../Resources/Resource_Webpage_DEV.robot
-Library           ../../Resources/Testing_Library_DEV.py
-Library           ../../Resources/Database_Library_DEV.py
+Resource          ../../Resources/Resource_Login.robot
+Resource          ../../Resources/Resource_Webpage.robot
+Library           ../../Resources/Testing_Library.py
+Library           ../../Resources/Database_Library.py
 Library           Selenium2Library
 Library           DatabaseLibrary
 Library           String
@@ -17,22 +17,22 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}               WFGOnline
-${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${Notification_ID}        27
 ${Notification_TypeID}    1
 ${STATE}
 
 
 *** Test Cases ***
-Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent, Login to MyWFG.com, verify the LifeLine Link
-    ${Agent_Info}    Database_Library_DEV.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+    ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
-    User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
-#    Home Page for any Agent Should Be Open   ***** Temporarely commented for DEV testing
+    User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
+    Home Page for any Agent Should Be Open
     sleep    3s
     Click element    xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
     sleep    2s
@@ -42,8 +42,8 @@ Select Agent, Login to MyWFG.com, verify the LifeLine Link
 Log Out of MyWFG
     Log Out of MyWFG
 
-Disconnect from SQL Server
-    Disconnect From Database
+#Disconnect from SQL Server
+#    Disconnect From Database
 
 
 *** Keywords ***

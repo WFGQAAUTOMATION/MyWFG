@@ -29,23 +29,25 @@ Valid Login - Click Menu Item
 Invalid Login - Bad Password
     Given Browser is opened to login page
     When User "${VALID_USER}" logs in with password "none"
+    Then Wait "3" Seconds
     Then Login Should Have Failed
 
 Invalid Login - Bad Username
     Given Browser is opened to login page
     When User "invalid" logs in with password "${VALID_PASSWORD}"
+    Then Wait "3" Seconds
     Then Login Should Have Failed
 
 *** Keywords ***
-Browser is opened to login page
-    Open browser to login page
+#Browser is opened to login page
+#    Open browser to login page
+#
+#User "${username}" logs in with password "${password}"
+#    Input username        ${username}
+#    Input password        ${password}
+#    Submit credentials
 
-User "${username}" logs in with password "${password}"
-    Input username        ${username}
-    Input password        ${password}
-    Submit credentials
-
-Login Should Have Failed
-    Location Should Be    ${ERROR_URL}
-    Title Should Be       ${PAGE_TITLE}
+#Login Should Have Failed
+#    Location Should Be    ${ERROR_URL}
+#    Title Should Be       ${PAGE_TITLE}
 

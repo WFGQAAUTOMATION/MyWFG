@@ -15,15 +15,15 @@ Library           String
 Suite Teardown     Close Browser
 
 *** Variables ***
-#${DATABASE}                 WFGOnline
-#${HOSTNAME}                 CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}          19
+#${DATABASE}                WFGOnline
+#${HOSTNAME}                CRDBCOMP03\\CRDBWFGOMOD
+${Notification_ID}          17
 ${STATE}
 
 *** Test Cases ***
 
-Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
+#Connect to Database
+#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
 
@@ -40,19 +40,24 @@ Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Inf
 
 Compare Life Line Explanation Messages
     # ***********  Retrive Explanation description from database  *****************
-    ${SQL_Text}    query    SELECT Explanation FROM [WFGOnline].[dbo].[wfgLU_Notification] WHERE NotificationID = ${Notification_ID};
+    ${SQL_Text}    Database_Library.Get_LifeLine_Explanation_Description        ${Notification_ID}
     # ***********  Replace &#8217 ASCI character to " ' " *************************
-    ${SQL_Text[0][0]}=    Replace String    ${SQL_Text[0][0]}    &#8217    '
+    ${SQL_Text}=    Replace String    ${SQL_Text}    &#8217    '
     # ***********  Remove </br> from Explanation String ***************************
-    ${SQL_Text[0][0]}=    Remove String    ${SQL_Text[0][0]}    </br>
+    ${SQL_Text}=    Remove String    ${SQL_Text}    </br>
     # ***********  Get Explanation description from Web page  *********************
-   ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
+    ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
     # ***********  Replace ’ character with ' in order to compare explanations ****
     ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
     # ***********  Remove <br> from Explanation String  ***************************
     ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
+    # ***********  Remove <br/> from Explanation String  **************************
+    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br/>
     # ***********  Verify the text of explanantion  *******************************
-    Should be equal    ${SQL_Text[0][0]}    ${Webpage_Text}
+    Run Keyword If    ${Notification_ID} == 12
+    ...    Should Contain     ${Webpage_Text}    ${SQL_Text}
+    ...    ELSE
+    ...    Should be equal    ${Webpage_Text}    ${SQL_Text}
 
 Close Explanation message
     Click image where ID is "close"
@@ -60,8 +65,8 @@ Close Explanation message
 Log Out of MyWFG
     Log Out of MyWFG
 
-Disconnect from SQL Server
-    Disconnect From Database
+#Disconnect from SQL Server
+#    Disconnect From Database
 
 *** Keywords ***
 

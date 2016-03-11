@@ -23,9 +23,10 @@ Connect to Database
     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
 Select Agent and Login to MyWFG.com
-    ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${LL_AGENT_ID});
+    ${AgentID}     query    SELECT Top 1 AgentID FROM [WFGOnline].[dbo].[WFGLLNotifications] WHERE NotificationID <> 3;
+    ${AgentCodeNo}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID = $ ${AgentID[0][0]};
     Given browser is opened to login page
-    When user "${Results[0][0]}" logs in with password "${VALID_PASSWORD}"
+    When user "${AgentCodeNo[0][0]}" logs in with password "${VALID_PASSWORD}"
     Then Home Page for any Agent Should Be Open
     sleep   3s
 
@@ -52,6 +53,7 @@ Click Back link and Close Archive page
     click link     xpath=//a[@id='linkBack']
 
 Log Out of MyWFG
+    sleep    2s
     Log Out of MyWFG
 
 Disconnect from SQL Server

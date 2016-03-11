@@ -105,6 +105,11 @@ Click Link With Name Contained "${clicklink}"
 
 #***************************************************************
 
+Click Link With ID "${LinkID}"
+    click link    xpath=//a[@id='${LinkID}']
+
+#***************************************************************
+
 Input "${Text}" in The "${FieldName}" Field
     input text  xpath=//input[@name='${FieldName}']   ${Text}
 
@@ -193,14 +198,22 @@ Verify Title on the page "${titlename}"
 Find text on the page
     Page Should Contain Element    xpath=//
                                    .//*[@id='DueDate-10379399']
-#*********************************************************************************
-Elements should be equal ${SQL_Text} ${Webpage_Text}
-    Should be equal    ${SQL_Text}    ${Webpage_Text}
 
-Verify element parameters
-#//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]
+#*********************************************************************************
+
+Find Element on the Page "${element_id}"
+    Page Should Contain Element    xpath=.//*[@id='${element_id}']
 
 #*********************************************************************************
 
 Zoom out to "${zoomLevel}" (percentage)
 	Execute javascript  document.body.style.zoom="${zoomLevel}"
+
+#*********************************************************************************
+Elements should be equal ${SQL_Text} ${Webpage_Text}
+    Should be equal    ${SQL_Text}    ${Webpage_Text}
+
+#*************************************************************************************
+
+Verify element parameters
+#//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]

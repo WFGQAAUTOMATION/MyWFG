@@ -13,20 +13,21 @@ Library           DatabaseLibrary
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}     WFGOnline
-${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
+#${DATABASE}     WFGOnline
+#${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
 #${AGENT_ID}    919824
-${AGENT_ID}    611665
+#${AGENT_ID}    611665
 
 *** Test Cases ***
 
 Connect to Database
-     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
 Select Agent and Login to MyWFG.com
-    ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
+    ${AgentID}     query    SELECT Top 1 AgentID FROM [WFGOnline].[dbo].[WFGLLNotifications] WHERE NotificationID <> 3;
+    ${AgentCodeNo}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID = $ ${AgentID[0][0]};
     Given browser is opened to login page
-    When user "${Results[0][0]}" logs in with password "${VALID_PASSWORD}"
+    When user "${AgentCodeNo[0][0]}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     sleep   3s
 

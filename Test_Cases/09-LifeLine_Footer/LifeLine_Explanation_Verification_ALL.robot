@@ -54,8 +54,8 @@ CA E&O Balance Due                          27
 
 *** Keywords ***
 Connect to SQL Server and Open Browser
-     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
-     Open Browser To Login Page
+#     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
+      Open Browser To Login Page
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
     [Arguments]    ${Notification_ID}
@@ -76,22 +76,27 @@ Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Inf
 Compare Life Line Explanation Messages
     [Arguments]    ${Notification_ID}
     # ***********  Retrive Explanation description from database  *****************
-    ${SQL_Text}    query    SELECT Explanation FROM [WFGOnline].[dbo].[wfgLU_Notification] WHERE NotificationID = ${Notification_ID};
+    ${SQL_Text}    Database_Library.Get_LifeLine_Explanation_Description        ${Notification_ID}
     # ***********  Replace &#8217 ASCI character to " ' " *************************
-    ${SQL_Text[0][0]}=    Replace String    ${SQL_Text[0][0]}    &#8217    '
+    ${SQL_Text}=    Replace String    ${SQL_Text}    &#8217    '
     # ***********  Remove </br> from Explanation String ***************************
-    ${SQL_Text[0][0]}=    Remove String    ${SQL_Text[0][0]}    </br>
+    ${SQL_Text}=    Remove String    ${SQL_Text}    </br>
     # ***********  Get Explanation description from Web page  *********************
     ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
     # ***********  Replace ’ character with ' in order to compare explanations ****
     ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
     # ***********  Remove <br> from Explanation String  ***************************
     ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
+    # ***********  Remove <br/> from Explanation String  **************************
+    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br/>
     # ***********  Verify the text of explanantion  *******************************
-    Run Keyword And Continue On Failure    Should be equal    ${SQL_Text[0][0]}    ${Webpage_Text}
+    Run Keyword If    ${Notification_ID} == 12
+    ...    Run Keyword And Continue On Failure    Should Contain     ${Webpage_Text}    ${SQL_Text}
+    Run Keyword If    ${Notification_ID} != 12
+    ...    Run Keyword And Continue On Failure    Should be equal    ${Webpage_Text}    ${SQL_Text}
 
 Close Browser and Disconnect from SQL Server
     Close Browser
-    Disconnect From Database
+#   Disconnect From Database
 
 
