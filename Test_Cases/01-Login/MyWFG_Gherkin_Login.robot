@@ -12,6 +12,7 @@ Force Tags        Dev_Sanity
 *** Test Cases ***
 
 Valid Login
+	[Tags]  13695
     Given browser is opened to login page
     When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
