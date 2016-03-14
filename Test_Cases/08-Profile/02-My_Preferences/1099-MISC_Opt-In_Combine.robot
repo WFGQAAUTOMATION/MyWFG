@@ -9,6 +9,7 @@ Resource          ../../../Resources/Resource_Webpage.robot
 Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 Suite Teardown     Close Browser
+Force Tags        Dev_Sanity
 
 *** Variables ***
 

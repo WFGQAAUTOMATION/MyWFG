@@ -1,9 +1,12 @@
 # Login Variables
+BROWSER = "gc"
+DELAY = 0
 SERVER = "m-www.mywfg.com"
 LOGIN_URL = "https://m-www.mywfg.com/Users/Account/AccessDenied?ReturnUrl=%2f"
 WELCOME_URL = "https://m-www.mywfg.com/"
 ERROR_URL = "https://m-www.mywfg.com/Users/Account/LogOn?ReturnUrl=%2F"
-PAGE_TITLE = "MyWFG - Log In"
+PAGE_TITLE = "MyWFG"
+LOGIN_TITLE = "MyWFG - Log In"
 VALID_USER = "1708W"
 VALID_PASSWORD = "81u3$ky"
 PREF_USER_ID = "3330T"
