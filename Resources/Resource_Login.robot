@@ -9,15 +9,15 @@ Library           Testing_Library.py
 
 *** Variables ***
 #${SERVER}            m-www.mywfg.com
-${BROWSER}           ff
-${DELAY}             0
+#${BROWSER}           ff
+#${DELAY}             0
 #${VALID USER}        1708W
 #${VALID PASSWORD}    81u3$ky
 #${LOGIN_URL}         https://${SERVER}/Users/Account/AccessDenied?ReturnUrl=%2f
 #${LOGIN URL}         https://${SERVER}
 #${WELCOME_URL}       https://${SERVER}/
 #${ERROR_URL}         https://${SERVER}/Users/Account/LogOn?ReturnUrl=%2F
-${linkname}          REPORTS
+#${linkname}          REPORTS
 #${PREF_USER_ID}           3330T
 
 *** Keywords ***

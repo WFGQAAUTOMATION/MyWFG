@@ -6,6 +6,7 @@ Documentation     A resource file with reusable keywords and variables.
 ...               by the imported Selenium2Library.
 Library           Selenium2Library
 Library           Testing_Library.py
+Library           OperatingSystem
 
 *** Variables ***
 #${SERVER}            m-www.mywfg.com

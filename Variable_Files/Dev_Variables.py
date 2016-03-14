@@ -1,4 +1,6 @@
 # Login Variables
+BROWSER = "gc"
+DELAY = 0
 SERVER = "d-www.mywfg.com"
 LOGIN_URL = "http://d-www.mywfg.com/Users/Account/AccessDenied?ReturnUrl=%2f"
 WELCOME_URL = "http://d-www.mywfg.com/"
