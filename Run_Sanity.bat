@@ -1,5 +1,5 @@
 ECHO
-call pybot --proxy  https://tcoffey:Scout654@cr-proxy.us.aegon.com:9090 --outputdir Logs_Login --variablefile C:\Jenkins_Files\Variable_Files\Model_Variables.py "C:\Jenkins_Files\Test_Cases\01-Login\*.robot"
+call pybot --outputdir Logs_Login --variablefile C:\Jenkins_Files\Variable_Files\Model_Variables.py "C:\Jenkins_Files\Test_Cases\01-Login\*.robot"
 ::call pybot --outputdir Logs_Verify_Home --variablefile C:\Jenkins_Files\Variable_Files\Model_Variables.py "C:\Jenkins_Files\Test_Cases\02-Homepage\*.robot"
 ::call pybot --outputdir Logs_Dashboard_Results --variablefile C:\Jenkins_Files\Variable_Files\Model_Variables.py "C:\Jenkins_Files\Test_Cases\03-Dashboard\*.robot"
 ::call pybot --outputdir Logs_My_Preferences --variablefile C:\Jenkins_Files\Variable_Files\Model_Variables.py "C:\Jenkins_Files\Test_Cases\08-Profile\02-My_Preferences\*.robot"
