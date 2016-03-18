@@ -11,6 +11,12 @@ PREF_USER_ID = "3330T"
 # Lifeline Variables
 WFG_DATABASE = "WFGOnline"
 HOSTNAME = "CRDBCOMP03\\CRDBWFGOMOD"
-LL_AGENT_ID = 982036
 Archive_Question = "ArchieveQuestionMark"
-LL_STATE = "NJ"
+LL_LIC_STATE = "TX"      #4 US License Renewal
+LL_LIC_PROVINCE = "SK"   #5 CA License Renewal
+LL_AFF_STATE = "NJ"      #7 Affiliation Renewal
+LL_LTCR_STATE = "CA"     #13 Long Term Care Renewal
+LL_License_ID = 4
+
+
+

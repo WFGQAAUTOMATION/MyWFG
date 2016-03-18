@@ -15,8 +15,6 @@ Suite Teardown     Close Browser
 *** Variables ***
 #${DATABASE}     WFGOnline
 #${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
-#${AGENT_ID}    919824
-#${AGENT_ID}    611665
 
 *** Test Cases ***
 

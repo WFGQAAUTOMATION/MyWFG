@@ -13,5 +13,5 @@ Library           DatabaseLibrary
 
 *** Test Cases ***
 Connect from Python file
-    ${mydata}   Database_Library.Count_Total_Notifications
-    Database_Library.LifeLine_Green_Notifications    ${mydata}
+    ${mydata}   Database_Library.Count_Total_Notifications    ${HOSTNAME}    ${WFG_DATABASE}
+    Database_Library.LifeLine_Green_Notifications    ${mydata}    ${HOSTNAME}    ${WFG_DATABASE}

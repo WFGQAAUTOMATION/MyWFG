@@ -23,11 +23,10 @@ ${Dismiss_Index}      3
 ${Dismiss_Task}       Yes
 
 *** Test Cases ***
-#Connect to Database
-#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent, Login to MyWFG.com, Check Dismiss Notifications
-    ${Agent_Info}    Database_Library.Get_lifeline_dismiss_notification_agent    ${Notification_ID}
+    ${Agent_Info}    Database_Library.Get_lifeline_dismiss_notification_agent    ${Notification_ID}   ${HOSTNAME}
+    ...    ${WFG_DATABASE}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
@@ -53,9 +52,6 @@ Click Back link and Close Archive page
 Log Out of MyWFG
     sleep    1s
     Log Out of MyWFG
-
-#Disconnect from SQL Server
-#    Disconnect From Database
 
 *** Keywords ***
 Confirm No for Dismiss

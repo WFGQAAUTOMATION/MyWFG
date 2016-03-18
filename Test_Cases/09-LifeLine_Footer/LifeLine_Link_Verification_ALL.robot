@@ -54,17 +54,18 @@ CA E&O Balance Due                          27
 
 *** Keywords ***
 Connect to SQL Server and Open Browser
-#     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
      Open Browser To Login Page
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
     [Arguments]    ${Notification_ID}
     ${Agent_CodeNo}    Database_Library.Get_LifeLine_Explanation_Agent_ID    ${Notification_ID}
+    ...    ${HOSTNAME}    ${WFG_DATABASE}
     User "${Agent_CodeNo}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
     sleep    2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
     ${html_ID}    Database_Library.Get_LifeLine_Link_html_Id    ${Agent_CodeNo}    ${Notification_ID}    ${STATE}
+    ...    ${HOSTNAME}    ${WFG_DATABASE}
 
     #********************* Click Life Line Link  *********************
     Click Link With ID "Notice-${html_ID}"

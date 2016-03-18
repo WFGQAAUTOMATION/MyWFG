@@ -15,11 +15,10 @@ Library           DatabaseLibrary
 *** Variables ***
 #${DATABASE}       WFGOnline
 #${HOSTNAME}       CRDBCOMP03\\CRDBWFGOMOD
-#${AGENT_ID}
 ${Current_DIR}    O:/BusinessSupport/QA_Automation/Testing/Isabella/MyWFG/Test_Cases/09-LifeLine_Footer
 ${Testing_DIR}    C:/PERSONAL/SELENIUM/TESTING_FOLDER
 
 *** Test Cases ***
 Connect from Python file
-    ${mydata}   Database_Library.Count_Total_Notifications
-    Database_Library.LifeLine_Records_Duplications    ${mydata}
+    ${mydata}   Database_Library.Count_Total_Notifications    ${HOSTNAME}    ${WFG_DATABASE}
+    Database_Library.LifeLine_Records_Duplications    ${mydata}    ${HOSTNAME}    ${WFG_DATABASE}

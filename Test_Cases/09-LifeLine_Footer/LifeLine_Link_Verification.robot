@@ -19,17 +19,16 @@ Suite Teardown     Close Browser
 *** Variables ***
 #${DATABASE}               WFGOnline
 #${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        27
+${Notification_ID}        9
 ${Notification_TypeID}    1
 ${STATE}
 
 
 *** Test Cases ***
-#Connect to Database
-#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
 
 Select Agent, Login to MyWFG.com, verify the LifeLine Link
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+    ...    ${HOSTNAME}    ${WFG_DATABASE}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
@@ -41,9 +40,5 @@ Select Agent, Login to MyWFG.com, verify the LifeLine Link
 
 Log Out of MyWFG
     Log Out of MyWFG
-
-#Disconnect from SQL Server
-#    Disconnect From Database
-
 
 *** Keywords ***

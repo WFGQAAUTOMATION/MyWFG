@@ -24,11 +24,9 @@ ${STATE}
 
 *** Test Cases ***
 
-#Connect to Database
-#    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
-
 Select Agent and Login to MyWFG.com and Check LifeLine
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+    ...    ${HOSTNAME}    ${WFG_DATABASE}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
@@ -52,8 +50,8 @@ Select Agent and Login to MyWFG.com and Check LifeLine
     ${Dates_Diff}    Run Keyword If    ${Notification_ID} not in [11, 12]
     ...    Evaluate    ${Dates_Diff}/60/60/24
 
-#   IUL Course and Annuity Course don't display the date, display "Immediately" instead
-#   License Renewal LifeLine notifications always "Expired" in Red
+#   ***** IUL Course and Annuity Course don't display the date, display "Immediately" instead
+#   ***** License Renewal LifeLine notifications always "Expired" in Red
     Run Keyword If    ${Notification_TypeID} == 2
     ...    log    Expired Date Verification is not applicable for NotificationID = 2
     ...    ELSE IF    ${Notification_ID} in [11, 12] and '${Webpage_DateDue_Str.strip()}' == 'Immediately'
@@ -71,8 +69,5 @@ Select Agent and Login to MyWFG.com and Check LifeLine
 
 Log Out of MyWFG
     Log Out of MyWFG
-
-#Disconnect from SQL Server
-#    Disconnect From Database
 
 *** Keywords ***

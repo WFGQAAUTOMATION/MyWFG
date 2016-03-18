@@ -29,6 +29,7 @@ Connect to Database
 
 Select Agent and Login to MyWFG.com and Check LifeLine
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
+    ...    ${HOSTNAME}    ${WFG_DATABASE}
     Browser is opened to login page
     User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open

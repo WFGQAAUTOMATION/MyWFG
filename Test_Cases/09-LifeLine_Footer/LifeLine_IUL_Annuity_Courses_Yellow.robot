@@ -14,4 +14,5 @@ ${Notification2}    12
 
 *** Test Cases ***
 Connect from Python file
-    Database_Library.LifeLine_UIL_Annuity_Yellow_Notifications    ${Notification1}    ${Notification2}
+    Database_Library.LifeLine_IUL_Annuity_Yellow_Notifications    ${Notification1}    ${Notification2}
+    ...    ${HOSTNAME}    ${WFG_DATABASE}

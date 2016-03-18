@@ -10,16 +10,10 @@ Library           Selenium2Library
 Library           DatabaseLibrary
 
 *** Variables ***
-${LL_2}      2      # AML Renewal - US
-${LL_3}      3      # AML Renewal - CA
-${LL_9}      9      # AML Course - US
-${LL_10}    10      # AML Course - CA
-${LL_Archived}    2,3,9,10
+${LL_Archived}    2,3,9,10      # AML Renewal - US, AML Renewal - CA, AML Course - US, AML Course - CA
 
 *** Test Cases ***
-Connect from Python file
-    ${mydata}   Database_Library.Count_Total_Notifications
-    Database_Library.LifeLine_Old_Dates_Archived    ${mydata}   ${LL_2}    ${LL_3}    ${LL_9}    ${LL_10}
-#   Doesn't work when pass a string of notifications rather than separate variables
-#   Database_Library.LifeLine_Old_Dates_Archived    ${mydata}   ${LL_Archived}
+Get LifeLine Archived Dates
+    ${mydata}   Database_Library.Count_Total_Notifications    ${HOSTNAME}    ${WFG_DATABASE}
+    Database_Library.LifeLine_Old_Dates_Archived    ${mydata}    ${LL_Archived}    ${HOSTNAME}    ${WFG_DATABASE}
 
