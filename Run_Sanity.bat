@@ -1,4 +1,6 @@
 ECHO
+set Pathname="C:\Jenkins_Files"
+cd /d %Pathname%
 call pybot --outputdir Login_Log --variablefile ..\Model_Variables.py "..\Test_Cases\01-Login\*.robot"
 ::call pybot --outputdir Verify_Home_Log --variablefile C:\Jenkins_Files\Variable_Files\Model_Variables.py "C:\Jenkins_Files\Test_Cases\02-Homepage\*.robot"
 ::call pybot --outputdir Dashboard_Results_Log --variablefile C:\Jenkins_Files\Variable_Files\Model_Variables.py "C:\Jenkins_Files\Test_Cases\03-Dashboard\*.robot"
