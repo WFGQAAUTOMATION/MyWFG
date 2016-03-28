@@ -1,5 +1,4 @@
 __author__ = 'ifayner'
-
 import pyodbc
 
 

@@ -36,5 +36,7 @@ Login With Invalid Credentials Should Fail
     Login Should Have Failed
 
 Login Should Have Failed
+	wait "3" seconds
     location should contain   ${ERROR_URL}
+    wait "3" seconds
     Title Should Be    ${LOGIN_TITLE}
