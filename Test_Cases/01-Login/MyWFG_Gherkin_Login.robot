@@ -35,6 +35,7 @@ Invalid Login - Bad Password
 Invalid Login - Bad Username
     Given Browser is opened to login page
     When User "invalid" logs in with password "${VALID_PASSWORD}"
+    And Wait "4" Seconds
     Then Login Should Have Failed
 
 *** Keywords ***
