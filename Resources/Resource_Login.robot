@@ -23,7 +23,7 @@ Library           Testing_Library.py
 *** Keywords ***
 
 Open Browser To Login Page
-    Open Browser    ${LOGIN_URL}    ${BROWSER}      None    http://161.179.246.65:4444/wd/hub
+    Open Browser    ${LOGIN_URL}    ${BROWSER}      #None    http://161.179.246.65:4444/wd/hub
     #None  http://161.179.241.85:4444/wd/hub
     Maximize Browser Window
     Set Selenium Speed    ${DELAY}
