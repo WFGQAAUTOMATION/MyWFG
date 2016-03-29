@@ -23,7 +23,7 @@ Click Licensed Home
     Then Go To  http://${SERVER}/new-licensed-home
 
 Find Text On Webpage
-    And Find "AppVantage" On Webpage
+    And Find "As a licensed associate" On Webpage
     And Find "iGO" On Webpage
     And Find "Become Appointed with a Company" On Webpage
 
