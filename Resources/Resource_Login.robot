@@ -9,7 +9,7 @@ Library           Testing_Library.py
 
 *** Variables ***
 #${SERVER}            m-www.mywfg.com
-${BROWSER}           gc
+${BROWSER}           ff
 ${DELAY}             0
 #${VALID USER}        1708W
 #${VALID PASSWORD}    81u3$ky
