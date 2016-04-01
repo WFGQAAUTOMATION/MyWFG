@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine AMLCourse Expiration dates for US
+Documentation    A test suite to verify MyWFG LifeLine AMLCourse Expiration dates for Canada
 ...
 ...               This test will log into MyWFG and verify that MyWFG LifeLine AML Course notification
 ...               for US is displayed according to expiration dates
