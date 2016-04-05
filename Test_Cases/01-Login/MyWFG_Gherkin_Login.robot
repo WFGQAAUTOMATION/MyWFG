@@ -12,13 +12,13 @@ Force Tags        Dev_Sanity
 *** Test Cases ***
 
 Valid Login
-	[Tags]  13695
     Given browser is opened to login page
     When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Profile"
     Then Wait "5" Seconds
     And Select Menu Item "My Profile"
+	Then Wait "5" Seconds
 
 Valid Login - Click Menu Item
     Given browser is opened to login page
@@ -27,16 +27,19 @@ Valid Login - Click Menu Item
     Then Hover Over "Resources"
     Then Wait "5" Seconds
     And Select Menu Item "Media Center"
+	Then Wait "5" Seconds
 
 Invalid Login - Bad Password
     Given Browser is opened to login page
     When User "${VALID_USER}" logs in with password "none"
     Then Login Should Have Failed
+	Then Wait "5" Seconds
 
 Invalid Login - Bad Username
     Given Browser is opened to login page
     When User "invalid" logs in with password "${VALID_PASSWORD}"
     Then Login Should Have Failed
+	Then Wait "5" Seconds
 
 *** Keywords ***
 Browser is opened to login page
@@ -45,7 +48,7 @@ Browser is opened to login page
 User "${username}" logs in with password "${password}"
     Input username        ${username}
     Input password        ${password}
-    Submit credentials
+    Click Button    ${SUBMIT_LOGIN}
 
 Login Should Have Failed
     Location Should Contain    ${ERROR_URL}

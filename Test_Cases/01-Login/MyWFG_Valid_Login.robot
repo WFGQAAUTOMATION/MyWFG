@@ -14,3 +14,6 @@ Valid Login
     Submit Credentials
     Home Page Should Be Open
 
+*** Keywords ***
+Submit Credentials
+    Click Button    ${SUBMIT_LOGIN}
