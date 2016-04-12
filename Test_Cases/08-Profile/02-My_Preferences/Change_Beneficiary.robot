@@ -23,7 +23,7 @@ ${COUNTRY}           US
 ${STATE}             GA
 ${CITY}              DULUTH
 ${ZIP}               30097
-${VERIFY_TEXT}       beneficiary information was sucessfully changed
+${VERIFY_TEXT}       beneficiary information was successfully changed
 
 *** Test Cases ***
 
