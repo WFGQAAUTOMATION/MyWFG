@@ -14,7 +14,7 @@ Suite Teardown     Close Browser
 *** Variables ***
 
 ${NEW EMAIL}        my.email@yahoo.com
-${VERIFY_TEXT}      E-mail Address was sucessfully changed
+${VERIFY_TEXT}      E-mail Address was successfully changed
 
 *** Test Cases ***
 
