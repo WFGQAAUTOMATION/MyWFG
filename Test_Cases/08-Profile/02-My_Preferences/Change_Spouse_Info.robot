@@ -17,7 +17,7 @@ ${SPOUSE AGENT NO}
 ${SPOUSE FIRST NAME}        SHARMILA
 ${SPOUSE COMMON NAME}       MILA
 ${SPOUSE LAST NAME}         CHEN
-${VERIFY TEXT}              spouse information was sucessfully changed
+${VERIFY TEXT}              spouse information was successfully changed
 
 *** Test Cases ***
 
