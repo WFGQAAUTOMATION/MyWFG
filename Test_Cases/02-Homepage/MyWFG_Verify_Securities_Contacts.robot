@@ -6,17 +6,20 @@ Documentation     A test suite to check Securities Home Office Contacts page.
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
+Force Tags        Dev_Sanity
 
 *** Test Cases ***
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
 
 Navigate to Securities Home Office Contacts
     Then Hover Over "Home"
-    Then Select Menu Item "Securities Home Office Contacts"
+    Then Wait "6" Seconds
+    Then click link     xpath=//a[contains(@href, '/securitieshomeofficecontacts')]
+#    Then Select Menu Item "Securities Home Office Contacts"
 
 Find Text On Webpage
     And Find "WFG Securities of Canada" On Webpage

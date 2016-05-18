@@ -22,13 +22,13 @@ ${VERIFY_TEXT}     Thank you for submitting your home address change
 
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${USER ID}" logs in with password "${PASSWORD}"
+    When user "${PREF_USER_ID}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     sleep   3s
 
 Go to Profile My Preference Page
     Hover Over "Profile"
-    Verify A Link Named "My Preferences" Is On The Page
+    Wait "3" Seconds
     Click Menu Item "My Preferences"
     sleep   3s
 

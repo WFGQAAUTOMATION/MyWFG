@@ -9,6 +9,7 @@ Resource          ../../../Resources/Resource_Webpage.robot
 Library           ../../../Resources/Testing_Library.py
 Library           Selenium2Library
 Suite Teardown     Close Browser
+Force Tags        Dev_Sanity
 
 *** Variables ***
 
@@ -16,13 +17,13 @@ Suite Teardown     Close Browser
 
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${USER ID}" logs in with password "${PASSWORD}"
+    When user "${PREF_USER_ID}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     sleep   4s
 
 Go to Profile My Preference Page
     Hover Over "Profile"
-    Verify A Link Named "My Preferences" Is On The Page
+    Wait "3" Seconds
     Click Menu Item "My Preferences"
     sleep  5s
 

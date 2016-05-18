@@ -14,15 +14,16 @@ Suite Setup       Open Browser To Login Page
 Test Template     Login With Invalid Credentials Should Fail
 Test Setup        Go To Login Page
 Suite Teardown    Close Browser
+Force Tags        Dev_Sanity
 
 #This is an example of Data Driven Testing (DDD)
 
 *** Test Cases ***               User Name        Password
-Invalid Username                 invalid          ${VALID PASSWORD}
-Invalid Password                 ${VALID USER}    invalid
+Invalid Username                 invalid          ${VALID_PASSWORD}
+Invalid Password                 ${VALID_USER}    invalid
 Invalid Username And Password    invalid          whatever
-Empty Username                   ${EMPTY}         ${VALID PASSWORD}
-Empty Password                   ${VALID USER}    ${EMPTY}
+Empty Username                   ${EMPTY}         ${VALID_PASSWORD}
+Empty Password                   ${VALID_USER}    ${EMPTY}
 Empty Username And Password      ${EMPTY}         ${EMPTY}
 
 *** Keywords ***
@@ -35,5 +36,7 @@ Login With Invalid Credentials Should Fail
     Login Should Have Failed
 
 Login Should Have Failed
-    Location Should Be    ${ERROR URL}
-    Title Should Be    MyWFG - Log In
+	wait "3" seconds
+    location should contain   ${ERROR_URL}
+    wait "3" seconds
+    Title Should Be    ${LOGIN_TITLE}

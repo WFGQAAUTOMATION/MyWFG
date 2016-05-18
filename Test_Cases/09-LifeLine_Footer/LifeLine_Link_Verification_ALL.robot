@@ -19,8 +19,8 @@ Test Template     Select Agent, Login to MyWFG.com, click LifeLine image and get
 Suite Teardown    Close Browser and Disconnect from SQL Server
 
 *** Variables ***
-#${DATABASE}               WFGOnline
-#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+${DATABASE}               WFGOnline
+${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
 ${STATE}
 
 *** Test Cases ***                      NotificationID
@@ -54,41 +54,24 @@ CA E&O Balance Due                          27
 
 *** Keywords ***
 Connect to SQL Server and Open Browser
-     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
+     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
      Open Browser To Login Page
 
 Select Agent, Login to MyWFG.com, click LifeLine image and get LifeLine task Information
     [Arguments]    ${Notification_ID}
     ${Agent_CodeNo}    Database_Library.Get_LifeLine_Explanation_Agent_ID    ${Notification_ID}
-    User "${Agent_CodeNo}" logs in with password "${VALID_PASSWORD}"
-    Then Home Page for any Agent Should Be Open
+    User "${Agent_CodeNo}" logs in with password "${PASSWORD}"
+    Home Page for any Agent Should Be Open
+#    ***** Temporarely commented for DEV testing
     sleep    2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
-    ${html_ID}    Database_Library.Get_LifeLine_Explanation_Info    ${Agent_CodeNo}    ${Notification_ID}    ${STATE}
-    #********* Click Question image next to Life Line task   ***********
-    Click image using img where ID is "QuestionMark-${html_ID}"
-    Compare Life Line Explanation Messages    ${Notification_ID}
+    ${html_ID}    Database_Library.Get_LifeLine_Link_html_Id    ${Agent_CodeNo}    ${Notification_ID}    ${STATE}
+
+    #********************* Click Life Line Link  *********************
+    Click Link With ID "Notice-${html_ID}"
     sleep    2s
-    Click image where ID is "close"
     Log Out of MyWFG
     sleep    2s
-
-Compare Life Line Explanation Messages
-    [Arguments]    ${Notification_ID}
-    # ***********  Retrive Explanation description from database  *****************
-    ${SQL_Text}    query    SELECT Explanation FROM [WFGOnline].[dbo].[wfgLU_Notification] WHERE NotificationID = ${Notification_ID};
-    # ***********  Replace &#8217 ASCI character to " ' " *************************
-    ${SQL_Text[0][0]}=    Replace String    ${SQL_Text[0][0]}    &#8217    '
-    # ***********  Remove </br> from Explanation String ***************************
-    ${SQL_Text[0][0]}=    Remove String    ${SQL_Text[0][0]}    </br>
-    # ***********  Get Explanation description from Web page  *********************
-    ${Webpage_Text}    Get Text    xpath=//p[@id='messsageLabel']
-    # ***********  Replace ’ character with ' in order to compare explanations ****
-    ${Webpage_Text}=    Replace String    ${Webpage_Text}    ’    '
-    # ***********  Remove <br> from Explanation String  ***************************
-    ${Webpage_Text}=    Remove String    ${Webpage_Text}    <br>
-    # ***********  Verify the text of explanantion  *******************************
-    Run Keyword And Continue On Failure    Should be equal    ${SQL_Text[0][0]}    ${Webpage_Text}
 
 Close Browser and Disconnect from SQL Server
     Close Browser

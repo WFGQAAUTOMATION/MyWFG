@@ -7,30 +7,35 @@ Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
 Test Teardown     Close Browser
+Force Tags        Dev_Sanity
 
 *** Test Cases ***
+
 Valid Login
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Profile"
+    Then Wait "6" Seconds
     And Select Menu Item "My Profile"
 
 Valid Login - Click Menu Item
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     Then Hover Over "Resources"
+    Then Wait "6" Seconds
     And Select Menu Item "Media Center"
 
 Invalid Login - Bad Password
     Given Browser is opened to login page
-    When User "${VALID USER}" logs in with password "none"
+    When User "${VALID_USER}" logs in with password "none"
     Then Login Should Have Failed
 
 Invalid Login - Bad Username
     Given Browser is opened to login page
-    When User "invalid" logs in with password "${VALID PASSWORD}"
+    When User "invalid" logs in with password "${VALID_PASSWORD}"
+    And Wait "4" Seconds
     Then Login Should Have Failed
 
 *** Keywords ***
@@ -43,6 +48,6 @@ User "${username}" logs in with password "${password}"
     Submit credentials
 
 Login Should Have Failed
-    Location Should Be    ${ERROR URL}
-    Title Should Be       MyWFG - Log In
+    Location Should Contain    ${ERROR_URL}
+    Title Should Be       ${LOGIN_TITLE}
 

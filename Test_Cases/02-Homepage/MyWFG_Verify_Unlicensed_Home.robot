@@ -10,13 +10,16 @@ Resource          ../../Resources/Resource_Webpage.robot
 *** Test Cases ***
 Login to MyWFG.com
     Given browser is opened to login page
-    When user "${VALID USER}" logs in with password "${VALID PASSWORD}"
+    When user "${VALID_USER}" logs in with password "${VALID_PASSWORD}"
     Then Home Page Should Be Open
     And Verify A Link Named "Home" Is On The Page
 
-Navigate to Licensed Home
+Hover over Home
     Then Hover Over "Home"
-    Then Select Menu Item "Unlicensed Home"
+    Then Wait "3" Seconds
+
+Click Unlicensed Home
+    Then Go To  http://${SERVER}/new-unlicensed-home
 
 Find Text On Webpage
     And Find "WFG Fast Start Manual" On Webpage

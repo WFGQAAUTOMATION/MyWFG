@@ -6,16 +6,17 @@ Documentation     A resource file with reusable keywords and variables.
 ...               by the imported Selenium2Library.
 Library           Selenium2Library
 Library           Testing_Library.py
+Library           OperatingSystem
 
 *** Variables ***
-${SERVER}            m-www.mywfg.com
-${BROWSER}           ff
-${DELAY}             0
-${VALID USER}        1200W
-${VALID PASSWORD}    81u3$ky
-${LOGIN URL}         https://${SERVER}/Users/Account/AccessDenied?ReturnUrl=%2f
-${WELCOME URL}       https://${SERVER}/
-${ERROR URL}         https://${SERVER}/Users/Account/LogOn?ReturnUrl=%2F
+#${SERVER}            m-www.mywfg.com
+#${BROWSER}           ff
+#${DELAY}             0
+#${VALID USER}        1200W
+#${VALID PASSWORD}    81u3$ky
+#${LOGIN URL}         https://${SERVER}/Users/Account/AccessDenied?ReturnUrl=%2f
+#${WELCOME URL}       https://${SERVER}/
+#${ERROR URL}         https://${SERVER}/Users/Account/LogOn?ReturnUrl=%2F
 
 *** Keywords ***
 #*****************************************************
@@ -199,3 +200,8 @@ Elements should be equal ${SQL_Text} ${Webpage_Text}
 
 Verify element parameters
 #//*[@type='button'][@class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"]
+
+#*********************************************************************************
+
+Zoom out to "${zoomLevel}" (percentage)
+	Execute javascript  document.body.style.zoom="${zoomLevel}"

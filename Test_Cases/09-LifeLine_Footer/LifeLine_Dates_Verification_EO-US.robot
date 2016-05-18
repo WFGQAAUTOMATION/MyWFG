@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation    A test suite to verify MyWFG LifeLine E&O Expiration dates for Canada
+Documentation    A test suite to verify MyWFG LifeLine E&O Expiration dates for US
 ...
 ...               This test will log into MyWFG and verify that MyWFG LifeLine E&O notification
-...               for Canada is displayed according to expiration dates
+...               for US is displayed according to expiration dates
 Metadata          Version   0.1
 Resource          ../../Resources/Resource_Login.robot
 Resource          ../../Resources/Resource_Webpage.robot
@@ -16,21 +16,22 @@ Library           DateTime
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}               WFGOnline
-${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
-${Notification_ID}        27
+#${DATABASE}               WFGOnline
+#${HOSTNAME}               CRDBCOMP03\\CRDBWFGOMOD
+${Notification_ID}        1
 ${Notification_TypeID}    2
 ${STATE}
 
 *** Test Cases ***
 
 Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
-Select Agent and Login to MyWFG.com
+Select Agent and Login to MyWFG.com and Check LifeLine
     ${Agent_Info}    Database_Library.Find_LifeLine_Agent    ${Notification_ID}    ${Notification_TypeID}    ${STATE}
     Browser is opened to login page
-    User "${Agent_Info[0]}" logs in with password "${PASSWORD}"
+    Log     ${Agent_Info}
+    User "${Agent_Info[0]}" logs in with password "${VALID_PASSWORD}"
     Home Page for any Agent Should Be Open
     sleep   2s
     Click element   xpath=//span[@class="ui-user-MyLifeline-notification-attachment-count"]
@@ -39,6 +40,7 @@ Select Agent and Login to MyWFG.com
     sleep    2s
     Click image where ID is "close"
 #   This is for E&O dates verifications only
+	Log     ${Agent_Info}
     ${NoticeID}    query    SELECT Top 1 NoticeID FROM [WFGWorkFlow].[dbo].[Agent_EandO_Collections] WHERE AgentID = '${Agent_Info[0]}' ORDER BY OpenDate Desc;
 
     ${Webpage_DateDue_Str}    Get Text    xpath=//*[@id='DueDate-${Agent_Info[1]}']
@@ -59,13 +61,21 @@ Select Agent and Login to MyWFG.com
     Run Keyword If    ${Notification_TypeID} == 1 and ${DateDue_Length} > 12
     ...    log    (Expired) verbiage should NOT be added to the Due Date
 
-    Run Keyword If     ${Notification_TypeID} == 1 and ${NoticeID[0][0]} in [3, 5, 6]
+    Run Keyword If     ${Notification_TypeID} == 1 and ${NoticeID[0][0]} == 3
+    ...    log    E&O Red Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 1 and ${NoticeID[0][0]} == 5
+    ...    log    E&O Red Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 1 and ${NoticeID[0][0]} == 6
     ...    log    E&O Red Notification Test with NoticeID = ${NoticeID[0][0]} Passed
     ...    ELSE IF    ${Notification_TypeID} == 1
     ...    log    This E&O LifeLine task with NoticeID = ${NoticeID[0][0]} should NOT be in Red Notification
 
-    Run Keyword If    ${Notification_TypeID} == 2 and ${NoticeID[0][0]} in [1, 2, 4]
+    Run Keyword If    ${Notification_TypeID} == 2 and ${NoticeID[0][0]} == 1
     ...    log    E&O Yellow Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${NoticeID[0][0]} == 2
+    ...    log    E&O Yellow Notification Test with NoticeID = ${NoticeID[0][0]} Passed
+    ...    ELSE IF    ${Notification_TypeID} == 2 and ${NoticeID[0][0]} == 4
+    ...    log    Due Date should be updated for saved agents with NoticeID = ${NoticeID[0][0]}
     ...    ELSE IF    ${Notification_TypeID} == 2
     ...    log    This E&O LifeLine task with NoticeID = ${NoticeID[0][0]} should NOT be in Yellow Notification
 

@@ -13,20 +13,20 @@ Library           DatabaseLibrary
 Suite Teardown     Close Browser
 
 *** Variables ***
-${DATABASE}     WFGOnline
-${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
-${AGENT_ID}     982036
-${Archive_Question}    ArchieveQuestionMark
+#${DATABASE}     WFGOnline
+#${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
+#${AGENT_ID}     982036
+#${Archive_Question}    ArchieveQuestionMark
 
 *** Test Cases ***
 Connect to Database
-    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${DATABASE}'
+    Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 
 Select Agent and Login to MyWFG.com
-    ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${AGENT_ID});
+    ${Results}    query    SELECT AgentCodeNumber FROM [WFGCompass].[dbo].[agAgent] WHERE AgentID IN (${LL_AGENT_ID});
     Given browser is opened to login page
-    When user "${Results[0][0]}" logs in with password "${PASSWORD}"
-    Then Home Page Should Be Open
+    When user "${Results[0][0]}" logs in with password "${VALID_PASSWORD}"
+    Then Home Page for any Agent Should Be Open
     sleep   3s
 
 Click LifeLine button
