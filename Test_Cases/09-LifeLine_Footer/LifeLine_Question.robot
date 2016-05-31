@@ -17,7 +17,6 @@ Suite Teardown     Close Browser
 #${HOSTNAME}     CRDBCOMP03\\CRDBWFGOMOD
 
 *** Test Cases ***
-
 #Connect to Database
 #     Connect To Database Using Custom Params    pymssql    host='${HOSTNAME}', database='${WFG_DATABASE}'
 #
@@ -54,7 +53,3 @@ Suite Teardown     Close Browser
 
 
 *** Keywords ***
-
-
-
-
